@@ -52,3 +52,15 @@ cz-cli@4.0.3, cz-conventional-changelog@3.1.0
 ? Write a short, imperative tense description of the change (max 84 chars):
  (17) integrate commitizen
 ```
+
+## Workflow notes
+
+### Gitflow
+
+Use the following gitflow commands to perform various operations:
+| Operation | Command |
+| ------------------------------------- | ------------------------------------------ |
+| Create a feature branch | `git flow feature start FEATURE_NAME` |
+| Push commits on a feature branch | `git flow feature publish FEATURE_NAME` |
+| Pull latest changes on feature branch | `git flow feature pull origin FEATURE_NAME` |
+| Complete and merge feature branch | `git flow feature finish FEATURE_NAME` |
