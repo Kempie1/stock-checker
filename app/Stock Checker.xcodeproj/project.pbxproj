@@ -3,16 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A71FEC6B25ED107300C7A4B8 /* StockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FEC6A25ED107300C7A4B8 /* StockView.swift */; };
+		A71FEC7125ED119B00C7A4B8 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = A71FEC7025ED119B00C7A4B8 /* SwiftUICharts */; };
+		A71FEC7E25ED137A00C7A4B8 /* StockTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FEC7D25ED137A00C7A4B8 /* StockTitleView.swift */; };
+		A71FEC8325ED16AC00C7A4B8 /* StockTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FEC8225ED16AC00C7A4B8 /* StockTextView.swift */; };
+		A71FEC8825ED1AA400C7A4B8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FEC8725ED1AA400C7A4B8 /* MainView.swift */; };
 		A72096E225E2B89500277617 /* Stock_CheckerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72096E125E2B89500277617 /* Stock_CheckerApp.swift */; };
-		A72096E425E2B89500277617 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72096E325E2B89500277617 /* ContentView.swift */; };
 		A72096E625E2B89500277617 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A72096E525E2B89500277617 /* Assets.xcassets */; };
 		A72096E925E2B89500277617 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A72096E825E2B89500277617 /* Preview Assets.xcassets */; };
 		A72096F425E2B89600277617 /* Stock_CheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72096F325E2B89600277617 /* Stock_CheckerTests.swift */; };
 		A72096FF25E2B89600277617 /* Stock_CheckerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72096FE25E2B89600277617 /* Stock_CheckerUITests.swift */; };
+		A764D33A25ECF4B8006D7ECF /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A764D33925ECF4B8006D7ECF /* ExploreView.swift */; };
+		A764D34225ECFD38006D7ECF /* HorizontalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A764D34125ECFD38006D7ECF /* HorizontalCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,9 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A71FEC6A25ED107300C7A4B8 /* StockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockView.swift; sourceTree = "<group>"; };
+		A71FEC7D25ED137A00C7A4B8 /* StockTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTitleView.swift; sourceTree = "<group>"; };
+		A71FEC8225ED16AC00C7A4B8 /* StockTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTextView.swift; sourceTree = "<group>"; };
+		A71FEC8725ED1AA400C7A4B8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A72096DE25E2B89500277617 /* Stock Checker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stock Checker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A72096E125E2B89500277617 /* Stock_CheckerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock_CheckerApp.swift; sourceTree = "<group>"; };
-		A72096E325E2B89500277617 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A72096E525E2B89500277617 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A72096E825E2B89500277617 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A72096EA25E2B89500277617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +54,8 @@
 		A72096FA25E2B89600277617 /* Stock CheckerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stock CheckerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A72096FE25E2B89600277617 /* Stock_CheckerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock_CheckerUITests.swift; sourceTree = "<group>"; };
 		A720970025E2B89600277617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A764D33925ECF4B8006D7ECF /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		A764D34125ECFD38006D7ECF /* HorizontalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A71FEC7125ED119B00C7A4B8 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				A72096E125E2B89500277617 /* Stock_CheckerApp.swift */,
-				A72096E325E2B89500277617 /* ContentView.swift */,
+				A764D33825ECF493006D7ECF /* Views */,
 				A72096E525E2B89500277617 /* Assets.xcassets */,
 				A72096EA25E2B89500277617 /* Info.plist */,
 				A72096E725E2B89500277617 /* Preview Content */,
@@ -130,6 +142,19 @@
 			path = "Stock CheckerUITests";
 			sourceTree = "<group>";
 		};
+		A764D33825ECF493006D7ECF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A71FEC8725ED1AA400C7A4B8 /* MainView.swift */,
+				A764D33925ECF4B8006D7ECF /* ExploreView.swift */,
+				A764D34125ECFD38006D7ECF /* HorizontalCollectionView.swift */,
+				A71FEC6A25ED107300C7A4B8 /* StockView.swift */,
+				A71FEC7D25ED137A00C7A4B8 /* StockTitleView.swift */,
+				A71FEC8225ED16AC00C7A4B8 /* StockTextView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +171,9 @@
 			dependencies = (
 			);
 			name = "Stock Checker";
+			packageProductDependencies = (
+				A71FEC7025ED119B00C7A4B8 /* SwiftUICharts */,
+			);
 			productName = "Stock Checker";
 			productReference = A72096DE25E2B89500277617 /* Stock Checker.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +245,9 @@
 				Base,
 			);
 			mainGroup = A72096D525E2B89500277617;
+			packageReferences = (
+				A71FEC6F25ED119B00C7A4B8 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = A72096DF25E2B89500277617 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,7 +290,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A72096E425E2B89500277617 /* ContentView.swift in Sources */,
+				A71FEC8325ED16AC00C7A4B8 /* StockTextView.swift in Sources */,
+				A71FEC8825ED1AA400C7A4B8 /* MainView.swift in Sources */,
+				A764D34225ECFD38006D7ECF /* HorizontalCollectionView.swift in Sources */,
+				A71FEC7E25ED137A00C7A4B8 /* StockTitleView.swift in Sources */,
+				A71FEC6B25ED107300C7A4B8 /* StockView.swift in Sources */,
+				A764D33A25ECF4B8006D7ECF /* ExploreView.swift in Sources */,
 				A72096E225E2B89500277617 /* Stock_CheckerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,6 +616,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A71FEC6F25ED119B00C7A4B8 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A71FEC7025ED119B00C7A4B8 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A71FEC6F25ED119B00C7A4B8 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A72096D625E2B89500277617 /* Project object */;
 }
