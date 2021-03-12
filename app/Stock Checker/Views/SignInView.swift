@@ -8,20 +8,18 @@
 import SwiftUI
 
 struct SignInView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @State var coordinator: SignInWithAppleCoordinator?
+    @State var signInHandler: SignInWithAppleCoordinator?
     
     var body: some View {
         VStack {
-            Text("Sign in")
-            
             SignInWithAppleButton()
                 .frame(width: 280, height: 45)
                 .onTapGesture {
-                    self.coordinator = SignInWithAppleCoordinator()
+                    self.signInHandler = SignInWithAppleCoordinator()
                     
-                    if let coordinator = self.coordinator {
+                    if let coordinator = self.signInHandler {
                         coordinator.startSignInWithAppleFlow {
                             print("Successfully signed in")
                             self.presentationMode.wrappedValue.dismiss()
