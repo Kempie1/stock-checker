@@ -1,0 +1,6 @@
+framework module Pods_Stock_CheckerTests {
+  umbrella header "Pods-Stock CheckerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

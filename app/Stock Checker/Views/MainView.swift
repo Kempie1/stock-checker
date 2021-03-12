@@ -20,7 +20,7 @@ struct MainView: View {
                     Label("Learn", systemImage: "book.circle")
                 }
             
-            ExploreView()
+            AccountView()
                 .tabItem {
                     Label("Profile", systemImage: "person.crop.circle")
                 }
