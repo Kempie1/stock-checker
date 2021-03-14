@@ -6,25 +6,22 @@
 //
 
 import SwiftUI
-import SwiftUICharts
+import iLineChart
 
 struct StockView: View {
+    var stock: Stock
+    
     var body: some View {
         Group {
-            StockTitleView()
+            StockTitleView(stock: stock)
             
-            LineView(data: [8,23,54,32,25,37,7,23,12])
+            iLineChart(data: stock.history, style: .tertiary, canvasBackgroundColor: Color.clear, displayChartStats: true)
             
             StockTextView()
+                .redacted(reason: .placeholder)
         }
         .padding([.leading, .trailing], 17)
         
         Spacer()
-    }
-}
-
-struct StockView_Previews: PreviewProvider {
-    static var previews: some View {
-        StockView()
     }
 }

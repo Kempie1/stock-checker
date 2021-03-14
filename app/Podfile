@@ -9,6 +9,8 @@ target 'Stock Checker' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
 
+  pod 'Alamofire', '~> 5.2'
+
   target 'Stock CheckerTests' do
     inherit! :search_paths
     # Pods for testing

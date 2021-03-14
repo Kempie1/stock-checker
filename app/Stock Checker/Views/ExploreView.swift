@@ -8,18 +8,37 @@
 import SwiftUI
 
 struct ExploreView: View {
+    @State private var selectedPickerIndex = 0
+    private let categories = ["Watching", "News", "Learn"]
+    
     var body: some View {
         NavigationView{
-            VStack {
-                HorizontalCollectionView()
-                HorizontalCollectionView()
+            ScrollView {
+                Picker(selection: $selectedPickerIndex, label: Text("Select feed")) {
+                    ForEach(0 ..< categories.count) {
+                        Text(self.categories[$0])
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding([.trailing, .leading], 21)
                 
-                Spacer()
+                if selectedPickerIndex == 0 {
+                    VStack {
+                        ForEach(sampleStocks) { stock in
+                            NavigationLink(destination: StockView(stock: stock)) {
+                                StockPreviewView(stock: stock)
+                            }
+                        }
+                    }
+                } else if selectedPickerIndex == 1 {
+                    Text("Here goes the news")
+                } else if selectedPickerIndex == 2 {
+                    Text("Here goes the learning resources")
+                }
             }
+            .fixFlickering()
             .navigationBarTitle(Text("Explore"))
-            .padding([.leading, .top], 17)
         }
-        .redacted(reason: .placeholder)
     }
 }
 
@@ -28,3 +47,4 @@ struct ExploreView_Previews: PreviewProvider {
         ExploreView()
     }
 }
+
