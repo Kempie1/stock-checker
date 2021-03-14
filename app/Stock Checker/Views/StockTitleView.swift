@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct StockTitleView: View {
+    var stock: Stock
+    
     var body: some View {
         HStack(alignment:.top) {
             VStack(alignment: .leading) {
                 Circle()
                     .frame(width: 50, height: 50)
                     .foregroundColor(.gray)
-                Text("Stock Name")
-                Text("$val")
-                Text("trendfornow")
+                Text(stock.name)
+                    .font(.title)
+                Text(stock.ticker)
                     .font(.callout)
-                    .foregroundColor(.red)
+                Text("↗$1.3560(0.12%)")
+                    .font(.callout)
+                    .foregroundColor(.green)
             }
             .font(.title)
             
@@ -28,14 +32,5 @@ struct StockTitleView: View {
                 .frame(width: 50, height: 50)
                 .foregroundColor(.gray)
         }
-    }
-}
-
-struct StockTitleView_Previews: PreviewProvider {
-    static var previews: some View {
-        StockTitleView()
-            .previewLayout(PreviewLayout.sizeThatFits)
-            .padding()
-            .previewDisplayName("Default preview")
     }
 }
