@@ -10,6 +10,7 @@ with open('stock.json') as json_file:
     print(data['price']['currency'])
 
     for price in data['price']:
+        
         #print(price)
        # print(price)
         if price == 'currency':
