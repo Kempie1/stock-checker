@@ -1,5 +1,5 @@
 CREATE TABLE stock (
-    ticker_symbol varchar(6),
+    ticker_symbol varchar(6) NOT NULL,
     stock_name varchar(255),
     stock_price varchar(10)
 );
