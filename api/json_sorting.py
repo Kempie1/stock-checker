@@ -20,5 +20,3 @@ with open('stock.json') as json_file:
         #print('Website: ' + p['website'])
         #print('From: ' + p['from'])
         #print('')
-
-     

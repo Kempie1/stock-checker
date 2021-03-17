@@ -23,6 +23,10 @@ with conn:
     with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
         #need returning stock for fetch
  
+        cur.execute("SELECT stock.ticker_symbol FROM stock")
+
+        print(cur.fetchall())
+
         cur.execute('''
     INSERT INTO stock (
         ticker_symbol,
@@ -54,6 +58,7 @@ with conn:
 )
 
         print(cur.fetchall())
+        
         
 
 conn.commit() #This is helping to say if something is double like a table or so on
