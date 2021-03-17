@@ -21,9 +21,4 @@ with open('stock.json') as json_file:
         #print('From: ' + p['from'])
         #print('')
 
-     for price in data['price']:
-        if price == 'currency':
-            print(price)
-
-    test = data['symbol']['regularMarketPrice']['raw']
-    print(test)
+     
