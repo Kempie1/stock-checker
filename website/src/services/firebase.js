@@ -18,9 +18,18 @@ firebase.initializeApp({
 
 export const auth = firebase.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider()
+const appleProvider = new firebase.auth.OAuthProvider('apple.com')
 
 export const signInWithGoogle = () => {
   auth.signInWithPopup(googleProvider).then((res) => {
+    console.log(res.user)
+  }).catch((error) => {
+    console.log(error.message)
+  })
+}
+
+export const signInWithApple = () => {
+  auth.signInWithPopup(appleProvider).then((res) => {
     console.log(res.user)
   }).catch((error) => {
     console.log(error.message)
