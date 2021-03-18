@@ -2,11 +2,21 @@ import psycopg2
 import psycopg2.extras
 import json
 import requests
+from json.decoder import JSONDecodeError
 
-class Json_to_server:
+#from api_call_to_json import Api_call
+
+class Json_to_server():
+    #def __init__(self):
+        #api = Api_call()
+        #api.checking_if_ticker_exists()
+
     def open_json_file(self):
         with open('stock.json') as json_file:
-            self.data = json.load(json_file)
+            try:
+                self.data = json.load(json_file)
+            except ValueError:
+                print('Decoding JSON has failed')
     
     def connecting_to_server(self):
         
@@ -50,12 +60,13 @@ class Json_to_server:
         )
 
                 print(cur.fetchall())
+                print("Everything was added to the database")
                 
         conn.commit()
         conn.close()
 
         
 
-p1 = Json_to_server()
-p1.open_json_file()
-p1.connecting_to_server()
+server = Json_to_server()
+server.open_json_file()
+server.connecting_to_server()

@@ -28,7 +28,12 @@ mylist.append(stock_input)
 print(stock_input2)
 
 for i in range(len(check)):
+    print(check[i])
+    print(check[i].replace('', '['))
     if stock_input2 == str(check[i]):
         print("WORKS")
 
-
+for row in check:
+    print("First Name: {}".format(row[0]))
+    print("Last Name: {}".format(row[1]))
+    print("Address: {}".format(row[2]))

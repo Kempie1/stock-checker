@@ -4,10 +4,12 @@ import psycopg2
 import psycopg2.extras
 import json
 
-class Api_call:
+
+class Api_call():
 
     def user_input(self):
         user_input = input("What stock would you like to see ")
+        self.user_input_copy = user_input
         string_conversion = "['" + user_input + "']"
         self.ticker_symbol = string_conversion
 
@@ -26,36 +28,43 @@ class Api_call:
     
     def checking_if_ticker_exists(self):
         for i in range(len(self.ticker_symbol_table)):
+            if self.ticker_symbol != str(self.ticker_symbol_table[i]):
+                self.already_exists = False
+
+        for i in range(len(self.ticker_symbol_table)):
             if self.ticker_symbol == str(self.ticker_symbol_table[i]):
                 print("This Ticker is already existing in the Database")
-            else:
-                p1.api_request()
-                #p1.api_request_to_json()
-
+                self.already_exists = True
+             
+            
     def api_request(self):
-        print(self.ticker_symbol)
-        print(self.ticker_symbol.replace('', '['))
-        #url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics"
-        #querystring = {"symbol": "AAPL","region":"US"}
-        #headers = {
-       # 'x-rapidapi-key': "7457cdc0c7msh99dadc0f2dd0fe9p15e2b1jsn8609005a4aa7",
-       # 'x-rapidapi-host': "apidojo-yahoo-finance-v1.p.rapidapi.com"
-       # }
-       # response = requests.request("GET", url, headers=headers, params=querystring)
-       # self.response_string = response.text
+        if self.already_exists == False:   
+            url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics"
+            querystring = {"symbol": self.user_input_copy,"region":"US"}
+            headers = {
+            'x-rapidapi-key': "7457cdc0c7msh99dadc0f2dd0fe9p15e2b1jsn8609005a4aa7",
+            'x-rapidapi-host': "apidojo-yahoo-finance-v1.p.rapidapi.com"
+            }
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            self.response_string = response.text
 
     def api_request_to_json(self):
-        print(self.response_string)
-        response_string = self.response_string
-        print(response_string)
-        file1 = open("stock.json","w") 
-        file1.write(response_string)
-        file1.close()
+        if self.already_exists == False:    
+            response_s = self.response_string
+            file1 = open("stock.json","w") 
+            file1.write(response_s)
+            file1.close()
+            print("Stock Data has been added to Json")
+        if self.already_exists == True:
+            file1 = open("stock.json", "w")
+            file1.write("")
+            file1.close()
 
-
-p1 = Api_call()
-p1.user_input()
-p1.connecting_to_server()
-p1.checking_if_ticker_exists()
+Api = Api_call()
+Api.user_input()
+Api.connecting_to_server()
+Api.checking_if_ticker_exists()
+Api.api_request()
+Api.api_request_to_json()
 
 
