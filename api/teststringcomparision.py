@@ -35,23 +35,14 @@ conn.close()
 
 
 mylist=[]
-#stock_input = input("What stock would you like to see ")
-#mylist.append(stock_input)
+stock_input = input("What stock would you like to see ")
+stock_input2 = "['" + stock_input + "']"
+mylist.append(stock_input)
 
-
-
-print(check[0])
-
-print(len(check))
+print(stock_input2)
 
 for i in range(len(check)):
-    #print(i)
-    print(str(check[i])) 
-
-     title[title._index['name']] = foo
-
-    if mylist[0] == str(check[i]):
+    if stock_input2 == str(check[i]):
         print("WORKS")
 
 
-print(mylist[0])
