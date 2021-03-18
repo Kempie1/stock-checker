@@ -21,12 +21,7 @@ with open('stock.json') as json_file:
 
 with conn: 
     with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
-        #need returning stock for fetch
- 
-        cur.execute("SELECT stock.ticker_symbol FROM stock")
-
-        print(cur.fetchall())
-
+        
         cur.execute('''
     INSERT INTO stock (
         ticker_symbol,
@@ -59,30 +54,5 @@ with conn:
 
         print(cur.fetchall())
         
-        
-
-conn.commit() #This is helping to say if something is double like a table or so on
-
+conn.commit()
 conn.close()
-
-#At the top I selected the first person in the Table that would usually give me both an Id and a name but in the 
-#print statement I am only selecting the name
-#print(cur.fetchone())
-
-
-#-----------------------------------OTHER--------------------------------------------
-
-#Manual Open for Curosuor
-
-#Using this curosur method allows you to execute sql statements
-#Open
-#cur = conn.cursor() 
-#Open with extras module
-#cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-
-
-#Excuting old sql statements
-
-#cur.execute("CREATE TABLE student (id SERIAL PRIMARY KEY, name VARCHAR);")
-#cur.execute("INSERT INTO student (name) VALUES(%s)", ("Cristina",))
-#cur.execute("SELECT * FROM student WHERE id = %s;", (1,))

@@ -9,30 +9,16 @@ import psycopg2
 import psycopg2.extras
 import json
 
-#Connecting to server
 conn = psycopg2.connect(dbname = DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
-
-#Opening Json file
-with open('stock.json') as json_file:
-    data = json.load(json_file)
-
-#In the Curosur I am now executeing an SQL statement
-#Executing SQL Statements
 
 with conn: 
     with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
-        #need returning stock for fetch
- 
         cur.execute("SELECT stock.ticker_symbol FROM stock")
-
         check = cur.fetchall()
-
         print(check)
       
-conn.commit() #This is helping to say if something is double like a table or so on
-
+conn.commit()
 conn.close()
-
 
 mylist=[]
 stock_input = input("What stock would you like to see ")
