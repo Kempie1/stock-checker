@@ -59,6 +59,12 @@ class Api_call():
             file1 = open("stock.json", "w")
             file1.write("")
             file1.close()
+        
+#Checks if the json is correct
+# Calls the thrid party api and check if it has the correct response
+# Mock thridparty api 
+#  Need a framwork for testing 
+# 
 
 Api = Api_call()
 Api.user_input()
