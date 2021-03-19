@@ -18,7 +18,8 @@ class test_Api(unittest.TestCase):
         try:
             response = requests.get(url, headers=headers, params=querystring)
             print(response)
-            response.raise_for_status()
+            print(response.status_code)
+            assert response.status_code == 200
         except requests.exceptions.HTTPError as err:
             print(err)
 
@@ -28,6 +29,13 @@ class test_Api(unittest.TestCase):
         print(ticker_symbol_from_API)
         assert ticker_symbol_from_API == ['TSLA']
 
+        
+        #new test
+            #response = requests.post(url, request_json)
+            #print(response.status_code)
+            #assert response.status_code == 200
+    
+    def test_json(self):
         #Json file check Video 4
         with open('stock.json') as json_file:
             try:
@@ -39,10 +47,7 @@ class test_Api(unittest.TestCase):
             print(ticker_symbol_json)
             assert ticker_symbol_json == ['TSLA']
                 
-        #new test
-            #response = requests.post(url, request_json)
-            #print(response.status_code)
-            #assert response.status_code == 200
+
 
 
 Api_test = test_Api()
@@ -53,3 +58,10 @@ Api_test.test_api_request()
 #       In my class I need to write unittest.TestCase linke BELOW
 
 # Link: https://stackoverflow.com/questions/34363388/pytest-no-tests-ran
+
+#Some issues with requests post and requests put
+
+#pytest TestCases
+
+#pytest -v TestCases "WITH THIS I CAN SEE HOW LONG AND WHIHC TEST HAS FAILED"
+
