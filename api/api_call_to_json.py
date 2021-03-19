@@ -63,7 +63,7 @@ class Api_call():
 #Checks if the json is correct
 # Calls the thrid party api and check if it has the correct response
 # Mock thridparty api 
-#  Need a framwork for testing 
+#  Need a framwork for testing (pytest)
 # 
 
 Api = Api_call()
