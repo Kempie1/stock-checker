@@ -1,7 +1,7 @@
 import React from "react";
 import "./Login.css"
-import { signInWithGoogle } from "../services/firebase";
-import { signInWithApple } from "../services/firebase";
+import { signInWithGoogle } from "../../services/firebase";
+import { signInWithApple } from "../../services/firebase";
 
 export default function Login() {
   return (
