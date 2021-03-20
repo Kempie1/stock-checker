@@ -6,17 +6,12 @@ export const MenuItems =[
     },
     {
         title: 'Learning',
-        url: 'learning',
+        url: '/learning',
         cName: 'nav-links'
     },
     {
-        title: 'Sign in',
-        url: 'signin',
-        cName: 'nav-links'
-    },
-    {
-        title: 'Sign Up',
-        url: '#',
+        title: 'Sign In',
+        url: '/login',
         cName: 'nav-links-mobile'
     }
 ]

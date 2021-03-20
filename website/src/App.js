@@ -16,7 +16,7 @@ function App() {
       <div className="App">
         <Navbar/>
         <Switch>
-          <Route path="/signin">
+          <Route path="/login">
             <Login/>
           </Route>
         </Switch>
