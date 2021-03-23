@@ -64,7 +64,6 @@ class Api_call():
 # Calls the thrid party api and check if it has the correct response
 # Mock thridparty api 
 #  Need a framwork for testing (pytest)
-# 
 
 Api = Api_call()
 Api.user_input()
