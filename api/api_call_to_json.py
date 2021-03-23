@@ -12,6 +12,7 @@ class Api_call():
         self.user_input_copy = user_input
         string_conversion = "['" + user_input + "']"
         self.ticker_symbol = string_conversion
+        return self.ticker_symbol
 
     def connecting_to_server(self):
         DB_HOST = "b8emsfkpxajppbmkv48x-postgresql.services.clever-cloud.com"

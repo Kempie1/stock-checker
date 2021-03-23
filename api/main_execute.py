@@ -27,7 +27,9 @@ class Execute:
         self.Server.connecting_to_server()
 
     def execute_api_tests(self):
-        print("Nothing yet")
+        self.Api_test.test_api_request()
+        self.Api_test.test_json(self.Api.ticker_symbol)
+        
 
 main = Execute()
 main.execute_api()

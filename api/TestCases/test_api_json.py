@@ -29,7 +29,8 @@ class test_Api(unittest.TestCase):
         print(ticker_symbol_from_API)
         assert ticker_symbol_from_API == ['TSLA']
     
-    def test_json(self):
+    def test_json(self, inputValue = ['TSLA']):
+        print(inputValue)
         #Json file check Video 4
         with open('stock.json') as json_file:
             try:
@@ -41,7 +42,8 @@ class test_Api(unittest.TestCase):
             print(ticker_symbol_json)
             assert ticker_symbol_json == ['TSLA']
                 
-   # def test_api_mock(self):
+#   def test_api_mock(self):
+
 
 
 Api_test = test_Api()
