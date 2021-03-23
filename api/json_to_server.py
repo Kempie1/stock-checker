@@ -37,6 +37,9 @@ class Json_to_server():
                 print("This Ticker is already existing in the Database")
                 self.already_exists_in_DB = True
 
+        if len(self.ticker_table) == 0:
+            print("There is nothing in the ticker_symbol Table")
+            self.already_exists_in_DB = False
 
     def connecting_to_server(self):
         
@@ -77,7 +80,7 @@ class Json_to_server():
         
 
 server = Json_to_server()
-server.open_json_file()
-server.checking_if_ticker_exists()
-server.connecting_to_server()
+#server.open_json_file()
+#server.checking_if_ticker_exists()
+#server.connecting_to_server()
 

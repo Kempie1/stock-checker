@@ -28,12 +28,6 @@ class test_Api(unittest.TestCase):
         ticker_symbol_from_API = jsonpath.jsonpath(json_response, 'symbol')
         print(ticker_symbol_from_API)
         assert ticker_symbol_from_API == ['TSLA']
-
-        
-        #new test
-            #response = requests.post(url, request_json)
-            #print(response.status_code)
-            #assert response.status_code == 200
     
     def test_json(self):
         #Json file check Video 4
@@ -47,11 +41,11 @@ class test_Api(unittest.TestCase):
             print(ticker_symbol_json)
             assert ticker_symbol_json == ['TSLA']
                 
-
+   # def test_api_mock(self):
 
 
 Api_test = test_Api()
-Api_test.test_api_request()
+#Api_test.test_api_request()
 
 # TOP Playlist on youtube for Api tests https://www.youtube.com/watch?v=OdFW3RwAz8w&list=PLIMhDiITmNrILoYaVsrxwteH6LqMr07uX&index=5&ab_channel=TestingWorld
 # If in the terminal I type pytest TestCases so the module and the folder name then  
@@ -65,3 +59,9 @@ Api_test.test_api_request()
 
 #pytest -v TestCases "WITH THIS I CAN SEE HOW LONG AND WHIHC TEST HAS FAILED"
 
+#Professor told me to do: 
+
+#Checks if the json is correct
+# Calls the thrid party api and check if it has the correct response
+# Mock thridparty api 
+#  Need a framwork for testing (pytest)

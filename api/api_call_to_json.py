@@ -29,16 +29,19 @@ class Api_call():
     def checking_if_ticker_exists(self):
         for i in range(len(self.ticker_symbol_table)):
             if self.ticker_symbol != str(self.ticker_symbol_table[i]):
-                self.already_exists = False
+                self.already_exist = False
 
         for i in range(len(self.ticker_symbol_table)):
             if self.ticker_symbol == str(self.ticker_symbol_table[i]):
                 print("This Ticker is already existing in the Database")
-                self.already_exists = True
-             
-            
+                self.already_exist = True
+
+        if len(self.ticker_symbol_table) == 0:
+            print("There is nothing in the ticker_symbol Table")
+            self.already_exist = False
+
     def api_request(self):
-        if self.already_exists == False:   
+        if self.already_exist == False:   
             url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics"
             querystring = {"symbol": self.user_input_copy,"region":"US"}
             headers = {
@@ -49,27 +52,22 @@ class Api_call():
             self.response_string = response.text
 
     def api_request_to_json(self):
-        if self.already_exists == False:    
+        if self.already_exist == False:    
             response_s = self.response_string
             file1 = open("stock.json","w") 
             file1.write(response_s)
             file1.close()
             print("Stock Data has been added to Json")
-        if self.already_exists == True:
+        if self.already_exist == True:
             file1 = open("stock.json", "w")
             file1.write("")
             file1.close()
-        
-#Checks if the json is correct
-# Calls the thrid party api and check if it has the correct response
-# Mock thridparty api 
-#  Need a framwork for testing (pytest)
 
 Api = Api_call()
-Api.user_input()
-Api.connecting_to_server()
-Api.checking_if_ticker_exists()
-Api.api_request()
-Api.api_request_to_json()
+#Api.user_input()
+#Api.connecting_to_server()
+#Api.checking_if_ticker_exists()
+#Api.api_request()
+#Api.api_request_to_json()
 
 
