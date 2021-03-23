@@ -5,7 +5,7 @@ import "firebase/auth";
 
 dotenv.config()
 
-firebase.initializeApp({
+  firebase.initializeApp({
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
 
@@ -17,21 +17,5 @@ firebase.initializeApp({
 });
 
 export const auth = firebase.auth();
-const googleProvider = new firebase.auth.GoogleAuthProvider()
-const appleProvider = new firebase.auth.OAuthProvider('apple.com')
-
-export const signInWithGoogle = () => {
-  auth.signInWithPopup(googleProvider).then((res) => {
-    console.log(res.user)
-  }).catch((error) => {
-    console.log(error.message)
-  })
-}
-
-export const signInWithApple = () => {
-  auth.signInWithPopup(appleProvider).then((res) => {
-    console.log(res.user)
-  }).catch((error) => {
-    console.log(error.message)
-  })
-}
+export const googleProvider = new firebase.auth.GoogleAuthProvider()
+export const appleProvider = new firebase.auth.OAuthProvider('apple.com')

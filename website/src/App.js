@@ -6,22 +6,31 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Redirect,
 } from "react-router-dom";
+import {  useAuth  } from "./providers/AuthProvider"
+import Profile from "./components/profile/profile"
+
 
 
 function App() {
+  const { currentUser } = useAuth()
+
   return (
-    <Router>
-      <div className="App">
-        <Navbar/>
-        <Switch>
-          <Route path="/login">
-            <Login/>
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+      <Router>
+        <div className="App">
+          <Navbar/>
+          <Switch>
+            <Route path="/login">
+              <Login/>
+            </Route>
+            <Route path="/profile">
+              {(currentUser==null) ? <Redirect to="/" /> : <Profile/>}
+              
+            </Route>
+          </Switch>
+        </div>
+      </Router>
   );
 }
 
