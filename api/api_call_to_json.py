@@ -3,6 +3,7 @@ import json
 import psycopg2
 import psycopg2.extras
 import json
+import os
 
 
 class Api_call():
@@ -15,13 +16,12 @@ class Api_call():
         return self.ticker_symbol
 
     def connecting_to_server(self):
-        DB_HOST = "ec2-54-247-158-179.eu-west-1.compute.amazonaws.com"
-        DB_NAME = "d9k5l1lp51eomr"
-        DB_USER = "dxotskvadresqz" 
-        DB_PASS = "0b9cd2ee889fc10b9503feb819cbcf02c95a46d29e0bdf86507e3db4d14f2b99"
-
+        DB_HOST = os.environ['DB_HOST']
+        DB_NAME = os.environ['DB_NAME']
+        DB_USER = os.environ['DB_USER']
+        DB_PASS = os.environ['DB_PASS']
         
-        conn = psycopg2.connect(dbname = DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
+        conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
         
         with conn: 
             with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
@@ -44,11 +44,11 @@ class Api_call():
 
     def api_request(self):
         if self.already_exist == False:   
-            url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics"
+            url = os.environ['URL']
             querystring = {"symbol": self.user_input_copy,"region":"US"}
             headers = {
-            'x-rapidapi-key': "7457cdc0c7msh99dadc0f2dd0fe9p15e2b1jsn8609005a4aa7",
-            'x-rapidapi-host': "apidojo-yahoo-finance-v1.p.rapidapi.com"
+            'x-rapidapi-key': os.environ['APIKEY'],
+            'x-rapidapi-host': os.environ['APIHOST']
             }
             response = requests.request("GET", url, headers=headers, params=querystring)
             self.response_string = response.text
@@ -66,10 +66,10 @@ class Api_call():
             file1.close()
 
 Api = Api_call()
-#Api.user_input()
-#Api.connecting_to_server()
-#Api.checking_if_ticker_exists()
-#Api.api_request()
-#Api.api_request_to_json()
+Api.user_input()
+Api.connecting_to_server()
+Api.checking_if_ticker_exists()
+Api.api_request()
+Api.api_request_to_json()
 
 

@@ -18,17 +18,17 @@ from unittest.mock import Mock, patch
 # Third-party imports...
 from nose.tools import assert_is_none, assert_list_equal
 
-
+import os
 #Describition of the Test 
     # This will send a request and respond 
     #If the server repsonds with an okay respond then everything is fine 
 
 def test_request_response():
-        url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics"
+        url = os.environ['URL']
         querystring = {"symbol": "TSLA","region":"US"}
         headers = {
-        'x-rapidapi-key': "7457cdc0c7msh99dadc0f2dd0fe9p15e2b1jsn8609005a4aa7",
-        'x-rapidapi-host': "apidojo-yahoo-finance-v1.p.rapidapi.com"
+        'x-rapidapi-key': os.environ['APIKEY'],
+        'x-rapidapi-host': os.environ['APIHOST']
         }
         # Send a request to the API server and store the response.
         response = requests.get(url, headers=headers, params=querystring)

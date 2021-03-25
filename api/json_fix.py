@@ -13,10 +13,10 @@ class Json_to_server():
                 print('Decoding JSON has failed')
     
     def checking_if_ticker_exists(self):
-        DB_HOST = "ec2-54-247-158-179.eu-west-1.compute.amazonaws.com"
-        DB_NAME = "d9k5l1lp51eomr"
-        DB_USER = "dxotskvadresqz" 
-        DB_PASS = "0b9cd2ee889fc10b9503feb819cbcf02c95a46d29e0bdf86507e3db4d14f2b99"
+        DB_HOST = os.environ['DB_HOST']
+        DB_NAME = os.environ['DB_NAME']
+        DB_USER = os.environ['DB_USER']
+        DB_PASS = os.environ['DB_PASS']
 
         conn = psycopg2.connect(dbname = DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
 
@@ -43,10 +43,10 @@ class Json_to_server():
 
     def connecting_to_server(self):
         
-        DB_HOST = "ec2-54-247-158-179.eu-west-1.compute.amazonaws.com"
-        DB_NAME = "d9k5l1lp51eomr"
-        DB_USER = "dxotskvadresqz" 
-        DB_PASS = "0b9cd2ee889fc10b9503feb819cbcf02c95a46d29e0bdf86507e3db4d14f2b99"
+        DB_HOST = os.environ['DB_HOST']
+        DB_NAME = os.environ['DB_NAME']
+        DB_USER = os.environ['DB_USER']
+        DB_PASS = os.environ['DB_PASS']
 
         conn = psycopg2.connect(dbname = DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
         if self.already_exists_in_DB == False:

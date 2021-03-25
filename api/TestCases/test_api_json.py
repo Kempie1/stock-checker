@@ -9,11 +9,11 @@ import unittest
 class test_Api(unittest.TestCase):
 
     def test_api_request(self):
-        url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics"
+        url = os.environ['URL']
         querystring = {"symbol": "TSLA","region":"US"}
         headers = {
-        'x-rapidapi-key': "7457cdc0c7msh99dadc0f2dd0fe9p15e2b1jsn8609005a4aa7",
-        'x-rapidapi-host': "apidojo-yahoo-finance-v1.p.rapidapi.com"
+        'x-rapidapi-key': os.environ['APIKEY'],
+        'x-rapidapi-host': os.environ['APIKEY']
         }
         try:
             response = requests.get(url, headers=headers, params=querystring)
