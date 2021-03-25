@@ -13,10 +13,10 @@ class Json_to_server():
                 print('Decoding JSON has failed')
     
     def checking_if_ticker_exists(self):
-        DB_HOST = "b8emsfkpxajppbmkv48x-postgresql.services.clever-cloud.com"
-        DB_NAME = "b8emsfkpxajppbmkv48x"
-        DB_USER = "uazqb7phtgnjgeix5pcv" 
-        DB_PASS = "5TwfUnm8z4bcGzmMjr4h"
+        DB_HOST = "ec2-54-247-158-179.eu-west-1.compute.amazonaws.com"
+        DB_NAME = "d9k5l1lp51eomr"
+        DB_USER = "dxotskvadresqz" 
+        DB_PASS = "0b9cd2ee889fc10b9503feb819cbcf02c95a46d29e0bdf86507e3db4d14f2b99"
 
         conn = psycopg2.connect(dbname = DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
 
@@ -43,10 +43,10 @@ class Json_to_server():
 
     def connecting_to_server(self):
         
-        DB_HOST = "b8emsfkpxajppbmkv48x-postgresql.services.clever-cloud.com"
-        DB_NAME = "b8emsfkpxajppbmkv48x"
-        DB_USER = "uazqb7phtgnjgeix5pcv" 
-        DB_PASS = "5TwfUnm8z4bcGzmMjr4h"
+        DB_HOST = "ec2-54-247-158-179.eu-west-1.compute.amazonaws.com"
+        DB_NAME = "d9k5l1lp51eomr"
+        DB_USER = "dxotskvadresqz" 
+        DB_PASS = "0b9cd2ee889fc10b9503feb819cbcf02c95a46d29e0bdf86507e3db4d14f2b99"
 
         conn = psycopg2.connect(dbname = DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
         if self.already_exists_in_DB == False:
@@ -54,6 +54,7 @@ class Json_to_server():
                 with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
                     cur.execute("SELECT stock.ticker_symbol FROM stock")
                     self.ticker_table = cur.fetchall()
+                    
 
                     cur.execute('''
                 INSERT INTO stock (
@@ -61,23 +62,47 @@ class Json_to_server():
                     stock_name,
                     stock_price,
                     previous_close,
-                    open
-                ) values  (%s,%s,%s,%s,%s)
+                    open,
+                    bid,
+                    bid_size,
+                    ask,
+                    ask_size,
+                    Days_Range_High,
+                    Days_Range_Low,
+                    Fifty_Two_Week_Range_High,
+                    Fifty_Two_Week_Range_Low,
+                    EPS_TTM,
+                    Earnings_Date
+                ) values  (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
                 returning stock
                 ''', (
                     self.data['symbol'],
                     self.data['quoteType']['longName'],
                     self.data['price']['regularMarketPrice']['raw'],
                     self.data['summaryDetail']['regularMarketPreviousClose']['raw'],
-                    self.data['price']['regularMarketOpen']['raw']
+                    self.data['price']['regularMarketOpen']['raw'],
+                    self.data['summaryDetail']['bid']['raw'],
+                    self.data['summaryDetail']['bidSize']['raw'],
+                    self.data['summaryDetail']['ask']['raw'],
+                    self.data['summaryDetail']['askSize']['raw'],#9
+                    self.data['summaryDetail']['dayHigh']['raw'],
+                    self.data['summaryDetail']['dayLow']['raw'],
+                    self.data['summaryDetail']['fiftyTwoWeekHigh']['raw'],
+                    self.data['summaryDetail']['fiftyTwoWeekLow']['raw'],
+                    #self.data['summaryDetail']['trailingPE']['raw'],#
+                    self.data['defaultKeyStatistics']['trailingEps']['raw'],
+                    [self.data['calendarEvents']['earnings']['earningsDate']['0']['fmt'],
+                    self.data['calendarEvents']['earnings']['earningsDate']['1']['fmt']],
                 )
             )
+
                     print(cur.fetchall())
                     print("Everything was added to the database")
-                    
-            conn.commit()
-            conn.close()
+
+                conn.commit()
+                conn.close()
         
+                    
 
 server = Json_to_server()
 #server.open_json_file()
