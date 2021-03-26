@@ -42,8 +42,30 @@ class Json_to_server():
             print("There is nothing in the ticker_symbol Table")
             self.already_exists_in_DB = False
 
+    #Receives the address as a list, then checks if the exist, returns a dictionary object or value if there is no 'raw'
+    
+
     def connecting_to_server(self):
         
+        def validate(l):
+            print("funcion is being executed")
+            cursor=self.data
+            for x in range(len(l)):
+                print("1")
+                if x==(len(l)-1):
+                    print("2")
+                    print(x)
+                    print(l)
+                    print(len(l)-1)
+                    if l[x] in cursor:
+                        print("3")
+                        return cursor.get(l[x])
+                
+                if l[x] in cursor:
+                    cursor=cursor.get(l[x])
+                else:
+                    return "n/a"
+
         conn = psycopg2.connect(dbname = self.DB_NAME, user=self.DB_USER, password=self.DB_PASS, host=self.DB_HOST)
         if self.already_exists_in_DB == False:
             with conn: 
@@ -51,38 +73,31 @@ class Json_to_server():
                     cur.execute("SELECT stock.ticker_symbol FROM stock")
                     self.ticker_table = cur.fetchall()
                     
+                    cur.execute("SELECT * FROM stock")
+                    self.l = (cur.fetchone())
+                    validate(self.l)
+                    
 
                     cur.execute('''
                 INSERT INTO stock (
                     ticker_symbol,
-                    stock_name,
-                    stock_price,
-                    previous_close,
-                    open,
-                    bid,
-                    bid_size,
-                    ask,
-                    ask_size,
-                    Days_Range_High,
-                    Days_Range_Low,
-                    Fifty_Two_Week_Range_High,
-                    Fifty_Two_Week_Range_Low
-                ) values  (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                    stock_name
+                ) values  (%s,%s)
                 returning stock
                 ''', (
                     self.data['symbol'],
-                    self.data['quoteType']['longName'],
-                    self.data['price']['regularMarketPrice']['raw'],
-                    self.data['summaryDetail']['regularMarketPreviousClose']['raw'],
-                    self.data['price']['regularMarketOpen']['raw'],
-                    self.data['summaryDetail']['bid']['raw'],
-                    self.data['summaryDetail']['bidSize']['raw'],
-                    self.data['summaryDetail']['ask']['raw'],
-                    self.data['summaryDetail']['askSize']['raw'],#9
-                    self.data['summaryDetail']['dayHigh']['raw'],
-                    self.data['summaryDetail']['dayLow']['raw'],
-                    self.data['summaryDetail']['fiftyTwoWeekHigh']['raw'],
-                    self.data['summaryDetail']['fiftyTwoWeekLow']['raw'],
+                    self.data['quoteType']['longName']
+                   # self.data['price']['regularMarketPrice']['raw']
+                    #self.data['summaryDetail']['regularMarketPreviousClose']['raw'],
+                    #self.data['price']['regularMarketOpen']['raw'],
+                   # self.data['summaryDetail']['bid']['raw'],
+                   # self.data['summaryDetail']['bidSize']['raw'],
+                   # self.data['summaryDetail']['ask']['raw'],
+                   # self.data['summaryDetail']['askSize']['raw'],#9
+                   # self.data['summaryDetail']['dayHigh']['raw'],
+                   # self.data['summaryDetail']['dayLow']['raw'],
+                   # self.data['summaryDetail']['fiftyTwoWeekHigh']['raw'],
+                   # self.data['summaryDetail']['fiftyTwoWeekLow']['raw'],
                     #self.data['summaryDetail']['trailingPE']['raw'],#
                     #self.data['defaultKeyStatistics']['trailingEps']['raw'],
                     #[self.data['calendarEvents']['earnings']['earningsDate']['0']['fmt'],
@@ -90,16 +105,29 @@ class Json_to_server():
                 )
             )
 
-                print(cur.fetchall())
-                print("Everything was added to the database")
+                    print(cur.fetchall())
+                    print("Everything was added to the database")
 
             conn.commit()
             conn.close()
+
         
                     
 
 server = Json_to_server()
 server.open_json_file()
 server.checking_if_ticker_exists()
+#server.validate()
 server.connecting_to_server()
 
+
+                    #previous_close,
+                    #open,
+                    #bid,
+                    #bid_size,
+                    #ask,
+                    #ask_size,
+                    #Days_Range_High,
+                    #Days_Range_Low,
+                    #Fifty_Two_Week_Range_High,
+                    #Fifty_Two_Week_Range_Low
