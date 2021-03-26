@@ -20,7 +20,7 @@ def test_request_response():
         url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics"
         querystring = {"symbol": "TSLA","region":"US"}
         headers = {
-        'x-rapidapi-key': "7457cdc0c7msh99dadc0f2dd0fe9p15e2b1jsn8609005a4aa7",
+        'x-rapidapi-key': "fd4a157371mshb331f054ae72222p1cefa5jsnd889b6441b08",
         'x-rapidapi-host': "apidojo-yahoo-finance-v1.p.rapidapi.com"
         }
         # Send a request to the API server and store the response.
@@ -91,9 +91,8 @@ def test_getting_todos_when_response_is_not_ok(mock_get):
 
 
 
-
 @patch('services.get_todos')
-def test_getting_uncompleted_todos_when_todos_is_not_none(mock_get_todos):
+def test_getting_uncompleted_todos_when_todos_is_not_none(mock_get_todos):       
     todo1 = {
         'userId': 1,
         'id': 1,
@@ -113,7 +112,7 @@ def test_getting_uncompleted_todos_when_todos_is_not_none(mock_get_todos):
 
     # Call the service, which will get a list of todos filtered on completed.
     uncompleted_todos = get_uncompleted_todos()
-    print(get_uncompleted_todos.json)
+
     # Confirm that the mock was called.
     assert_true(mock_get_todos.called)
 
@@ -134,9 +133,6 @@ def test_getting_uncompleted_todos_when_todos_is_none(mock_get_todos):
 
     # Confirm that an empty list was returned.
     assert_list_equal(uncompleted_todos, [])
-
-
-
 
 test_request_response()
 test_getting_todos()
