@@ -9,11 +9,11 @@ import requests
 import os
 
 def get_todos():
-        url = os.environ['URL']
+        url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics"
         querystring = {"symbol": "TSLA","region":"US"}
         headers = {
-        'x-rapidapi-key': os.environ['APIKEY'],
-        'x-rapidapi-host': os.environ['APIHOST']
+        'x-rapidapi-key': "7457cdc0c7msh99dadc0f2dd0fe9p15e2b1jsn8609005a4aa7",
+        'x-rapidapi-host': "apidojo-yahoo-finance-v1.p.rapidapi.com"
         }
         response = requests.get(url, headers=headers, params=querystring)
         if response.ok:
@@ -23,6 +23,18 @@ def get_todos():
             #If request fails then nothing will be returned
 
 
-get_todos()
-
 #Link: https://realpython.com/testing-third-party-apis-with-mocks/
+
+def get_uncompleted_todos():
+    response = get_todos()
+    if response is None:
+        return []
+    else:
+        todos = response.json()
+        #print(todos)
+        return [todo for todo in todos if todo['completed'] == False]
+
+# This is now going into the fake.json and checking if one of the values is False as it should be in the predefined fake.json
+
+get_uncompleted_todos()
+get_todos()
