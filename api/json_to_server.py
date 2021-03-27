@@ -47,20 +47,12 @@ class Json_to_server():
 
     def connecting_to_server(self):
         
-        def validate(l):
-            print("funcion is being executed")
+        def validate_api(l):
             cursor=self.data
             for x in range(len(l)):
-                print("1")
                 if x==(len(l)-1):
-                    print("2")
-                    print(x)
-                    print(l)
-                    print(len(l)-1)
                     if l[x] in cursor:
-                        print("3")
                         return cursor.get(l[x])
-                
                 if l[x] in cursor:
                     cursor=cursor.get(l[x])
                 else:
@@ -72,11 +64,6 @@ class Json_to_server():
                 with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
                     cur.execute("SELECT stock.ticker_symbol FROM stock")
                     self.ticker_table = cur.fetchall()
-                    
-                    cur.execute("SELECT * FROM stock")
-                    self.l = (cur.fetchone())
-                    validate(self.l)
-                    
 
                     cur.execute('''
                 INSERT INTO stock (
@@ -85,8 +72,8 @@ class Json_to_server():
                 ) values  (%s,%s)
                 returning stock
                 ''', (
-                    self.data['symbol'],
-                    self.data['quoteType']['longName']
+                    validate_api(['symbol']),
+                    validate_api(['quoteType','longName'])
                    # self.data['price']['regularMarketPrice']['raw']
                     #self.data['summaryDetail']['regularMarketPreviousClose']['raw'],
                     #self.data['price']['regularMarketOpen']['raw'],
