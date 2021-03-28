@@ -40,9 +40,9 @@ class test_Api(unittest.TestCase):
             assert ticker_symbol_json == ['TSLA']
                 
 
-Api_test = test_Api()
-Api_test.test_api_request()
-Api_test.test_json()
+#Api_test = test_Api()
+#Api_test.test_api_request()
+#Api_test.test_json()
 
 # TOP Playlist on youtube for Api tests https://www.youtube.com/watch?v=OdFW3RwAz8w&list=PLIMhDiITmNrILoYaVsrxwteH6LqMr07uX&index=5&ab_channel=TestingWorld
 # If in the terminal I type pytest TestCases so the module and the folder name then  

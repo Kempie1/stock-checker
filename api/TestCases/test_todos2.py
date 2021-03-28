@@ -6,8 +6,9 @@ from nose.tools import assert_is_none, assert_list_equal, assert_true
 
 # Local imports...
 from services import get_todos, get_uncompleted_todos
+import unittest
 
-class TestUncompletedTodos(object):
+class TestUncompletedTodos(unittest.TestCase):
     @classmethod
     def setup_class(cls):
         cls.mock_get_todos_patcher = patch('services.get_todos')

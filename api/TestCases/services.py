@@ -7,6 +7,7 @@ except ImportError:
 # Third-party imports...
 import requests
 import os
+import unittest
 
 def get_todos():
         url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics"
@@ -17,7 +18,6 @@ def get_todos():
         }
         response = requests.get(url, headers=headers, params=querystring)
         if response.ok:
-            print(response.status_code)
             return response
         else:
             return None
@@ -44,5 +44,5 @@ def get_uncompleted_todos():
 
 # This is now going into the fake.json and checking if one of the values is False as it should be in the predefined fake.json
 
-get_uncompleted_todos()
-get_todos()
+#get_uncompleted_todos()
+#get_todos()
