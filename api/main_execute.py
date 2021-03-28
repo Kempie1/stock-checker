@@ -8,6 +8,7 @@ from api_call_to_json import Api_call
 from json_to_server import Json_to_server
 from TestCases.test_api_json import test_Api
 
+
 class Execute:
     def __init__(self):
         self.Api = Api_call()
@@ -27,11 +28,11 @@ class Execute:
         self.Server.connecting_to_server()
 
     def execute_api_tests(self):
-        self.Api_test.test_api_request()
+        self.Api_test.test_api_request(self.Api.ticker_symbol)
         self.Api_test.test_json(self.Api.ticker_symbol)
         
 
 main = Execute()
 main.execute_api()
 main.execute_server()
-main.execute_api_tests()
+

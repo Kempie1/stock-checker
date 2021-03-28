@@ -3,7 +3,12 @@ from unittest import skipIf
 
 # Local imports...
 from constants import SKIP_REAL
-from services import get_todos
+# Local imports...
+import sys
+# insert at 1, 0 is the script path (or '' in REPL)
+sys.path.insert(1, '/Users/maximilianhues/Documents/CODE/stock-checker/api')
+
+from services import get_todos, get_uncompleted_todos
 # Standard library imports...
 from unittest.mock import Mock, patch
 

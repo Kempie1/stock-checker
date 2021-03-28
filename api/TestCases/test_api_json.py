@@ -6,11 +6,20 @@ import json
 import jsonpath
 import unittest
 import os
-from services import get_todos
+
+
+# Local imports...
+import sys
+# insert at 1, 0 is the script path (or '' in REPL)
+sys.path.insert(1, '/Users/maximilianhues/Documents/CODE/stock-checker/api')
+
+from services import get_todos, get_uncompleted_todos
+
 
 class test_Api(unittest.TestCase):
 
-    def test_api_request(self):
+    def test_api_request(self, inputValue):
+        self.input = inputValue
         try:
             response = get_todos()
             print(response)
@@ -24,10 +33,11 @@ class test_Api(unittest.TestCase):
         #This is checking if in the response the 'symbol' string is existing
         ticker_symbol_from_API = jsonpath.jsonpath(json_response, 'symbol')
         print(ticker_symbol_from_API)
-        assert ticker_symbol_from_API == ['TSLA']
+        print(self.input)
+        assert ticker_symbol_from_API == self.input 
     
-    def test_json(self, inputValue = ['TSLA']):
-        print(inputValue)
+    def test_json(self, inputValue):
+        self.input = inputValue
         #Json file check Video 4
         with open('stock.json') as json_file:
             try:
@@ -37,7 +47,8 @@ class test_Api(unittest.TestCase):
 
             ticker_symbol_json = jsonpath.jsonpath(request_json, 'symbol')
             print(ticker_symbol_json)
-            assert ticker_symbol_json == ['TSLA']
+            print(self.input)
+            assert ticker_symbol_json == self.input 
                 
 
 #Api_test = test_Api()
