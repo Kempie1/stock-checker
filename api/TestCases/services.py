@@ -31,9 +31,15 @@ def get_uncompleted_todos():
         return []
     else:
         todos = response.json()
-        if todos['symbol'] == "TSLA":
-            complete = True
-        return [complete]
+        for todo in todos: 
+            if todo == 'symbol':
+                if todos['symbol'] == 'TSLA':
+                    completed = False
+            
+        return[todo]
+
+#if todo('symbol') == "TSLA":
+#                return[todo]
 
 # This is now going into the fake.json and checking if one of the values is False as it should be in the predefined fake.json
 

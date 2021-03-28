@@ -23,37 +23,32 @@ class TestTodos(unittest.TestCase):
         # Configure the mock to return a response with an OK status code.
         self.mock_get.return_value.ok = True
 
-        todos = [{
-            'userId': 1,
-            'id': 1,
-            'title': 'Make the bed',
-            'completed': False
-        }]
-        
+        todos = {'symbol': 'TSLA'}
+
         self.mock_get.return_value = Mock()
         self.mock_get.return_value.json.return_value = todos
 
         # Call the service, which will send a request to the server.
         response = get_todos()
+        response_json = response.json()
+
+        print(todos['symbol'])
+        print(response_json['symbol'])
+        print(response.json())
+
+        if response_json['symbol'] == todos['symbol']:
+            print("symbol is equal")
         
-        #mylist = ["apple", "banana", "cherry"]
-       # mylist2 = ["apple", "banana", "cherr"]
-       assert_list_equal(mylist,mylist2)
 
+        if response.json() == todos:
+            print("They are equal")
+        else:
+            print("They are not equal")
 
-        
-
-        r = json.dumps(response.json()).replace('null', '""')
-        json.loads(r)
-        
-        # If the request is sent successfully, then I expect a response to be returned.
-        print(r)
-
-        if r == response2:
-            print("True")
-        else: 
-            print("There are not the same")
-       # assert_list_equal(response.json(), todos)
+        assert_true(self.mock_get.called) #This is making sure that the functions is being called
+        self.maxDiff = None
+        self.assertDictEqual(response.json(), todos)
+        self.assertEqual(response_json['symbol'],todos['symbol'])
 
     def test_getting_todos_when_response_is_not_ok(self):
         # Configure the mock to not return a response with an OK status code.
@@ -65,10 +60,7 @@ class TestTodos(unittest.TestCase):
         assert_is_none(response)
 
 
-TestTodos = TestTodos()
-
-TestTodos.setup_class()
-TestTodos.teardown_class()
-TestTodos.test_getting_todos_when_response_is_ok()
-
-
+#TestTodos = TestTodos()
+#TestTodos.setup_class()
+#TestTodos.test_getting_todos_when_response_is_ok()
+#TestTodos.teardown_class()
