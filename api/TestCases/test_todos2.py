@@ -54,8 +54,8 @@ class TestUncompletedTodos(object):
         assert_list_equal(uncompleted_todos, [])
 
 
-TestUncompletedTodos = TestUncompletedTodos()
-TestUncompletedTodos.setup_class()
-TestUncompletedTodos.test_getting_uncompleted_todos_when_todos_is_not_none()
-TestUncompletedTodos.test_getting_uncompleted_todos_when_todos_is_none()
-TestUncompletedTodos.teardown_class()
+#TestUncompletedTodos = TestUncompletedTodos()
+#TestUncompletedTodos.setup_class()
+#TestUncompletedTodos.test_getting_uncompleted_todos_when_todos_is_not_none()
+#TestUncompletedTodos.test_getting_uncompleted_todos_when_todos_is_none()
+#TestUncompletedTodos.teardown_class()

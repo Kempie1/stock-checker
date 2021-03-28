@@ -5,18 +5,14 @@ import psycopg2.extras
 import json
 import jsonpath
 import unittest
+import os
+from services import get_todos
 
 class test_Api(unittest.TestCase):
 
     def test_api_request(self):
-        url = os.environ['URL']
-        querystring = {"symbol": "TSLA","region":"US"}
-        headers = {
-        'x-rapidapi-key': os.environ['APIKEY'],
-        'x-rapidapi-host': os.environ['APIKEY']
-        }
         try:
-            response = requests.get(url, headers=headers, params=querystring)
+            response = get_todos()
             print(response)
             print(response.status_code)
             assert response.status_code == 200
@@ -25,6 +21,7 @@ class test_Api(unittest.TestCase):
 
         #This is checking if the right input is coming in Video 2
         json_response = json.loads(response.text)
+        #This is checking if in the response the 'symbol' string is existing
         ticker_symbol_from_API = jsonpath.jsonpath(json_response, 'symbol')
         print(ticker_symbol_from_API)
         assert ticker_symbol_from_API == ['TSLA']
@@ -35,19 +32,17 @@ class test_Api(unittest.TestCase):
         with open('stock.json') as json_file:
             try:
                 request_json = json.load(json_file)
-            except ValueError:
+            except ValueError and AttributeError:
                 print('Decoding JSON has failed')
 
             ticker_symbol_json = jsonpath.jsonpath(request_json, 'symbol')
             print(ticker_symbol_json)
             assert ticker_symbol_json == ['TSLA']
                 
-#   def test_api_mock(self):
-
-
 
 Api_test = test_Api()
-#Api_test.test_api_request()
+Api_test.test_api_request()
+Api_test.test_json()
 
 # TOP Playlist on youtube for Api tests https://www.youtube.com/watch?v=OdFW3RwAz8w&list=PLIMhDiITmNrILoYaVsrxwteH6LqMr07uX&index=5&ab_channel=TestingWorld
 # If in the terminal I type pytest TestCases so the module and the folder name then  

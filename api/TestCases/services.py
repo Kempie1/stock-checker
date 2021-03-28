@@ -12,11 +12,12 @@ def get_todos():
         url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics"
         querystring = {"symbol": "TSLA","region":"US"}
         headers = {
-        'x-rapidapi-key': "fd4a157371mshb331f054ae72222p1cefa5jsnd889b6441b08",
+        'x-rapidapi-key': "92e0efc621msh368787aa782ea71p111f83jsn3acbf2f81995",
         'x-rapidapi-host': "apidojo-yahoo-finance-v1.p.rapidapi.com"
         }
         response = requests.get(url, headers=headers, params=querystring)
         if response.ok:
+            print(response.status_code)
             return response
         else:
             return None

@@ -10,7 +10,7 @@ class Json_to_server():
         with open('stock.json') as json_file:
             try:
                 self.data = json.load(json_file)
-            except ValueError:
+            except ValueError and AttributeError:
                 print('Decoding JSON has failed')
     
     def checking_if_ticker_exists(self):
