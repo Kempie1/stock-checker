@@ -18,7 +18,7 @@ from services import get_todos, get_uncompleted_todos
 
 class test_Api(unittest.TestCase):
 
-    def test_api_request(self, inputValue):
+    def test_api_request(self, inputValue = "TSLA"):
         self.input = inputValue
         try:
             response = get_todos()
@@ -36,7 +36,7 @@ class test_Api(unittest.TestCase):
         print(self.input)
         assert ticker_symbol_from_API == self.input 
     
-    def test_json(self, inputValue):
+    def test_json(self, inputValue = "TSLA"):
         self.input = inputValue
         #Json file check Video 4
         with open('stock.json') as json_file:

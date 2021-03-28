@@ -45,4 +45,4 @@ def test_integration_contract():
     assert_list_equal(list(actual_keys), list(mocked_keys))
 
 
-test_integration_contract()
+#test_integration_contract()
