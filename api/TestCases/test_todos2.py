@@ -1,14 +1,7 @@
-# Standard library imports...
 from unittest.mock import Mock, patch
-
-# Third-party imports...
 from nose.tools import assert_is_none, assert_list_equal, assert_true
-
-# Local imports...
 import sys
-# insert at 1, 0 is the script path (or '' in REPL)
 sys.path.insert(1, '/Users/maximilianhues/Documents/CODE/stock-checker/api')
-
 from services import get_todos, get_uncompleted_todos
 import unittest
 

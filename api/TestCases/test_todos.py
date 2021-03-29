@@ -1,14 +1,7 @@
-# Standard library imports...
 from unittest.mock import Mock, patch
-
-# Third-party imports...
 from nose.tools import assert_is_none, assert_list_equal, assert_true
-
-# Local imports...
 import sys
-# insert at 1, 0 is the script path (or '' in REPL)
 sys.path.insert(1, '/Users/maximilianhues/Documents/CODE/stock-checker/api')
-
 from services import get_todos, get_uncompleted_todos
 import unittest
 import json
@@ -22,7 +15,7 @@ class TestTodos(unittest.TestCase):
     @classmethod
     def teardown_class(cls):
         cls.mock_get_patcher.stop()
-
+    
     def test_getting_todos_when_response_is_ok(self):
         # Configure the mock to return a response with an OK status code.
         self.mock_get.return_value.ok = True
@@ -42,14 +35,12 @@ class TestTodos(unittest.TestCase):
 
         if response_json['symbol'] == todos['symbol']:
             print("symbol is equal")
-        
-
+            
         if response.json() == todos:
             print("They are equal")
         else:
             print("They are not equal")
 
-        assert_true(self.mock_get.called) #This is making sure that the functions is being called
         self.maxDiff = None
         self.assertDictEqual(response.json(), todos)
         self.assertEqual(response_json['symbol'],todos['symbol'])
@@ -62,7 +53,6 @@ class TestTodos(unittest.TestCase):
         response = get_todos()
         # If the response contains an error, I should get no todos.
         assert_is_none(response)
-
 
 #TestTodos = TestTodos()
 #TestTodos.setup_class()

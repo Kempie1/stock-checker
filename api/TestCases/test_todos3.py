@@ -1,24 +1,14 @@
-# Standard library imports...
 from unittest.mock import Mock, patch
-
-# Third-party imports...
 from nose.tools import assert_is_none, assert_list_equal, assert_true
-
-# Local imports...
-# Local imports...
 import sys
-# insert at 1, 0 is the script path (or '' in REPL)
 sys.path.insert(1, '/Users/maximilianhues/Documents/CODE/stock-checker/api')
-
 from services import get_todos, get_uncompleted_todos
 import unittest
-
 
 def test_integration_contract():
     # Call the service to hit the actual API.
     actual = get_todos()
     actual_keys = actual.json().keys()
-
 
     # Call the service to hit the mocked API.
     with patch('services.requests.get') as mock_get:
