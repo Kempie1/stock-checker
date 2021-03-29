@@ -43,17 +43,24 @@ class Json_to_server():
             self.already_exists_in_DB = False
 
     def connecting_to_server(self):
-        
         def validate_api(l):
             cursor=self.data
             for x in range(len(l)):
                 if x==(len(l)-1):
                     if l[x] in cursor:
-                        return cursor.get(l[x])
-                if l[x] in cursor:
-                    cursor=cursor.get(l[x])
+                        cursor=cursor.get(l[x])
+                        if 'raw' in cursor:
+                            return cursor.get('raw')
+                        if not cursor:
+                            return "n/a"                        
+                        return cursor
+                    else:
+                        return "n/a"
                 else:
-                    return "n/a"
+                    if l[x] in cursor:
+                        cursor=cursor.get(l[x])
+                    else:
+                        return "n/a"
 
         conn = psycopg2.connect(dbname = self.DB_NAME, user=self.DB_USER, password=self.DB_PASS, host=self.DB_HOST)
         if self.already_exists_in_DB == False:
@@ -83,7 +90,6 @@ class Json_to_server():
                     Volume,
                     Avg_Volume_3_Month,
                     Market_Cap,
-                    Volatility,
                     Beta,
                     One_year_Target_Est,
                     Ex_Dividend_Date,
@@ -93,15 +99,15 @@ class Json_to_server():
                     Operating_Margin_ttm,
                     Revenue_Per_Share_ttm,
                     Quarterly_Revenue_Growth_yoy,
-                    Gross_Profit_ttm,
+                    EBITDA,
                     Net_Income_Avi_to_Common_ttm,
                     Quarterly_Earnings_Growth_yoy,
                     Return_on_Assets_ttm,
                     Return_on_Equity_ttm,
                     Operating_Cash_Flow_ttm,
+                    Levered_Free_Cash_Flow_ttm,
                     Fiscal_Year_Ends,
                     Most_Recent_Quarter_mrq,
-                    Levered_Free_Cash_Flow_ttm,
                     Total_Cash_mrq,
                     Total_Cash_Per_Share_mrq,
                     Total_Debt_mrq,
@@ -122,47 +128,45 @@ class Json_to_server():
                     Dividend_Date,
                     Trailing_Annual_Dividend_Rate,
                     Trailing_Annual_Dividend_Yield,
-                    Five_Year_Average_Dividend_Yield,
-
-                ) values  (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+                    Five_Year_Average_Dividend_Yield
+                ) values  (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
                 returning stock
                 ''', (
                     validate_api(['symbol']),
                     validate_api(['quoteType','longName']),
-                    validate_api(['price','regularMarketPrice','raw']),
-                    validate_api(['summaryDetail','regularMarketPreviousClose','raw']),
-                    validate_api(['price','regularMarketOpen','raw']),
-                    validate_api(['summaryDetail','bid','raw']),
-                    validate_api(['summaryDetail','bidSize','raw']),
-                    validate_api(['summaryDetail','ask','raw']),
-                    validate_api(['summaryDetail','askSize','raw']),
-                    validate_api(['summaryDetail','dayHigh','raw']),
-                    validate_api(['summaryDetail','dayLow','raw']),
-                    validate_api(['summaryDetail','fiftyTwoWeekHigh','raw']),
-                    validate_api(['summaryDetail','fiftyTwoWeekLow','raw']),
-                    validate_api(['summaryDetail','trailingPE','raw']),
-                    validate_api(['defaultKeyStatistics','trailingEps','raw']),
-                    validate_api(['calendarEvents','earnings','earningsDate','0','raw']),
-                    validate_api(['calendarEvents','earnings','earningsDate','1','raw']),
-                    validate_api(['summaryDetail','volume','raw']),
-                    validate_api(['price','averageDailyVolume3Month','raw']),
-                    validate_api(['price','marketCap','raw']),
+                    validate_api(['price','regularMarketPrice']),
+                    validate_api(['summaryDetail','regularMarketPreviousClose']),
+                    validate_api(['price','regularMarketOpen']),
+                    validate_api(['summaryDetail','bid']),
+                    validate_api(['summaryDetail','bidSize']),
+                    validate_api(['summaryDetail','ask']),
+                    validate_api(['summaryDetail','askSize']),
+                    validate_api(['summaryDetail','dayHigh']),
+                    validate_api(['summaryDetail','dayLow']),
+                    validate_api(['summaryDetail','fiftyTwoWeekHigh']),
+                    validate_api(['summaryDetail','fiftyTwoWeekLow']),
+                    validate_api(['summaryDetail','trailingPE']),
+                    validate_api(['defaultKeyStatistics','trailingEps']),
+                    validate_api(['calendarEvents','earnings','earningsDate'])[0]['raw'],
+                    validate_api(['summaryDetail','volume']),
+                    validate_api(['price','averageDailyVolume3Month']),
+                    validate_api(['price','marketCap']),
                     #TBeta_5Y_Monthly
-                    validate_api(['defaultKeyStatistics','volatility','raw']),
-                    validate_api(['defaultKeyStatistics','beta','raw']),
-                    validate_api(['financialData','targetMeanPrice','raw']),
+                    #volatility
+                    validate_api(['defaultKeyStatistics','beta']),
+                    validate_api(['financialData','targetMeanPrice']),
                     #Forward_Dividend_AND_Yield
-                    validate_api(['summaryDetail','exDividendDate','raw']),
+                    validate_api(['summaryDetail','exDividendDate']),
                     #Basic_Average_Shares
                     #Diluted_Average_Shares
-                    validate_api(['financialData','totalRevenue','raw']),
+                    validate_api(['financialData','totalRevenue']),
                     #Other_Income_Expense
                     #Basic_EPS
                     #Diluted_EPS
                     #EBIT
                     #Total_Unusual_Items_Excluding_Goodwill
                     #Total_Unusual_Items
-                    validate_api(['financialData','grossProfits','raw']),
+                    validate_api(['financialData','grossProfits']),
                     #Operating_Income
                     #Pretax_Income
                     #Net_Income_Common_Stockholders
@@ -179,37 +183,37 @@ class Json_to_server():
                     #Reconciled_Cost_of_Revenue 
                     #Reconciled_Depreciation 
                     #Tax_Effect_of_Unusual_Items 
-                    validate_api(['defaultKeyStatistics','profitMargin','raw']),
-                    validate_api(['financialData','operatingMargins','raw']), 
+                    validate_api(['defaultKeyStatistics','profitMargin']),
+                    validate_api(['financialData','operatingMargins']), 
                     #Revenue_ttm
-                    validate_api(['financialData','revenuePerShare','raw']), 
-                    validate_api(['financialData','revenueGrowth','raw']),
+                    validate_api(['financialData','revenuePerShare']), 
+                    validate_api(['financialData','revenueGrowth']),
                     #Gross_Profit_ttm
-                    validate_api(['financialData','ebitda','raw']),
-                    validate_api(['defaultKeyStatistics','netIncomeToCommon','raw']),
+                    validate_api(['financialData','ebitda']),
+                    validate_api(['defaultKeyStatistics','netIncomeToCommon']),
                     #Diluted_EPS_ttm
-                    validate_api(['defaultKeyStatistics','earningsQuarterlyGrowth','raw']), 
-                    validate_api(['financialData','returnOnAssets','raw']),
-                    validate_api(['financialData','returnOnEquity','raw']),
-                    validate_api(['financialData','operatingCashflow','raw']),
-                    validate_api(['financialData','freeCashflow','raw']),  
-                    validate_api(['defaultKeyStatistics','nextFiscalYearEnd','raw']),
-                    validate_api(['defaultKeyStatistics','mostRecentQuarter','raw']),
-                    validate_api(['financialData','totalCash','raw']),
-                    validate_api(['financialData','totalCashPerShare','raw']),
-                    validate_api(['financialData','totalDebt','raw']),
-                    validate_api(['financialData','debtToEquity','raw']),
-                    validate_api(['financialData','currentRatio','raw']),
-                    validate_api(['defaultKeyStatistics','bookValue','raw']),
-                    validate_api(['summaryDetail','beta','raw']),
-                    validate_api(['defaultKeyStatistics','52WeekChange','raw']),
-                    validate_api(['summaryDetail','averageVolume','raw']),
-                    validate_api(['summaryDetail','FiftyTwoWeekHigh','raw']),
-                    validate_api(['summaryDetail','FiftyTwoWeekLow','raw']),
-                    validate_api(['summaryDetail','FiftyDayAverage','raw']),
-                    validate_api(['summaryDetail','TwoHundredDayAverage','raw']),
+                    validate_api(['defaultKeyStatistics','earningsQuarterlyGrowth']), 
+                    validate_api(['financialData','returnOnAssets']),
+                    validate_api(['financialData','returnOnEquity']),
+                    validate_api(['financialData','operatingCashflow']),
+                    validate_api(['financialData','freeCashflow']),  
+                    validate_api(['defaultKeyStatistics','nextFiscalYearEnd']),
+                    validate_api(['defaultKeyStatistics','mostRecentQuarter']),
+                    validate_api(['financialData','totalCash']),
+                    validate_api(['financialData','totalCashPerShare']),
+                    validate_api(['financialData','totalDebt']),
+                    validate_api(['financialData','debtToEquity']),
+                    validate_api(['financialData','currentRatio']),
+                    validate_api(['defaultKeyStatistics','bookValue']),
+                    validate_api(['summaryDetail','beta']),
+                    validate_api(['defaultKeyStatistics','52WeekChange']),
+                    validate_api(['summaryDetail','averageVolume']),
+                    validate_api(['summaryDetail','FiftyTwoWeekHigh']),
+                    validate_api(['summaryDetail','FiftyTwoWeekLow']),
+                    validate_api(['summaryDetail','FiftyDayAverage']),
+                    validate_api(['summaryDetail','TwoHundredDayAverage']),
                     #Avg_Vol_3_month
-                    validate_api(['summaryDetail','averageVolume10Day','raw']),
+                    validate_api(['summaryDetail','averageVolume10Day']),
                     #Shares_Outstanding 
                     #Float
                     #Percentage_Held_by_Insiders
@@ -219,13 +223,13 @@ class Json_to_server():
                     #Short_Percentage_of_Float
                     #Short_Percentage_of_Shares_Outstanding
                     #Shares_Short_Prior
-                    validate_api(['summaryDetail','dividendRate','raw']),
-                    validate_api(['summaryDetail','dividendYield','raw']),
-                    validate_api(['summaryDetail','payoutRatio','raw']),
-                    validate_api(['calendarEvents','dividendDate','raw']),
-                    validate_api(['summaryDetail','trailingAnnualDividendRate','raw']),
-                    validate_api(['summaryDetail','trailingAnnualDividendYield','raw']),
-                    validate_api(['summaryDetail','fiveYearAvgDividendYield','raw'])
+                    validate_api(['summaryDetail','dividendRate']),
+                    validate_api(['summaryDetail','dividendYield']),
+                    validate_api(['summaryDetail','payoutRatio']),
+                    validate_api(['calendarEvents','dividendDate']),
+                    validate_api(['summaryDetail','trailingAnnualDividendRate']),
+                    validate_api(['summaryDetail','trailingAnnualDividendYield']),
+                    validate_api(['summaryDetail','fiveYearAvgDividendYield'])
                     #Last_Split_Factor
                     #Last_Split_Date
 
@@ -246,8 +250,6 @@ class Json_to_server():
                     #Reconsiled
                     #Reconsiled
                     #tax
-                                        
-                    #validate_api(['defaultKeyStatistics','SandP52WeekChange']
                 )
             )
 
@@ -263,7 +265,6 @@ class Json_to_server():
 server = Json_to_server()
 server.open_json_file()
 server.checking_if_ticker_exists()
-#server.validate_api()
 server.connecting_to_server()
 
 
