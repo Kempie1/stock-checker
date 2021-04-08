@@ -27,9 +27,10 @@
 		A7E58ED225FB7EAF000AFEC0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7E58ECF25FB7EAF000AFEC0 /* GoogleService-Info.plist */; };
 		A7FFE2DE25FD1AC9006BAB24 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FFE2DD25FD1AC9006BAB24 /* Stock.swift */; };
 		A7FFE2F125FD23E4006BAB24 /* StockPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FFE2F025FD23E4006BAB24 /* StockPreviewView.swift */; };
-		A7FFE30025FD2F46006BAB24 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = A7FFE2FF25FD2F46006BAB24 /* SwiftPackageProductDependency */; };
+		A7FFE30025FD2F46006BAB24 /* iLineChart in Frameworks */ = {isa = PBXBuildFile; productRef = A7FFE2FF25FD2F46006BAB24 /* iLineChart */; };
 		CE41120A83AEDF2365E4B7EA /* Pods_Stock_Checker_Stock_CheckerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EFF94A6A28E5A5244DF5319 /* Pods_Stock_Checker_Stock_CheckerUITests.framework */; };
 		D2C8009F552215CE1D01F33C /* Pods_Stock_Checker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60BC1AA983C00A63545D97F1 /* Pods_Stock_Checker.framework */; };
+		D5F8E649261F62B3003FB092 /* LearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E648261F62B3003FB092 /* LearningView.swift */; };
 		E7681E29B78CCA90C8608B9F /* Pods_Stock_CheckerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56F843DC91EA31362AD96DC /* Pods_Stock_CheckerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		A7FFE2DD25FD1AC9006BAB24 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		A7FFE2F025FD23E4006BAB24 /* StockPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPreviewView.swift; sourceTree = "<group>"; };
 		C9BB5F27F9FF9EDB0CEFA0AE /* Pods-Stock Checker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock Checker.debug.xcconfig"; path = "Target Support Files/Pods-Stock Checker/Pods-Stock Checker.debug.xcconfig"; sourceTree = "<group>"; };
+		D5F8E648261F62B3003FB092 /* LearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningView.swift; sourceTree = "<group>"; };
 		F56F843DC91EA31362AD96DC /* Pods_Stock_CheckerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stock_CheckerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -92,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7FFE30025FD2F46006BAB24 /* BuildFile in Frameworks */,
+				A7FFE30025FD2F46006BAB24 /* iLineChart in Frameworks */,
 				D2C8009F552215CE1D01F33C /* Pods_Stock_Checker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +226,7 @@
 				A71FEC7D25ED137A00C7A4B8 /* StockTitleView.swift */,
 				A71FEC8225ED16AC00C7A4B8 /* StockTextView.swift */,
 				A7815AE525FBAD5900527BF4 /* SignInWithAppleButton.swift */,
+				D5F8E648261F62B3003FB092 /* LearningView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -263,7 +266,7 @@
 			);
 			name = "Stock Checker";
 			packageProductDependencies = (
-				A7FFE2FF25FD2F46006BAB24 /* SwiftPackageProductDependency */,
+				A7FFE2FF25FD2F46006BAB24 /* iLineChart */,
 			);
 			productName = "Stock Checker";
 			productReference = A72096DE25E2B89500277617 /* Stock Checker.app */;
@@ -340,8 +343,8 @@
 			);
 			mainGroup = A72096D525E2B89500277617;
 			packageReferences = (
-				A71FEC6F25ED119B00C7A4B8 /* RemoteSwiftPackageReference */,
-				A7FFE2FE25FD2F46006BAB24 /* RemoteSwiftPackageReference */,
+				A71FEC6F25ED119B00C7A4B8 /* XCRemoteSwiftPackageReference "ChartView" */,
+				A7FFE2FE25FD2F46006BAB24 /* XCRemoteSwiftPackageReference "iLineChart" */,
 			);
 			productRefGroup = A72096DF25E2B89500277617 /* Products */;
 			projectDirPath = "";
@@ -503,6 +506,7 @@
 				A764D33A25ECF4B8006D7ECF /* ExploreView.swift in Sources */,
 				A7815AE625FBAD5900527BF4 /* SignInWithAppleButton.swift in Sources */,
 				A72096E225E2B89500277617 /* Stock_CheckerApp.swift in Sources */,
+				D5F8E649261F62B3003FB092 /* LearningView.swift in Sources */,
 				A75C06EF25FD41FE006A3633 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -664,7 +668,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Stock Checker/Stock Checker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Stock Checker/Preview Content\"";
-				DEVELOPMENT_TEAM = TR5Z37W278;
+				DEVELOPMENT_TEAM = 9F4D8754ZW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Stock Checker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -688,7 +692,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Stock Checker/Stock Checker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Stock Checker/Preview Content\"";
-				DEVELOPMENT_TEAM = TR5Z37W278;
+				DEVELOPMENT_TEAM = 9F4D8754ZW;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Stock Checker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -833,7 +837,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A71FEC6F25ED119B00C7A4B8 /* RemoteSwiftPackageReference */ = {
+		A71FEC6F25ED119B00C7A4B8 /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
 			requirement = {
@@ -841,7 +845,7 @@
 				minimumVersion = 1.5.4;
 			};
 		};
-		A7FFE2FE25FD2F46006BAB24 /* RemoteSwiftPackageReference */ = {
+		A7FFE2FE25FD2F46006BAB24 /* XCRemoteSwiftPackageReference "iLineChart" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AlexFine/iLineChart.git";
 			requirement = {
@@ -852,9 +856,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A7FFE2FF25FD2F46006BAB24 /* SwiftPackageProductDependency */ = {
+		A7FFE2FF25FD2F46006BAB24 /* iLineChart */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A7FFE2FE25FD2F46006BAB24 /* RemoteSwiftPackageReference */;
+			package = A7FFE2FE25FD2F46006BAB24 /* XCRemoteSwiftPackageReference "iLineChart" */;
 			productName = iLineChart;
 		};
 /* End XCSwiftPackageProductDependency section */
