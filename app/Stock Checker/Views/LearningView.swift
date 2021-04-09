@@ -8,14 +8,52 @@
 import SwiftUI
 
 struct LearningView2: View {
-    @State private var downloadAmount = 10.0
+    @State private var downloadAmount = 20.0
     var body: some View {
         NavigationView {
-            VStack {
+            VStack(spacing: 30) {
+                HStack(){
+                    ProgressView("Downloading…", value: downloadAmount, total: 100)
+                        .font(.system(size: 13))
+                        .progressViewStyle(CirclerPercentageProgressViewStyle())
+                        .frame(width: 100, height: 100, alignment: .center)
+                        .padding()
+                    Button(action: {
+                        withAnimation {
+                            if downloadAmount < 100 {
+                                downloadAmount += 10
+                            }
+                        }
+                    },
+                    label: {
+                        Text("+10%")
+                            .font(.system(size: 10))
+                    })
+                }
+                HStack(spacing: 10){
+                    ProgressView("Downloading…", value: downloadAmount, total: 100)
+                        .font(.system(size: 13))
+                        .progressViewStyle(CirclerPercentageProgressViewStyle())
+                        .frame(width: 100, height: 100, alignment: .center)
+                        .padding()
+                    Button(action: {
+                        withAnimation {
+                            if downloadAmount < 100 {
+                                downloadAmount += 10
+                            }
+                        }
+                    },
+                    label: {
+                        Text("+10%")
+                            .font(.system(size: 10))
+                    })
+                
+                
                 ProgressView("Downloading…", value: downloadAmount, total: 100)
+                    .font(.system(size: 13))
                     .progressViewStyle(CirclerPercentageProgressViewStyle())
-                    .frame(width: 120, height: 120, alignment: .center)
-                .padding()
+                    .frame(width: 100, height: 100, alignment: .center)
+                    .padding()
                 Button(action: {
                     withAnimation {
                         if downloadAmount < 100 {
@@ -24,9 +62,48 @@ struct LearningView2: View {
                     }
                 }, label: {
                     Text("+10%")
+                        .font(.system(size: 10))
                 })
-            }
-            .navigationBarTitle("Learning View", displayMode: .inline)
+                }
+                
+                HStack(spacing: 10){
+                    ProgressView("Downloading…", value: downloadAmount, total: 100)
+                        .font(.system(size: 13))
+                        .progressViewStyle(CirclerPercentageProgressViewStyle())
+                        .frame(width: 100, height: 100, alignment: .center)
+                        .padding()
+                    Button(action: {
+                        withAnimation {
+                            if downloadAmount < 100 {
+                                downloadAmount += 10
+                            }
+                        }
+                    },
+                    label: {
+                        Text("+10%")
+                            .font(.system(size: 10))
+                    })
+                
+                
+                ProgressView("Downloading…", value: downloadAmount, total: 100)
+                    .font(.system(size: 13))
+                    .progressViewStyle(CirclerPercentageProgressViewStyle())
+                    .frame(width: 100, height: 100, alignment: .center)
+                    .padding()
+                Button(action: {
+                    withAnimation {
+                        if downloadAmount < 100 {
+                            downloadAmount += 10
+                        }
+                    }
+                }, label: {
+                    Text("+10%")
+                        .font(.system(size: 10))
+                })
+                }
+
+                
+            }.navigationBarTitle("Learning View", displayMode: .inline)
         }
     }
 }
