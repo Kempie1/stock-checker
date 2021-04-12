@@ -13,6 +13,7 @@ struct LearningView: View {
     @State private var medium = 20.0
     @State private var advanced = 10.0
     @State public var showView = false
+
     
     var body: some View {
         NavigationView {
@@ -174,49 +175,125 @@ struct CirclerPercentageProgressViewStyle : ProgressViewStyle {
 
 
 struct LearningView2: View {
+    @State private var buttonColorTrue:Color = .black
+    @State private var buttonColorFalse:Color = .black
     
+    @State var timer: Timer? = nil
+    @State var timerIsPaused: Bool = true
+    @State var hours: Int = 0
+    @State var minutes: Int = 0
+    @State var seconds: Int = 0
     @State var buttonResult = ""
+    
     var quizBrain = QuizBrain()
+    @State var questionNumber = 0
     var body: some View {
         NavigationView{
             VStack{
-                Text(quizBrain.quiz[quizBrain.questionNumber].text)
+                
+                
+                Text(quizBrain.quiz[questionNumber].text)
                     .font(.system(size: 30))
+                
+                
                 Button(action: {
+                    startTimer()
                     buttonResult = "True"
-                    anwserButtonPressed(buttonResult: buttonResult)
+                    anwserButtonPressed(userinput: buttonResult)
+                    if buttonResult == quizBrain.quiz[questionNumber].answer{
+                        print("Correct")
+                        self.buttonColorTrue = .green
+                        if self.seconds == 2{
+                            self.buttonColorFalse = .black
+                            stopTimer()
+                        }
+                    }
+                    else{
+                        print("Wrong")
+                        self.buttonColorTrue = .red
+                        if self.seconds == 2{
+                            self.buttonColorFalse = .black
+                            stopTimer()
+                        }
+                    }
+                    questionNumber += 1
                 }){
                     Text("True").font(.system(size: 20))
                 }
                 .foregroundColor(.orange)
                 .padding(.all)
-                .background(Color.black)
+                .background(buttonColorTrue)
                 .cornerRadius(16)
                 
+                
+                
                 Button(action: {
+                    startTimer()
                     buttonResult = "False"
-                    anwserButtonPressed(buttonResult: buttonResult)
+                    anwserButtonPressed(userinput: buttonResult)
+                    if buttonResult == quizBrain.quiz[questionNumber].answer{
+                        print("Correct")
+                        self.buttonColorFalse = .green
+                        if self.seconds == 2{
+                            self.buttonColorFalse = .black
+                            stopTimer()
+                        }
+                    }
+                    else{
+                        print("Wrong")
+                        self.buttonColorFalse = .red
+                        if self.seconds == 2{
+                            self.buttonColorFalse = .black
+                            stopTimer()
+                        }
+                    }
+                    questionNumber += 1
                 }){
                     Text("False").font(.system(size: 20))
                 }
                 .foregroundColor(.orange)
                 .padding(.all)
-                .background(Color.black)
+                .background(buttonColorFalse)
                 .cornerRadius(16)
-                
+            }
+            
             }
         }
-    }
-}
+
+    func startTimer(){
+        timerIsPaused = false
+        // 1. Make a new timer
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ tempTimer in
+          // 2. Check time to add to H:M:S
+          if self.seconds == 59 {
+            self.seconds = 0
+            if self.minutes == 59 {
+              self.minutes = 0
+              self.hours = self.hours + 1
+            } else {
+              self.minutes = self.minutes + 1
+            }
+          } else {
+            self.seconds = self.seconds + 1
+          }
+            print(self.seconds)
+        }
+      }
+
+    func stopTimer(){
+       timerIsPaused = true
+       timer?.invalidate()
+       timer = nil
+     }
+
     
-func anwserButtonPressed(buttonResult: String)->Bool{
+func anwserButtonPressed(userinput: String)->Bool{
         var quizBrain = QuizBrain()
-        let usersAnwser = buttonResult
+        let usersAnwser = userinput
         let result = quizBrain.checkAnwser(usersAnwser)
-        quizBrain.nextQuestion()
         return result
     }
-
+}
 
 struct LearningView2_Previews: PreviewProvider {
     static var previews: some View {

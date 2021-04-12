@@ -52,16 +52,17 @@ struct QuizBrain {
     }
     
     
-    mutating func nextQuestion() {
-        if questionNumber < quiz.count {
-            questionNumber += 1
-            print(questionNumber)
-        }
-        if questionNumber == quiz.count {
-            questionNumber = 0
-            score = 0
-        }
-        print(questionNumber)
-    }
+//    mutating func nextQuestion() -> Int{
+//        var questionNumber = 0
+//        if questionNumber < quiz.count {
+//            questionNumber += 1
+//            print(questionNumber)
+//        }
+//        if questionNumber == quiz.count {
+//            questionNumber = 0
+//            score = 0
+//        }
+//        return questionNumber
+//    }
     
 }
