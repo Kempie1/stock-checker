@@ -7,15 +7,18 @@
 
 import SwiftUI
 
+//State is a state that is depending on state data so what state the app is in
+
 struct MainView: View {
-    var body: some View {
+
+    var body: some View {        
         TabView {
             ExploreView()
                 .tabItem {
                     Label("Explore", systemImage: "triangle.circle")
                 }
             
-            LearningView2()
+            LearningView()
                 .tabItem {
                     Label("Learn", systemImage: "book.circle")
                 }
