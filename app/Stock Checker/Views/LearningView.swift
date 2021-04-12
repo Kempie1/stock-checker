@@ -13,7 +13,9 @@ struct LearningView2: View {
     @State private var advanced = 10.0
     var body: some View {
         NavigationView {
+            ScrollView{
             VStack(spacing: 20) {
+                Spacer()
                 Text("Section 1").font(.system(size: 20))
                 HStack(){
                     ProgressView("Beginner", value: beginner, total: 100)
@@ -113,7 +115,7 @@ struct LearningView2: View {
                         })
                 }
 
-                
+                }
             }.navigationBarTitle("Learning View", displayMode: .inline)
         }
     }
