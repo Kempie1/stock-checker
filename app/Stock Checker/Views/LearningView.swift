@@ -13,7 +13,7 @@ struct LearningView2: View {
     @State private var advanced = 10.0
     var body: some View {
         NavigationView {
-            VStack(spacing: 30) {
+            VStack(spacing: 20) {
                 Text("Section 1").font(.system(size: 20))
                 HStack(){
                     ProgressView("Beginner", value: beginner, total: 100)
@@ -21,31 +21,27 @@ struct LearningView2: View {
                         .progressViewStyle(CirclerPercentageProgressViewStyle())
                         .frame(width: 100, height: 100, alignment: .center)
                         .padding()
-                    Button("", action: {
+                }
+            
+                Button(action: {
                         withAnimation {
                             if beginner < 100 {
                                 beginner += 10
                             }
                         }
+                    }, label: {
+                        Text("Start")
                     })
-                }
+                
+                
+                
+                Text("Section 2").font(.system(size: 20))
                 HStack(spacing: 10){
                     ProgressView("Medium", value: medium, total: 100)
                         .font(.system(size: 13))
                         .progressViewStyle(CirclerPercentageProgressViewStyle())
                         .frame(width: 100, height: 100, alignment: .center)
                         .padding()
-                    Button(action: {
-                        withAnimation {
-                            if medium < 100 {
-                                medium += 10
-                            }
-                        }
-                    },
-                    label: {
-                        Text("+10%")
-                            .font(.system(size: 10))
-                    })
                 
                 
                 ProgressView("Medium", value: medium, total: 100)
@@ -53,35 +49,38 @@ struct LearningView2: View {
                     .progressViewStyle(CirclerPercentageProgressViewStyle())
                     .frame(width: 100, height: 100, alignment: .center)
                     .padding()
-                Button(action: {
-                    withAnimation {
-                        if medium < 100 {
-                            medium += 10
-                        }
-                    }
-                }, label: {
-                    Text("+10%")
-                        .font(.system(size: 10))
-                })
                 }
                 
+                HStack(spacing: 110){
+                Button(action: {
+                        withAnimation {
+                            if medium < 100 {
+                                medium += 10
+                            }
+                        }
+                    }, label: {
+                        Text("Start")
+                    })
+                Button(action: {
+                        withAnimation {
+                            if medium < 100 {
+                                medium += 10
+                            }
+                        }
+                    }, label: {
+                        Text("Start")
+                    })
+                }
+                
+                
+                
+                Text("Section 3").font(.system(size: 20))
                 HStack(spacing: 10){
                     ProgressView("Advanced", value: advanced, total: 100)
                         .font(.system(size: 13))
                         .progressViewStyle(CirclerPercentageProgressViewStyle())
                         .frame(width: 100, height: 100, alignment: .center)
                         .padding()
-                    Button(action: {
-                        withAnimation {
-                            if advanced < 100 {
-                                advanced += 10
-                            }
-                        }
-                    },
-                    label: {
-                        Text("+10%")
-                            .font(.system(size: 10))
-                    })
                 
                 
                 ProgressView("Advanced", value: advanced, total: 100)
@@ -89,16 +88,29 @@ struct LearningView2: View {
                     .progressViewStyle(CirclerPercentageProgressViewStyle())
                     .frame(width: 100, height: 100, alignment: .center)
                     .padding()
-                Button(action: {
-                    withAnimation {
-                        if advanced < 100 {
-                            advanced += 10
-                        }
-                    }
-                }, label: {
-                    Text("+10%")
-                        .font(.system(size: 10))
-                })
+                    
+                }
+                
+                HStack(spacing: 120){
+                    Button(action: {
+                            withAnimation {
+                                if advanced < 100 {
+                                    advanced += 10
+                                }
+                            }
+                        }, label: {
+                            Text("Start")
+                        })
+                    
+                    Button(action: {
+                            withAnimation {
+                                if advanced < 100 {
+                                    advanced += 10
+                                }
+                            }
+                        }, label: {
+                            Text("Start")
+                        })
                 }
 
                 
