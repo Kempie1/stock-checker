@@ -8,13 +8,11 @@
 import SwiftUI
 
 
-
-
 struct LearningView: View {
     @State private var beginner = 50.0
     @State private var medium = 20.0
     @State private var advanced = 10.0
-    @State var showView = false
+    @State public var showView = false
     
     var body: some View {
         NavigationView {
@@ -134,7 +132,7 @@ struct LearningView: View {
 
 struct LearningView_Previews: PreviewProvider {
     static var previews: some View {
-        LearningView2()
+        LearningView()
     }
 }
 
@@ -176,17 +174,52 @@ struct CirclerPercentageProgressViewStyle : ProgressViewStyle {
 
 
 struct LearningView2: View {
+    
+    @State var buttonResult = ""
+    var quizBrain = QuizBrain()
     var body: some View {
         NavigationView{
             VStack{
-                Text("This is just another View")
+                Text(quizBrain.quiz[quizBrain.questionNumber].text)
+                    .font(.system(size: 30))
+                Button(action: {
+                    buttonResult = "True"
+                    anwserButtonPressed(buttonResult: buttonResult)
+                }){
+                    Text("True").font(.system(size: 20))
+                }
+                .foregroundColor(.orange)
+                .padding(.all)
+                .background(Color.black)
+                .cornerRadius(16)
+                
+                Button(action: {
+                    buttonResult = "False"
+                    anwserButtonPressed(buttonResult: buttonResult)
+                }){
+                    Text("False").font(.system(size: 20))
+                }
+                .foregroundColor(.orange)
+                .padding(.all)
+                .background(Color.black)
+                .cornerRadius(16)
+                
             }
         }
     }
 }
+    
+func anwserButtonPressed(buttonResult: String)->Bool{
+        var quizBrain = QuizBrain()
+        let usersAnwser = buttonResult
+        let result = quizBrain.checkAnwser(usersAnwser)
+        quizBrain.nextQuestion()
+        return result
+    }
+
 
 struct LearningView2_Previews: PreviewProvider {
     static var previews: some View {
-        LearningView()
+        LearningView2()
     }
 }
