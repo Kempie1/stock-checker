@@ -8,38 +8,37 @@
 import SwiftUI
 
 struct LearningView2: View {
-    @State private var downloadAmount = 20.0
+    @State private var beginner = 50.0
+    @State private var medium = 20.0
+    @State private var advanced = 10.0
     var body: some View {
         NavigationView {
             VStack(spacing: 30) {
+                Text("Section 1").font(.system(size: 20))
                 HStack(){
-                    ProgressView("Downloading…", value: downloadAmount, total: 100)
+                    ProgressView("Beginner", value: beginner, total: 100)
                         .font(.system(size: 13))
                         .progressViewStyle(CirclerPercentageProgressViewStyle())
                         .frame(width: 100, height: 100, alignment: .center)
                         .padding()
-                    Button(action: {
+                    Button("", action: {
                         withAnimation {
-                            if downloadAmount < 100 {
-                                downloadAmount += 10
+                            if beginner < 100 {
+                                beginner += 10
                             }
                         }
-                    },
-                    label: {
-                        Text("+10%")
-                            .font(.system(size: 10))
                     })
                 }
                 HStack(spacing: 10){
-                    ProgressView("Downloading…", value: downloadAmount, total: 100)
+                    ProgressView("Medium", value: medium, total: 100)
                         .font(.system(size: 13))
                         .progressViewStyle(CirclerPercentageProgressViewStyle())
                         .frame(width: 100, height: 100, alignment: .center)
                         .padding()
                     Button(action: {
                         withAnimation {
-                            if downloadAmount < 100 {
-                                downloadAmount += 10
+                            if medium < 100 {
+                                medium += 10
                             }
                         }
                     },
@@ -49,15 +48,15 @@ struct LearningView2: View {
                     })
                 
                 
-                ProgressView("Downloading…", value: downloadAmount, total: 100)
+                ProgressView("Medium", value: medium, total: 100)
                     .font(.system(size: 13))
                     .progressViewStyle(CirclerPercentageProgressViewStyle())
                     .frame(width: 100, height: 100, alignment: .center)
                     .padding()
                 Button(action: {
                     withAnimation {
-                        if downloadAmount < 100 {
-                            downloadAmount += 10
+                        if medium < 100 {
+                            medium += 10
                         }
                     }
                 }, label: {
@@ -67,15 +66,15 @@ struct LearningView2: View {
                 }
                 
                 HStack(spacing: 10){
-                    ProgressView("Downloading…", value: downloadAmount, total: 100)
+                    ProgressView("Advanced", value: advanced, total: 100)
                         .font(.system(size: 13))
                         .progressViewStyle(CirclerPercentageProgressViewStyle())
                         .frame(width: 100, height: 100, alignment: .center)
                         .padding()
                     Button(action: {
                         withAnimation {
-                            if downloadAmount < 100 {
-                                downloadAmount += 10
+                            if advanced < 100 {
+                                advanced += 10
                             }
                         }
                     },
@@ -85,15 +84,15 @@ struct LearningView2: View {
                     })
                 
                 
-                ProgressView("Downloading…", value: downloadAmount, total: 100)
+                ProgressView("Advanced", value: advanced, total: 100)
                     .font(.system(size: 13))
                     .progressViewStyle(CirclerPercentageProgressViewStyle())
                     .frame(width: 100, height: 100, alignment: .center)
                     .padding()
                 Button(action: {
                     withAnimation {
-                        if downloadAmount < 100 {
-                            downloadAmount += 10
+                        if advanced < 100 {
+                            advanced += 10
                         }
                     }
                 }, label: {
