@@ -43,6 +43,7 @@ class Json_to_server():
             self.already_exists_in_DB = False
 
     def connecting_to_server(self):
+        
         def validate_api(l):
             cursor=self.data
             for x in range(len(l)):
