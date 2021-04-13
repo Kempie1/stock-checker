@@ -33,7 +33,6 @@
 		D5F8E649261F62B3003FB092 /* LearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E648261F62B3003FB092 /* LearningView.swift */; };
 		D5F8E6562624A742003FB092 /* LearningBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E6552624A742003FB092 /* LearningBrain.swift */; };
 		D5F8E65B2624A763003FB092 /* LearningStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E65A2624A763003FB092 /* LearningStructure.swift */; };
-		D5F8E66026259AF1003FB092 /* StopWatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E65F26259AF1003FB092 /* StopWatchManager.swift */; };
 		D5F8E6652625E226003FB092 /* LearningViewQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E6642625E226003FB092 /* LearningViewQuiz.swift */; };
 		E7681E29B78CCA90C8608B9F /* Pods_Stock_CheckerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56F843DC91EA31362AD96DC /* Pods_Stock_CheckerTests.framework */; };
 /* End PBXBuildFile section */
@@ -92,7 +91,6 @@
 		D5F8E648261F62B3003FB092 /* LearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningView.swift; sourceTree = "<group>"; };
 		D5F8E6552624A742003FB092 /* LearningBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningBrain.swift; sourceTree = "<group>"; };
 		D5F8E65A2624A763003FB092 /* LearningStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningStructure.swift; sourceTree = "<group>"; };
-		D5F8E65F26259AF1003FB092 /* StopWatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchManager.swift; sourceTree = "<group>"; };
 		D5F8E6642625E226003FB092 /* LearningViewQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewQuiz.swift; sourceTree = "<group>"; };
 		F56F843DC91EA31362AD96DC /* Pods_Stock_CheckerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stock_CheckerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -254,7 +252,6 @@
 				A7FFE2DD25FD1AC9006BAB24 /* Stock.swift */,
 				D5F8E6552624A742003FB092 /* LearningBrain.swift */,
 				D5F8E65A2624A763003FB092 /* LearningStructure.swift */,
-				D5F8E65F26259AF1003FB092 /* StopWatchManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -522,7 +519,6 @@
 				A72096E225E2B89500277617 /* Stock_CheckerApp.swift in Sources */,
 				D5F8E6562624A742003FB092 /* LearningBrain.swift in Sources */,
 				D5F8E649261F62B3003FB092 /* LearningView.swift in Sources */,
-				D5F8E66026259AF1003FB092 /* StopWatchManager.swift in Sources */,
 				A75C06EF25FD41FE006A3633 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
