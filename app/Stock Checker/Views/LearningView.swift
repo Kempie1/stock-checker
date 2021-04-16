@@ -9,12 +9,21 @@ import SwiftUI
 
 
 struct LearningView: View {
-    @State private var beginner = 50.0
-    @State private var mediumRight = 40.0
-    @State private var mediumLeft = 20.0
-    @State private var advancedRight = 10.0
-    @State private var advancedLeft = 20.0
+    var quizBrain = QuizBrain()
+    
+    @State public var beginner = 50.0
+    @State public var mediumRight = 40.0
+    @State public var mediumLeft = 20.0
+    @State public var advancedRight = 10.0
+    @State public var advancedLeft = 20.0
     @State public var showView = false
+    @State public var beginnerPressed = false
+    @State public var mediumRightPressed = false
+    @State public var mediumLeftPressed = false
+    @State public var advancedRightPressed = false
+    @State public var advancedLeftPressed = false
+    
+    @State var currentQuiz = ""
     
     let buttonText = "Start"
     
@@ -31,6 +40,8 @@ struct LearningView: View {
                     }
                     Button(action: {
                             beginner = startButton(level: beginner)
+                            levelDecision()
+                            beginnerPressed = true
                             DispatchQueue.main.asyncAfter(deadline: .now()) {self.showView = true}
                     }, label: {
                         Text(buttonText)
@@ -50,12 +61,14 @@ struct LearningView: View {
                     HStack(spacing: 110){
                         Button(action: {
                                 mediumRight = startButton(level: mediumRight)
+                                mediumRightPressed = true
                                 DispatchQueue.main.asyncAfter(deadline: .now()) {self.showView = true}
                         }, label: {
                             Text(buttonText)
                         })
                         Button(action: {
                                 mediumLeft = startButton(level: mediumLeft)
+                                mediumLeftPressed = true
                                 DispatchQueue.main.asyncAfter(deadline: .now()) {self.showView = true}
                         }, label: {
                             Text(buttonText)
@@ -77,6 +90,7 @@ struct LearningView: View {
                     {
                         Button(action: {
                             advancedRight = startButton(level: advancedRight)
+                            advancedRightPressed = true
                             DispatchQueue.main.asyncAfter(deadline: .now()) {self.showView = true}
                         }, label: {
                             Text(buttonText)
@@ -84,6 +98,7 @@ struct LearningView: View {
                         
                         Button(action: {
                             advancedLeft = startButton(level: advancedLeft)
+                            advancedLeftPressed = true
                             DispatchQueue.main.asyncAfter(deadline: .now()) {self.showView = true}
                         }, label: {
                             Text(buttonText)
@@ -102,7 +117,33 @@ struct LearningView: View {
         }
         return level
     }
+    
+    
+    func levelDecision()-> String{
+        if beginnerPressed == true{
+            currentQuiz = quizBrain.quiz[quizBrain.questionNumber].text
+            return currentQuiz
+        }
+        if mediumRightPressed == true{
+            currentQuiz = quizBrain.quiz[quizBrain.questionNumber].text
+            return currentQuiz
+        }
+        if mediumLeftPressed == true{
+            currentQuiz = quizBrain.quiz[quizBrain.questionNumber].text
+            return currentQuiz
+        }
+        if advancedRightPressed == true{
+            currentQuiz = quizBrain.quiz[quizBrain.questionNumber].text
+            return currentQuiz
+        }
+        if advancedLeftPressed == true{
+            currentQuiz = quizBrain.quiz[quizBrain.questionNumber].text
+            return currentQuiz
+        }
+        return ""
+    }
 }
+
 
 struct LearningView_Previews: PreviewProvider {
     static var previews: some View {
