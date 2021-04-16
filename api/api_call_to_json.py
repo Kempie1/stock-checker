@@ -3,8 +3,7 @@ import json
 import psycopg2
 import psycopg2.extras
 import json
-import os
-
+from decouple import config
 
 class Api_call():
 
@@ -16,10 +15,10 @@ class Api_call():
         return self.ticker_symbol
 
     def connecting_to_server(self):
-        DB_HOST = os.environ['DB_HOST']
-        DB_NAME = os.environ['DB_NAME']
-        DB_USER = os.environ['DB_USER']
-        DB_PASS = os.environ['DB_PASS']
+        DB_HOST = config('DB_HOST')
+        DB_NAME = config('DB_NAME')
+        DB_USER = config('DB_USER')
+        DB_PASS = config('DB_PASS')
         
         conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
         
@@ -47,8 +46,8 @@ class Api_call():
             url = f"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/{request}"   
             querystring = {"symbol": self.user_input_copy,"region":"US"}
             headers = {
-            'x-rapidapi-key': os.environ['APIKEY'],
-            'x-rapidapi-host': os.environ['APIHOST']
+            'x-rapidapi-key': config('APIKEY'),
+            'x-rapidapi-host': config('APIHOST')
             }
             response = requests.request("GET", url, headers=headers, params=querystring)
             return response.text

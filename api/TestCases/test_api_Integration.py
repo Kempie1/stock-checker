@@ -9,15 +9,14 @@ import os
 import sys
 sys.path.insert(1, '/Users/maximilianhues/Documents/CODE/stock-checker/api')
 from services import get_todos, get_uncompleted_todos
+from constants import ticker_symbol_for_testing
 
 class test_Api(unittest.TestCase):
 
-    def test_api_request(self, inputValue = "TSLA"):
-        self.input = inputValue
+    def test_api_request(self):
+        self.input = ticker_symbol_for_testing
         try:
             response = get_todos()
-            print(response)
-            print(response.status_code)
             assert response.status_code == 200
         except requests.exceptions.HTTPError as err:
             print(err)
@@ -26,12 +25,14 @@ class test_Api(unittest.TestCase):
         json_response = json.loads(response.text)
         #This is checking if in the response the 'symbol' string is existing
         ticker_symbol_from_API = jsonpath.jsonpath(json_response, 'symbol')
+        self.input = "['" + self.input + "']"
+        ticker_symbol_from_API = f"{ticker_symbol_from_API}"
         print(ticker_symbol_from_API)
         print(self.input)
-        assert ticker_symbol_from_API == self.input 
+        self.assertEqual(ticker_symbol_from_API, self.input, "Some message")
     
-    def test_json(self, inputValue = "TSLA"):
-        self.input = inputValue
+    def test_json(self):
+        self.input = ticker_symbol_for_testing
         #Json file check Video 4
         with open('stock.json') as json_file:
             try:
@@ -39,15 +40,14 @@ class test_Api(unittest.TestCase):
             except ValueError and AttributeError:
                 print('Decoding JSON has failed')
 
-            ticker_symbol_json = jsonpath.jsonpath(request_json, 'symbol')
+            ticker_symbol_json = request_json['get-statistics']['symbol']
             print(ticker_symbol_json)
             print(self.input)
             assert ticker_symbol_json == self.input 
                 
-
-#Api_test = test_Api()
-#Api_test.test_api_request()
-#Api_test.test_json()
+Api_test = test_Api()
+Api_test.test_api_request()
+Api_test.test_json()
 
 # TOP Playlist on youtube for Api tests https://www.youtube.com/watch?v=OdFW3RwAz8w&list=PLIMhDiITmNrILoYaVsrxwteH6LqMr07uX&index=5&ab_channel=TestingWorld
 # If in the terminal I type pytest TestCases so the module and the folder name then  
