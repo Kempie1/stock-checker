@@ -7,8 +7,6 @@ const [error, setError] = useState("")
 const { currentUser, logout } = useAuth()
 console.log(currentUser)
 
-// if (currentUser==null)
-//     Router.browserHistory.push('/login');
 
 
 const history = useHistory()

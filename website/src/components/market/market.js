@@ -1,6 +1,6 @@
 import React, {  useState  } from 'react';
 import {  useAuth  } from "../../providers/AuthProvider"
-import { BrowserRouter as Router, useHistory } from "react-router-dom"
+import { BrowserRouter as Router, Link, useHistory } from "react-router-dom"
 
 
 const Market = (props) => {
@@ -12,8 +12,10 @@ const { currentUser} = useAuth()
 
 return (
     <div>
+    <Link to="/stock/AAPL">
+      Apple
+    </Link>
     
-    <h1>APPLE</h1>
     </div>
     
   );
