@@ -5,14 +5,19 @@ import psycopg2.extras
 import json
 from decouple import config
 
+
 class Api_call():
 
-    def user_input(self):
-        user_input = input("What stock would you like to see ")
-        self.user_input_copy = user_input
-        string_conversion = "['" + user_input + "']"
-        self.ticker_symbol = string_conversion
-        return self.ticker_symbol
+    #def user_input(self):
+    #    user_input = input("What stock would you like to see ")
+    #    self.user_input_copy = user_input
+    #    string_conversion = "['" + user_input + "']"
+    #    self.ticker_symbol = string_conversion
+    #    return self.ticker_symbol
+    def string_formating(self,ticker):
+        self.ticker=ticker
+        self.ticker_symbol = "['" + ticker + "']"
+
 
     def connecting_to_server(self):
         DB_HOST = config('DB_HOST')
@@ -44,7 +49,7 @@ class Api_call():
     def api_request(self, request):
         if self.already_exist == False:
             url = f"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/{request}"   
-            querystring = {"symbol": self.user_input_copy,"region":"US"}
+            querystring = {"symbol": self.ticker,"region":"US"}
             headers = {
             'x-rapidapi-key': config('APIKEY'),
             'x-rapidapi-host': config('APIHOST')
