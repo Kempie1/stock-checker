@@ -32,7 +32,7 @@ class Json_to_server():
         for i in range(len(self.ticker_table)):
             if self.ticker_symbol != str(self.ticker_table[i]):
                 self.already_exists_in_DB = False
-
+        #duplicated code
         for i in range(len(self.ticker_table)):
             if self.ticker_symbol == str(self.ticker_table[i]):
                 print("This Ticker is already existing in the Database")
@@ -72,7 +72,7 @@ class Json_to_server():
                 with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
                     cur.execute("SELECT stock.ticker_symbol FROM stock")
                     self.ticker_table = cur.fetchall()
-
+    #Data clups
                     cur.execute('''
                 INSERT INTO stock (
                     ticker_symbol,
