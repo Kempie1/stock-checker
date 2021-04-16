@@ -10,13 +10,14 @@ from TestCases.test_api_json import test_Api
 
 from services import get_todos, get_uncompleted_todos
 
+
 class Execute:
     def __init__(self):
         self.Api = Api_call()
         self.Server = Json_to_server()
         self.Api_test = test_Api()
 
-    def execute_api(self):
+    def execute_api(self,ticker):
         self.Api.user_input()
         self.Api.connecting_to_server()
         self.Api.checking_if_ticker_exists()

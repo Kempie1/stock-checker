@@ -5,6 +5,7 @@ import psycopg2.extras
 import json
 from decouple import config
 
+
 class Api_call():
 
     def user_input(self):
@@ -13,6 +14,7 @@ class Api_call():
         string_conversion = "['" + user_input + "']"
         self.ticker_symbol = string_conversion
         return self.ticker_symbol
+
 
     def connecting_to_server(self):
         DB_HOST = config('DB_HOST')
