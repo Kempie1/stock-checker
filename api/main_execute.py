@@ -10,8 +10,6 @@ from TestCases.test_api_json import test_Api
 
 from services import get_todos, get_uncompleted_todos
 
-from SandPcompanies import SandPcompanies
-
 
 class Execute:
     def __init__(self):
@@ -20,7 +18,7 @@ class Execute:
         self.Api_test = test_Api()
 
     def execute_api(self,ticker):
-        #self.Api.user_input()
+        self.Api.user_input()
         self.Api.connecting_to_server()
         self.Api.checking_if_ticker_exists()
         self.Api.api_request_to_json(["get-statistics", "get-financials"])
@@ -37,8 +35,7 @@ class Execute:
         
 
 main = Execute()
-for t in SandPcompanies.getCompanies:
-    main.execute_api(t)
-    main.execute_tests()
-    main.execute_server()
+main.execute_api()
+main.execute_tests()
+main.execute_server()
 
