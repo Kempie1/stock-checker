@@ -4,6 +4,7 @@ import json
 import requests
 from json.decoder import JSONDecodeError
 import os
+from decouple import config
 
 class Json_to_server():
     def open_json_file(self):
@@ -14,10 +15,10 @@ class Json_to_server():
                 print('Decoding JSON has failed')
     
     def checking_if_ticker_exists(self):
-        self.DB_HOST = os.environ['DB_HOST']
-        self.DB_NAME = os.environ['DB_NAME']
-        self.DB_USER = os.environ['DB_USER']
-        self.DB_PASS = os.environ['DB_PASS']
+        self.DB_HOST = config('DB_HOST')
+        self.DB_NAME = config('DB_NAME')
+        self.DB_USER = config('DB_USER')
+        self.DB_PASS = config('DB_PASS')
 
         conn = psycopg2.connect(dbname = self.DB_NAME, user=self.DB_USER, password=self.DB_PASS, host=self.DB_HOST)
 
@@ -53,18 +54,18 @@ class Json_to_server():
                         if 'raw' in cursor:
                             return cursor.get('raw')
                         if not cursor:
-                            return "n/a"
+                            return None
                         if isinstance(cursor, list):
                             if 'raw' in cursor[0]:
                                 return cursor[0].get('raw')
                         return cursor
                     else:
-                        return "n/a"
+                        return None
                 else:
                     if l[x] in cursor:
                         cursor=cursor.get(l[x])
                     else:
-                        return "n/a"
+                        return None
 
         conn = psycopg2.connect(dbname = self.DB_NAME, user=self.DB_USER, password=self.DB_PASS, host=self.DB_HOST)
         if self.already_exists_in_DB == False:
