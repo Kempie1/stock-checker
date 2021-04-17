@@ -9,6 +9,8 @@ import Foundation
 
 
 struct QuizBrain {
+    
+    
     let quiz = [
         Questions(q: "A slug's blood is green.", a: "True"),
         Questions(q: "Approximately one quarter of human bones are in the feet.", a: "True"),
@@ -39,40 +41,7 @@ struct QuizBrain {
         Defintions(d: "Chocolate affects a dog's heart and nervous system; a few ounces are enough to kill a small dog.")
     ]
     
-    var score = 0
-    var questionNumber = 0
-    
-    mutating func checkAnwser(_ userAnswer: String) ->Bool {
-        if userAnswer == quiz[questionNumber].answer{
-            score += 1
-            return true
-        }else{
-            return false
-        }
-    }
-    
-    func getQuestionText() ->String {
-        return quiz[questionNumber].text
-    }
-    
-    func getProgress() -> Float {
-        let progress = Float(questionNumber + 1) / Float(quiz.count)
-        return progress
-    }
-    
-    mutating func nextQuestion() {
-        if questionNumber < quiz.count {
-            questionNumber += 1
-        }
-        if questionNumber == quiz.count {
-            questionNumber = 0
-            score = 0
-        }
-    }
-    
-    func getScore() -> Int {
-        return score
-    }
+
     
     
 }

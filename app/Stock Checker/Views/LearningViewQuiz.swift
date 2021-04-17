@@ -7,10 +7,9 @@
 
 import SwiftUI
 
-struct LearningView2: View {
+struct LearningViewQuiz: View {
     
     var quizBrain = QuizBrain()
-    var learningView = LearningView()
     
     @State private var buttonColorTrue:Color = Color.black
     @State private var buttonColorFalse:Color = Color.black
@@ -23,36 +22,42 @@ struct LearningView2: View {
     @State var score = 0
     @State public var questionNumber = 0
     
-    @State var level = ""
+    @State var showPreviewsView = false
     
-    let variable = LearningView()
+    @State var backButton = false
+    @State private var showPopUp: Bool = false
+
     
     var body: some View {
-        
+        NavigationLink(destination: PopUpMessage(), isActive: $showPreviewsView) {}
         NavigationView{
             VStack{
                 Text("Question Number \(questionNumber)")
-                    .onAppear {
-                    level = self.variable.levelDecision()
-                    print(level)
-                }
+//
                 Text("Score \(score)")
                 
-                Text(level)
+                Text(quizBrain.quiz[questionNumber].text)
                     .font(.system(size: 30))
                     
                 
                 Button(action: {
                     buttonResultTrue = "True"
-                    nextQuestion()
+                    if questionNumber == quizBrain.quiz.count {
+                        backButton=true
+                        DispatchQueue.main.asyncAfter(deadline: .now()) {self.showPreviewsView = true}
+                        
+                    }
                     checkAnwser(input: buttonResultTrue)
+                    nextQuestion()
+                    
                     buttonColorTrue = changeButtonColor(buttonColor: buttonColorTrue)!
-                    print(changeButtonColor(buttonColor: buttonColorFalse))
-                    print(buttonColorTrue)
+        
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
                         buttonColorTrue = .black
                     })
-
+                    
+                    
+                    
                 }){
                     Text("True").font(.system(size: 20))
                 }
@@ -61,14 +66,23 @@ struct LearningView2: View {
                 
                 Button(action: {
                     buttonResultFalse = "False"
-                    nextQuestion()
+                    if questionNumber == quizBrain.quiz.count {
+                        backButton=true
+                        DispatchQueue.main.asyncAfter(deadline: .now()) {self.showPreviewsView = true}
+                        
+                    }
                     checkAnwser(input: buttonResultFalse)
+                    nextQuestion()
+                    
                     buttonColorFalse = changeButtonColor(buttonColor: buttonColorFalse)!
-                    print(changeButtonColor(buttonColor: buttonColorFalse))
+               
+                    
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
                         buttonColorFalse = .black
                     })
-
+                    
+                    
+                   
                 }){
                     Text("False").font(.system(size: 20))
                 }
@@ -79,25 +93,29 @@ struct LearningView2: View {
         
     }
     
+    
     func nextQuestion(){
         if questionNumber < quizBrain.quiz.count {
             questionNumber += 1
         }
         if questionNumber == quizBrain.quiz.count {
+            self.showPreviewsView = true
             questionNumber = 0
             score = 0
         }
     }
     
-    func checkAnwser(input: String){
+    func checkAnwser(input: String)->Bool{
         if input == quizBrain.quiz[questionNumber].answer{
             print("Correct")
             userIsRight = true
             score += 1
+            return true
         }
         else{
             print("Wrong")
             userIsRight = false
+            return false
         }
     }
     
@@ -105,25 +123,20 @@ struct LearningView2: View {
         var buttonColor = buttonColor
         if userIsRight == false{
             buttonColor = Color.green
-            
         }
         
         if userIsRight == true{
             buttonColor = Color.red
         }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
-            buttonColor = Color.black
-        })
         return buttonColor
     }
     
 
 }
 
-struct LearningView2_Previews: PreviewProvider {
+struct LearningViewQuiz_Previews: PreviewProvider {
     static var previews: some View {
-        LearningView2()
+        LearningViewQuiz()
     }
 }
 
@@ -151,3 +164,4 @@ struct AppButtonStyle: ButtonStyle {
             .cornerRadius(16)
     }
 }
+
