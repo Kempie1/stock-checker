@@ -10,7 +10,7 @@ import XCTest
 class Stock_CheckerUITests: XCTestCase {
     
     private var app: XCUIApplication!
-
+    
     override func setUp(){
         super.setUp()
         self.app = XCUIApplication()
