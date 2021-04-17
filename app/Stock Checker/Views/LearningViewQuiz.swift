@@ -21,72 +21,94 @@ struct LearningViewQuiz: View {
     
     @State var score = 0
     @State public var questionNumber = 0
-    
-    @State var showPreviewsView = false
-    
-    @State var backButton = false
-    @State private var showPopUp: Bool = false
-
+  
+    @State private var showPopUp = false
     
     var body: some View {
-        NavigationLink(destination: PopUpMessage(), isActive: $showPreviewsView) {}
         NavigationView{
-            VStack{
-                Text("Question Number \(questionNumber)")
-//
-                Text("Score \(score)")
-                
-                Text(quizBrain.quiz[questionNumber].text)
-                    .font(.system(size: 30))
+            ZStack{
+                VStack{
                     
-                
-                Button(action: {
-                    buttonResultTrue = "True"
-                    if questionNumber == quizBrain.quiz.count {
-                        backButton=true
-                        DispatchQueue.main.asyncAfter(deadline: .now()) {self.showPreviewsView = true}
+                    Text("Question Number \(questionNumber)")
+                    //
+                    Text("Score \(score)")
+                    
+                    Text(quizBrain.quiz[questionNumber].text)
+                        .font(.system(size: 30))
+                    
+                    
+                    Button(action: {
+                        buttonResultTrue = "True"
+                        if questionNumber == quizBrain.quiz.count {
+                            self.showPopUp = true
+                        }
+                        checkAnwser(input: buttonResultTrue)
+                        nextQuestion()
                         
-                    }
-                    checkAnwser(input: buttonResultTrue)
-                    nextQuestion()
-                    
-                    buttonColorTrue = changeButtonColor(buttonColor: buttonColorTrue)!
-        
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                        buttonColorTrue = .black
-                    })
-                    
-                    
-                    
-                }){
-                    Text("True").font(.system(size: 20))
-                }
-                .buttonStyle(AppButtonStyle(q: buttonColorTrue))
-                
-                
-                Button(action: {
-                    buttonResultFalse = "False"
-                    if questionNumber == quizBrain.quiz.count {
-                        backButton=true
-                        DispatchQueue.main.asyncAfter(deadline: .now()) {self.showPreviewsView = true}
+                        buttonColorTrue = changeButtonColor(buttonColor: buttonColorTrue)!
                         
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                            buttonColorTrue = .black
+                        })
+                        
+                        
+                        
+                    }){
+                        Text("True").font(.system(size: 20))
                     }
-                    checkAnwser(input: buttonResultFalse)
-                    nextQuestion()
-                    
-                    buttonColorFalse = changeButtonColor(buttonColor: buttonColorFalse)!
-               
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                        buttonColorFalse = .black
-                    })
+                    .buttonStyle(AppButtonStyle(q: buttonColorTrue))
                     
                     
-                   
-                }){
-                    Text("False").font(.system(size: 20))
+                    Button(action: {
+                        buttonResultFalse = "False"
+                        if questionNumber == quizBrain.quiz.count {
+                            self.showPopUp = true
+                        }
+                        checkAnwser(input: buttonResultFalse)
+                        nextQuestion()
+                        
+                        buttonColorFalse = changeButtonColor(buttonColor: buttonColorFalse)!
+                        
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                            buttonColorFalse = .black
+                        })
+                        
+                        print(getScore())
+                        
+                    }){
+                        Text("False").font(.system(size: 20))
+                    }
+                    .buttonStyle(AppButtonStyle(q: buttonColorFalse))
+                    
+                    
+                    
+                    
                 }
-                .buttonStyle(AppButtonStyle(q: buttonColorFalse))
+                
+                if self.showPopUp == true{
+                    ZStack (alignment: .center){
+                        Color.white
+                        VStack(alignment: .center, spacing: 30) {
+                            Text("Congratulations ").foregroundColor(Color.black)
+                                .padding(.horizontal, 100)
+                                .font(.system(size: 15, weight: .heavy, design: .default))
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text("Score: \(score)").foregroundColor(Color.black)
+                                Text("Level:").foregroundColor(Color.black)
+                                Text("You can go back now!").foregroundColor(Color.black)
+                                Text("Start with the next level!").foregroundColor(Color.black)
+                            }
+//                            Button(action: {
+//                                self.showPopUp = false
+//                            }, label: {
+//                                Text("Close")
+//                            })
+                        }.padding()
+                    }
+                    .frame(width: 360, height: 250)
+                    .cornerRadius(20).shadow(radius: 20)
+                }
             }
             
         }
@@ -99,10 +121,14 @@ struct LearningViewQuiz: View {
             questionNumber += 1
         }
         if questionNumber == quizBrain.quiz.count {
-            self.showPreviewsView = true
+            self.showPopUp = true
             questionNumber = 0
             score = 0
         }
+    }
+    
+    func getScore()->Int{
+        return score
     }
     
     func checkAnwser(input: String)->Bool{
@@ -131,7 +157,7 @@ struct LearningViewQuiz: View {
         return buttonColor
     }
     
-
+    
 }
 
 struct LearningViewQuiz_Previews: PreviewProvider {
