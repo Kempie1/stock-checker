@@ -10,7 +10,6 @@ import SwiftUI
 struct LearningViewQuiz: View {
     
     var quizBrain = QuizBrain()
-    var learningView = LearningView()
     
     @State private var buttonColorTrue:Color = Color.black
     @State private var buttonColorFalse:Color = Color.black
@@ -59,8 +58,6 @@ struct LearningViewQuiz: View {
                                 buttonColorTrue = .black
                             })
                             
-                            
-                            
                         }){
                             Text("True").font(.system(size: 20))
                         }
@@ -69,6 +66,7 @@ struct LearningViewQuiz: View {
                         
                         
                         Button(action: {
+                            var learningView = LearningView()
                             buttonResultFalse = "False"
                             if questionNumber == quizBrain.quiz.count {
                                 self.showPopUp = true
@@ -97,6 +95,8 @@ struct LearningViewQuiz: View {
                 }
                 
                 if self.showPopUp == true{
+                    var learningView = LearningView()
+                    
                     ZStack (alignment: .center){
                         Color.white
                         VStack(alignment: .center, spacing: 30) {
@@ -107,7 +107,7 @@ struct LearningViewQuiz: View {
                                 Text("Score: \(score)")
                                     .foregroundColor(Color.black)
                                     .font(.system(size: 20, design: .default))
-                                Text("Level: \(level)")
+                                Text("Level: ")
                                     .foregroundColor(Color.black)
                                     .font(.system(size: 20, design: .default))
                                 Text("You can go back now!")
@@ -133,6 +133,9 @@ struct LearningViewQuiz: View {
         
     }
     
+    func getQuestionNumber()->Int{
+        return questionNumber
+    }
     
     func nextQuestion(){
         if questionNumber < quizBrain.quiz.count {
