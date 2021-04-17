@@ -59,11 +59,18 @@ Follow the Instructions after that
 
 This is a Private Repository. No changes allowed.
 
-## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
 
 ## SQL Commands
 
 In the Database SQL foder is the SQL commands that were sued to create the Database. Those are just there as a reference. 
 
+## ER Model of Database
+
+This PNG file: ER Model of Database.png
+Contains the Model of the Database
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
