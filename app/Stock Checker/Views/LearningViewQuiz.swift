@@ -65,6 +65,7 @@ struct LearningViewQuiz: View {
                             Text("True").font(.system(size: 20))
                         }
                         .buttonStyle(AppButtonStyle(q: buttonColorTrue))
+                        .accessibility(identifier: "TrueButton")
                         
                         
                         Button(action: {
@@ -88,7 +89,7 @@ struct LearningViewQuiz: View {
                             Text("False").font(.system(size: 20))
                         }
                         .buttonStyle(AppButtonStyle(q: buttonColorFalse))
-                        
+                        .accessibility(identifier: "FalseButton")
                         
                         
                         
