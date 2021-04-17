@@ -59,8 +59,6 @@ Follow the Instructions after that
 
 This is a Private Repository. No changes allowed.
 
-
-
 ## SQL Commands
 
 In the Database SQL foder is the SQL commands that were sued to create the Database. Those are just there as a reference. 
