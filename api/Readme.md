@@ -50,7 +50,7 @@ Which will execute all the Tests in the TestCases folder
 Execute the this file:
 
 ```bash
-$ python main_execute.py
+$ python ORM\main_execute.py
 ```
 
 Follow the Instructions after that
@@ -68,6 +68,9 @@ In the Database SQL foder is the SQL commands that were sued to create the Datab
 This PNG file: ER Model of Database.png
 Contains the Model of the Database
 
+## Flask Server
+
+Under the Folder Flask Server there is a  README.md file which will expplain the flask server
 
 ## License
 
