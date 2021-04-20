@@ -7,11 +7,10 @@ from decouple import config
 
 class Api_call():
 
-    def user_input(self):
-        user_input = input("What stock would you like to see ")
+    def user_input(self, myinput):
+        user_input = myinput("What stock would you like to see ")
         self.user_input_copy = user_input
-        string_conversion = "['" + user_input + "']"
-        self.ticker_symbol = string_conversion
+        self.ticker_symbol = "['" + user_input + "']"
         return self.ticker_symbol
 
     def connecting_to_server(self):
@@ -80,7 +79,7 @@ class Api_call():
             file1.close()
 
 Api = Api_call()
-Api.user_input()
+Api.user_input(input)
 Api.connecting_to_server()
 Api.checking_if_ticker_exists()
 Api.api_request_to_json(["get-statistics", "get-financials"])

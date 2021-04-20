@@ -9,6 +9,7 @@ import json
 class TestTodos(unittest.TestCase):
     @classmethod
     def setup_class(cls):
+        #Arrange
         cls.mock_get_patcher = patch('services.requests.get')
         cls.mock_get = cls.mock_get_patcher.start()
 
@@ -18,30 +19,19 @@ class TestTodos(unittest.TestCase):
     
     def test_getting_todos_when_response_is_ok(self):
         # Configure the mock to return a response with an OK status code.
+
+        #Arrange
         self.mock_get.return_value.ok = True
-
         todos = {'symbol': 'TSLA'}
-
         self.mock_get.return_value = Mock()
         self.mock_get.return_value.json.return_value = todos
 
-        # Call the service, which will send a request to the server.
+        #Act (should only be one line)
         response = get_todos()
+
+        #Assert
         response_json = response.json()
-
-        print(todos['symbol'])
-        print(response_json['symbol'])
-        print(response.json())
-
-        if response_json['symbol'] == todos['symbol']:
-            print("symbol is equal")
-            
-        if response.json() == todos:
-            print("They are equal")
-        else:
-            print("They are not equal")
-
-        self.maxDiff = None
+        self.maxDiff = None #This is for the limit of the response
         self.assertDictEqual(response.json(), todos)
         self.assertEqual(response_json['symbol'],todos['symbol'])
 
