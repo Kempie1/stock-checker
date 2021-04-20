@@ -33,6 +33,7 @@ struct LearningViewQuiz: View {
                     
                     VStack(spacing: 10){
                         Text("Question Number \(questionNumber)").font(.system(size: 30))
+                            .accessibilityIdentifier("questionNumber")
                         
                         Text("Score \(score)").font(.system(size: 30))
                     }
@@ -49,7 +50,7 @@ struct LearningViewQuiz: View {
                             if questionNumber == quizBrain.quiz.count {
                                 self.showPopUp = true
                             }
-                            checkAnwser(input: buttonResultTrue)
+                            checkAnwser(input: buttonResultTrue, questionNumber: questionNumber)
                             nextQuestion()
                             
                             buttonColorTrue = changeButtonColor(buttonColor: buttonColorTrue)!
@@ -71,7 +72,7 @@ struct LearningViewQuiz: View {
                             if questionNumber == quizBrain.quiz.count {
                                 self.showPopUp = true
                             }
-                            checkAnwser(input: buttonResultFalse)
+                            checkAnwser(input: buttonResultFalse, questionNumber: questionNumber)
                             nextQuestion()
                             
                             buttonColorFalse = changeButtonColor(buttonColor: buttonColorFalse)!
@@ -80,9 +81,6 @@ struct LearningViewQuiz: View {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
                                 buttonColorFalse = .black
                             })
-                            
-                            
-                            
                         }){
                             Text("False").font(.system(size: 20))
                         }
@@ -148,7 +146,7 @@ struct LearningViewQuiz: View {
         }
     }
     
-    func checkAnwser(input: String)->Bool{
+    func checkAnwser(input: String, questionNumber: Int)->Bool{
         if input == quizBrain.quiz[questionNumber].answer{
             print("Correct")
             userIsRight = true
