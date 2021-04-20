@@ -18,7 +18,7 @@ struct MainView: View {
                     Label("Explore", systemImage: "triangle.circle")
                 }
             
-            LearningView()
+            LearningView(quizBrain: QuizBrain())
                 .tabItem {
                     Label("Learn", systemImage: "book.circle")
                 }

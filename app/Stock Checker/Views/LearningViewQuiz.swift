@@ -10,7 +10,7 @@ import SwiftUI
 struct LearningViewQuiz: View {
     
     var quizBrain = QuizBrain()
-    
+    @EnvironmentObject var quizBrain2: QuizBrain
     @State private var buttonColorTrue:Color = Color.black
     @State private var buttonColorFalse:Color = Color.black
     
@@ -24,7 +24,6 @@ struct LearningViewQuiz: View {
     
     @State private var showPopUp = false
     
-    @State var level = ""
     
     var body: some View {
         NavigationView{
@@ -52,7 +51,6 @@ struct LearningViewQuiz: View {
                             }
                             checkAnwser(input: buttonResultTrue, questionNumber: questionNumber)
                             nextQuestion()
-                            
                             buttonColorTrue = changeButtonColor(buttonColor: buttonColorTrue)!
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
@@ -67,16 +65,13 @@ struct LearningViewQuiz: View {
                         
                         
                         Button(action: {
-                            var learningView = LearningView()
                             buttonResultFalse = "False"
                             if questionNumber == quizBrain.quiz.count {
                                 self.showPopUp = true
                             }
                             checkAnwser(input: buttonResultFalse, questionNumber: questionNumber)
                             nextQuestion()
-                            
                             buttonColorFalse = changeButtonColor(buttonColor: buttonColorFalse)!
-                            
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
                                 buttonColorFalse = .black
@@ -93,7 +88,6 @@ struct LearningViewQuiz: View {
                 }
                 
                 if self.showPopUp == true{
-                    var learningView = LearningView()
                     
                     ZStack (alignment: .center){
                         Color.white
@@ -105,7 +99,7 @@ struct LearningViewQuiz: View {
                                 Text("Score: \(score)")
                                     .foregroundColor(Color.black)
                                     .font(.system(size: 20, design: .default))
-                                Text("Level: ")
+                                Text("Level: \(quizBrain2.level)")
                                     .foregroundColor(Color.black)
                                     .font(.system(size: 20, design: .default))
                                 Text("You can go back now!")
@@ -135,6 +129,15 @@ struct LearningViewQuiz: View {
         return questionNumber
     }
     
+    func getScoreNumber(userIsRight: Bool)->Int{
+        var userIsCorrect = userIsRight
+        if userIsCorrect == true{
+            score += 1
+            return score
+        }
+            return score
+    }
+    
     func nextQuestion(){
         if questionNumber < quizBrain.quiz.count {
             questionNumber += 1
@@ -142,7 +145,6 @@ struct LearningViewQuiz: View {
         if questionNumber == quizBrain.quiz.count {
             self.showPopUp = true
             questionNumber = 0
-            score = 0
         }
     }
     
@@ -150,12 +152,13 @@ struct LearningViewQuiz: View {
         if input == quizBrain.quiz[questionNumber].answer{
             print("Correct")
             userIsRight = true
-            score += 1
+            score = getScoreNumber(userIsRight: userIsRight)
             return true
         }
         else{
             print("Wrong")
             userIsRight = false
+            score = getScoreNumber(userIsRight: userIsRight)
             return false
         }
     }

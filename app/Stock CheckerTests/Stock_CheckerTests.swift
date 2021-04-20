@@ -40,20 +40,16 @@ class Stock_CheckerTests: XCTestCase {
 
     }
     
-    func testCheckAnwserButtons(){
+    func testCheckanwserbuttons(){
         //Arrange
         let buttonResultTrue = "True"
-        var CheckAnwserReturnTrueButtonTrue: Bool = true
-        var CheckAnwserReturnFalseButtonTrue: Bool = false
-        
         let buttonResultFalse = "False"
-        var CheckAnwserReturnTrueButtonFalse: Bool = true
-        var CheckAnwserReturnFalseButtonFalse: Bool = false
+        var checkScore: Int = 0
         
         //Act
         
         //BUTTONTRUE
-        CheckAnwserReturnTrueButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 0)
+        var CheckAnwserReturnTrueButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 0)
         CheckAnwserReturnTrueButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 1)
         CheckAnwserReturnTrueButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 2)
         CheckAnwserReturnTrueButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 3)
@@ -62,18 +58,18 @@ class Stock_CheckerTests: XCTestCase {
         CheckAnwserReturnTrueButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 8)
         CheckAnwserReturnTrueButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 11)
         
-        CheckAnwserReturnFalseButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 4)
+        var CheckAnwserReturnFalseButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 4)
         CheckAnwserReturnFalseButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 6)
         CheckAnwserReturnFalseButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 9)
         CheckAnwserReturnFalseButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 10)
         
         //BUTTTONFALSE
-        CheckAnwserReturnTrueButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 4)
+        var CheckAnwserReturnTrueButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 4)
         CheckAnwserReturnTrueButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 6)
         CheckAnwserReturnTrueButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 9)
         CheckAnwserReturnTrueButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 10)
         
-        CheckAnwserReturnFalseButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 0)
+        var CheckAnwserReturnFalseButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 0)
         CheckAnwserReturnFalseButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 1)
         CheckAnwserReturnFalseButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 2)
         CheckAnwserReturnFalseButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 3)
@@ -91,6 +87,22 @@ class Stock_CheckerTests: XCTestCase {
         XCTAssertEqual(CheckAnwserReturnTrueButtonFalse, true)
         XCTAssertEqual(CheckAnwserReturnFalseButtonFalse, false)
         }
+    
+    func testCheckScore(){
+        //Arrange
+        let userIsRightTrue = true
+        let userIsRightFalse = false
+        
+        //Act
+        let checkUserIsRightTrue = learningViewQuiz.getScoreNumber(userIsRight: userIsRightTrue)
+        
+        let checkUserIsRightFalse = learningViewQuiz.getScoreNumber(userIsRight: userIsRightFalse)
+
+        //Assert
+        XCTAssertEqual(checkUserIsRightTrue,0)
+        XCTAssertEqual(checkUserIsRightFalse,0)
+    }    
+    
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

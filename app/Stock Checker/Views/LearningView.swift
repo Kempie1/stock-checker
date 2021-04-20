@@ -10,6 +10,7 @@ import SwiftUI
 
 struct LearningView: View {
     
+    @StateObject var quizBrain = QuizBrain()
     @State public var beginner = 50.0
     @State public var mediumRight = 40.0
     @State public var mediumLeft = 20.0
@@ -26,11 +27,10 @@ struct LearningView: View {
     @State public var mediumLeftPressed = false
     @State public var advancedRightPressed = false
     @State public var advancedLeftPressed = false
-    @State var level = ""
     let buttonText = "Start"
 
     var learningViewQuiz = LearningViewQuiz()
-    var quizBrain = QuizBrain()
+
 
     var body: some View {
         NavigationView {
@@ -45,7 +45,7 @@ struct LearningView: View {
                     }
                     Button(action: {
                             beginner = startButton(level: beginner)
-                            level = "Beginner"
+                            quizBrain.level = "Beginner"
                             getLevel(levelString: "Beginner")
                             beginnerPressed = true
                             DispatchQueue.main.asyncAfter(deadline: .now()) {self.showView = true}
@@ -66,7 +66,7 @@ struct LearningView: View {
                     
                     HStack(spacing: 110){
                         Button(action: {
-                                level = "Medium Lvel 2"
+                                quizBrain.level = "Medium Lvel 2"
                                 mediumRight = startButton(level: mediumRight)
                                 mediumRightPressed = true
                                 DispatchQueue.main.asyncAfter(deadline: .now()) {self.showView = true}
@@ -74,7 +74,7 @@ struct LearningView: View {
                             Text(buttonText)
                         })
                         Button(action: {
-                                level = "Medium Level 1"
+                                quizBrain.level = "Medium Level 1"
                                 mediumLeft = startButton(level: mediumLeft)
                                 mediumLeftPressed = true
                                 DispatchQueue.main.asyncAfter(deadline: .now()) {self.showView = true}
@@ -97,7 +97,7 @@ struct LearningView: View {
                     HStack(spacing: 50)
                     {
                         Button(action: {
-                            level = "Advanced 2"
+                            quizBrain.level = "Advanced 2"
                             advancedRight = startButton(level: advancedRight)
                             advancedRightPressed = true
                             DispatchQueue.main.asyncAfter(deadline: .now()) {self.showView = true}
@@ -107,7 +107,7 @@ struct LearningView: View {
                         })
                         
                         Button(action: {
-                            level = "Advanced 1"
+                            quizBrain.level = "Advanced 1"
                             advancedLeft = startButton(level: advancedLeft)
                             advancedLeftPressed = true
                             DispatchQueue.main.asyncAfter(deadline: .now()) {self.showView = true}
@@ -119,7 +119,7 @@ struct LearningView: View {
                     }
                 }
             }.navigationBarTitle("Learning View", displayMode: .inline)
-        }
+        }.environmentObject(quizBrain)
     }
     
     func startButton(level: Double = 0.0)->Double{
@@ -140,7 +140,7 @@ struct LearningView: View {
 
 struct LearningView_Previews: PreviewProvider {
     static var previews: some View {
-        LearningView()
+        LearningView(quizBrain: QuizBrain())
     }
 }
 
