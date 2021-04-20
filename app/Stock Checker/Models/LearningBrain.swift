@@ -40,18 +40,17 @@ class QuizBrain: ObservableObject {
         Defintions(d: "No piece of sduare dry paper can be folded in half more than 7 times."),
         Defintions(d: "Chocolate affects a dog's heart and nervous system; a few ounces are enough to kill a small dog.")
     ]
-    
-    
+           
 }
 
-//class LearningViewBrain: ObservableObject{
-//    @Published var level = ""
-//}
-//
-//class LearningViewQuizBrain: ObservableObject{
-//    @Published var beginner = 50.0
-//    @Published var mediumRight = 40.0
-//    @Published var mediumLeft = 20.0
-//    @Published var advancedRight = 10.0
-//    @Published var advancedLeft = 20.0
-//}
+class LearningViewBrain: ObservableObject{
+    @Published var level = ""
+}
+
+class LearningViewQuizBrain: ObservableObject{
+    @Published var beginner = 50.0
+    @Published var mediumRight = 40.0
+    @Published var mediumLeft = 20.0
+    @Published var advancedRight = 10.0
+    @Published var advancedLeft = 20.0
+}

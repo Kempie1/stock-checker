@@ -10,7 +10,13 @@ import SwiftUI
 struct LearningViewQuiz: View {
     
     var quizBrain = QuizBrain()
-    @EnvironmentObject var quizBrain2: QuizBrain
+    
+    //Readable
+    @EnvironmentObject var learningViewBrain: LearningViewBrain
+    
+    @StateObject var learningViewQuizBrain = LearningViewQuizBrain()
+
+    
     @State private var buttonColorTrue:Color = Color.black
     @State private var buttonColorFalse:Color = Color.black
     
@@ -45,6 +51,12 @@ struct LearningViewQuiz: View {
                         
                         
                         Button(action: {
+                            
+                            //Works 
+                            learningViewQuizBrain.beginner = 90
+                            print(learningViewQuizBrain.beginner)
+                            
+                            
                             buttonResultTrue = "True"
                             if questionNumber == quizBrain.quiz.count {
                                 self.showPopUp = true
@@ -99,7 +111,7 @@ struct LearningViewQuiz: View {
                                 Text("Score: \(score)")
                                     .foregroundColor(Color.black)
                                     .font(.system(size: 20, design: .default))
-                                Text("Level: \(quizBrain2.level)")
+                                Text("Level: \(learningViewBrain.level)")
                                     .foregroundColor(Color.black)
                                     .font(.system(size: 20, design: .default))
                                 Text("You can go back now!")
@@ -121,7 +133,7 @@ struct LearningViewQuiz: View {
                 }
             }
             
-        }
+        }.environmentObject(learningViewQuizBrain)
         
     }
     
@@ -180,7 +192,7 @@ struct LearningViewQuiz: View {
 
 struct LearningViewQuiz_Previews: PreviewProvider {
     static var previews: some View {
-        LearningViewQuiz()
+        LearningViewQuiz(learningViewQuizBrain: LearningViewQuizBrain())
     }
 }
 
