@@ -43,5 +43,6 @@ def get_uncompleted_todos():
 #if todo('symbol') == "TSLA":
 #                return[todo]
 
+get_todos()
 # This is now going into the fake.json and checking if one of the values is False as it should be in the predefined fake.json
 

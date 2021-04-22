@@ -1,0 +1,9 @@
+#I need to have a constant stockTest.json file 
+#Variables should not change they should be constant in test
+
+#Both Work on either side same thing
+#Given / Arrange (OPTIONAL)
+
+#When / Act 
+
+#Then / Assert
