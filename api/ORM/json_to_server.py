@@ -5,6 +5,7 @@ import requests
 from json.decoder import JSONDecodeError
 import os
 from decouple import config
+#from main_services import connecting_to_server
 
 class Json_to_server():
     def open_json_file(self):
@@ -13,14 +14,11 @@ class Json_to_server():
                 self.data = json.load(json_file)
             except ValueError and AttributeError:
                 print('Decoding JSON has failed')
+        return self.data
     
     def checking_if_ticker_exists(self):
-        self.DB_HOST = config('DB_HOST')
-        self.DB_NAME = config('DB_NAME')
-        self.DB_USER = config('DB_USER')
-        self.DB_PASS = config('DB_PASS')
 
-        conn = psycopg2.connect(dbname = self.DB_NAME, user=self.DB_USER, password=self.DB_PASS, host=self.DB_HOST)
+        conn = connecting_to_server()
 
         with conn: 
                 with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
@@ -267,10 +265,10 @@ class Json_to_server():
         
                     
 
-server = Json_to_server()
-server.open_json_file()
-server.checking_if_ticker_exists()
-server.connecting_to_server()
+#server = Json_to_server()
+#server.open_json_file()
+#server.checking_if_ticker_exists()
+#server.connecting_to_server()
 
 
                     

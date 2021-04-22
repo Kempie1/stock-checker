@@ -4,48 +4,45 @@ import psycopg2
 import psycopg2.extras
 import json
 from decouple import config
-
+import sys
+from main_services import connecting_to_server, api_request
 
 class Api_call():
 
     def user_input(self, myinput):
         user_input = myinput("What stock would you like to see ")
-        self.user_input_copy = user_input
         self.ticker_symbol = "['" + user_input + "']"
         return self.ticker_symbol
 
+    def get_ticker_table_list(self):
+        conn = connecting_to_server()
 
-    def connecting_to_server(self):
-        DB_HOST = config('DB_HOST')
-        DB_NAME = config('DB_NAME')
-        DB_USER = config('DB_USER')
-        DB_PASS = config('DB_PASS')
-        
-        conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
-        
         with conn: 
             with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
                 cur.execute("SELECT stock.ticker_symbol FROM stock")
                 self.ticker_symbol_table = cur.fetchall()
+                return self.ticker_symbol_table
     
-    def checking_if_ticker_exists(self):
-        for i in range(len(self.ticker_symbol_table)):
-            if self.ticker_symbol != str(self.ticker_symbol_table[i]):
+    def checking_if_ticker_exists(self, ticker_symbol_table):
+        for i in range(len(ticker_symbol_table)):
+            if self.ticker_symbol != str(ticker_symbol_table[i]):
                 self.already_exist = False
-
-        for i in range(len(self.ticker_symbol_table)):
-            if self.ticker_symbol == str(self.ticker_symbol_table[i]):
+    
+        for i in range(len(ticker_symbol_table)):
+            if self.ticker_symbol == str(ticker_symbol_table[i]):
                 print("This Ticker is already existing in the Database")
                 self.already_exist = True
 
-        if len(self.ticker_symbol_table) == 0:
+        if len(ticker_symbol_table) == 0:
             print("There is nothing in the ticker_symbol Table")
             self.already_exist = False
+
+        return self.already_exist
 
     def api_request(self, request):
         if self.already_exist == False:
             url = f"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/{request}"   
-            querystring = {"symbol": self.user_input_copy,"region":"US"}
+            querystring = {"symbol": self.ticker_symbol,"region":"US"}
             headers = {
             'x-rapidapi-key': config('APIKEY'),
             'x-rapidapi-host': config('APIHOST')
@@ -80,10 +77,10 @@ class Api_call():
             file1.write("")
             file1.close()
 
-Api = Api_call()
-Api.user_input(input)
-Api.connecting_to_server()
-Api.checking_if_ticker_exists()
-Api.api_request_to_json(["get-statistics", "get-financials"])
+#Api = Api_call()
+#Api.user_input(input)
+#Api.get_ticker_table_list()
+#Api.checking_if_ticker_exists(Api.get_ticker_table_list())
+#Api.api_request_to_json(["get-statistics", "get-financials"])
 
 

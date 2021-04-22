@@ -2,7 +2,7 @@ import mock
 import unittest
 import requests
 from requests.exceptions import HTTPError
-
+from services import real_api_request
 
 def google_query(query):
     """
@@ -47,7 +47,7 @@ class TestRequestsCall(unittest.TestCase):
             mock_response.json = mock.Mock(
                 return_value=json_data
             )
-        return mock_resp
+        return mock_response
 
     @mock.patch('requests.get')
     def test_google_query(self, mock_get):
@@ -71,27 +71,26 @@ class TestRequestsCall(unittest.TestCase):
 
 
 class Mock(unittest.TestCase):
-    def _mock_api(self,status=200,content="CONTENT",json_data=None,raise_for_status=None):
-
-        mock_response = mock.Mock()
-        # mock raise_for_status call w/optional error
-        mock_response.raise_for_status = mock.Mock()
-        if raise_for_status:
-            mock_response.raise_for_status.side_effect = raise_for_status
-        # set status code and content
-        mock_response.status_code = status
-        mock_response.content = content
-        # add json data if provided
-        if json_data:
-            mock_response.json = mock.Mock(
-                return_value=json_data
-            )
-        return mock_response
 
     @mock.patch('requests.get')
-    def test():
-        response = _mock_api()
-        print(response)
+    def mock_api(self, mock_get):
+        #Arrange
+        mock_response = mock.Mock()
+        # set status code and content
+        mock_response.status_code = 200
+        #mock_response.content = content
+        
+        # add json data
+        mock_response.json = mock.Mock(
+            return_value={'symbol': 'TSLA'}
+        )
+        
+        mock_get.return_value = mock_response
+        #Act
+        response = real_api_request()
+        #Assert
+        self.assertEqual(response, mock_response)
 
-mock = Mock()
-_mock_api.test()
+mock_api = Mock()
+mock_api.mock_api()
+

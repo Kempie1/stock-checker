@@ -10,7 +10,7 @@ import os
 import unittest
 from constants import ticker_symbol_for_testing
 
-def get_todos():
+def real_api_request():
         ticker_symbol = ticker_symbol_for_testing
         url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics"
         querystring = {"symbol": ticker_symbol,"region":"US"}
@@ -43,6 +43,5 @@ def get_uncompleted_todos():
 #if todo('symbol') == "TSLA":
 #                return[todo]
 
-get_todos()
 # This is now going into the fake.json and checking if one of the values is False as it should be in the predefined fake.json
 
