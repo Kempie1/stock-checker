@@ -10,13 +10,14 @@ import os
 import sys
 #This is needed to have acess to the ORM folder
 #sys.path.insert(1, '/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM')
-sys.path.append('/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM')
+sys.path.append('/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM/ORMLogic')
 
 #INTERNAL
 from services import real_api_request, get_uncompleted_todos
 from constants import ticker_symbol_for_testing, ticker_symbol_for_request, ticker_symbol_table_full, ticker_symbol_table_empty, ticker_symbol_not_in_table
 #EXTERNAL
-from api_call_to_json import user_input
+from ORMLogic import api_call_to_json
+
 
 class test_Api_Integration(unittest.TestCase):
 
@@ -65,12 +66,13 @@ class test_Api_python_file(unittest.TestCase):
 
     #This function realies on the input fucntion which is a dependcy so I need to mock the user_input
     def test_user_input(self):
+        self.Api_function = api_call_to_json.Api_call()
         #Act
-        ticker_symbol_from_user = user_input(self.mock_user_input)
+        ticker_symbol_from_user = self.Api_function.user_input(self.mock_user_input())
         #Assert
         self.assertEqual(ticker_symbol_from_user, "['Some User Input']")
 
-    def mock_user_input():
+    def mock_user_input(self):
         return "Some User Input"
 
     def test_checking_if_ticker_exists(self):

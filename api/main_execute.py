@@ -3,12 +3,15 @@ import json
 import psycopg2
 import psycopg2.extras
 import json
+import sys
+sys.path.append('/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM/ORMLogic')
+sys.path.append('/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM')
 
 #Main
-from ORM.api_call_to_json import Api_call
-from ORM.json_to_server import Json_to_server
-from ORM.ORM_services import connecting_to_server
-
+from ORM.ORMLogic.api_call_to_json import Api_call
+from ORM.ORMLogic.json_to_server import Json_to_server
+from ORM.ORMLogic.ORM_services import ORM_services
+from ORM.test_api import test_Api_python_file
 #Test
 #from TestCases.test_api import test_Api_python_file
 
@@ -18,10 +21,10 @@ class Execute:
         self.Server = Json_to_server()
         self.Api_test = test_Api_python_file()
 
-    def execute_api(self,ticker):
-        self.Api.user_input(input)
+    def execute_api(self):
+        self.Api.user_input("KME")
         self.Api.get_ticker_table_list()
-        self.Api.checking_if_ticker_exists(Api.get_ticker_table_list())
+        self.Api.checking_if_ticker_exists(self.Api.get_ticker_table_list())
         self.Api.api_request_to_json(["get-statistics", "get-financials"])
 
     def execute_server(self):
@@ -35,7 +38,7 @@ class Execute:
         
 
 main = Execute()
-#main.execute_api()
-#main.execute_tests()
+main.execute_api()
+main.execute_tests()
 main.execute_server()
 

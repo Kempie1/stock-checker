@@ -6,17 +6,17 @@ import json
 from decouple import config
 import sys
 
-from ORM_services import connecting_to_server
+from ORM_services import ORM_services
 
 class Api_call():
 
     def user_input(self, myinput):
-        user_input = myinput("What stock would you like to see ")
+        user_input = myinput
         self.ticker_symbol = "['" + user_input + "']"
         return self.ticker_symbol
 
     def get_ticker_table_list(self):
-        conn = connecting_to_server()
+        conn = ORM_services.connecting_to_server()
 
         with conn: 
             with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
@@ -79,7 +79,7 @@ class Api_call():
             file1.close()
 
 #Api = Api_call()
-#Api.user_input(input)
+#Api.user_input("TSLA")
 #Api.get_ticker_table_list()
 #Api.checking_if_ticker_exists(Api.get_ticker_table_list())
 #Api.api_request_to_json(["get-statistics", "get-financials"])
