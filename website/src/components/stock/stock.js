@@ -12,9 +12,7 @@ const Stock = () => {
   useEffect(()=>{
     axios.get(`https://stockcheckerdb.herokuapp.com/getst/?ticker=${params}`)
     .then(res => {
-      console.log(res);
       setTicker(res.data);
-      console.log(ticker);
     })
     .catch(error => {
       if (error.response) {
@@ -33,11 +31,25 @@ const Stock = () => {
     );
   }, [])
 
+  
+  
+
 return (
     <div>
       <div className="block-shadow">
         <h2>{ticker.stock_name}</h2>
-        
+        <p>{ticker.ticker_symbol}</p>
+        <div className="mainData">
+          <p>{ticker.stock_price}</p>
+          <p>{ticker.previous_close}</p>
+          <p>{ticker.bid}</p>
+          {
+          Object.entries(ticker).map(([key, value]) => {
+            if (value==null){
+              return null}
+            return <p>{key}: {value}</p>
+        })}
+        </div>
       </div>
     </div>
     
