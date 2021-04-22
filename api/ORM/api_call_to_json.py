@@ -5,7 +5,8 @@ import psycopg2.extras
 import json
 from decouple import config
 import sys
-from main_services import connecting_to_server, api_request
+
+from ORM_services import connecting_to_server
 
 class Api_call():
 

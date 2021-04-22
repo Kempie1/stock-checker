@@ -7,7 +7,7 @@ import json
 #Main
 from ORM.api_call_to_json import Api_call
 from ORM.json_to_server import Json_to_server
-#from ORM.main_services import connecting_to_server,api_request
+from ORM.ORM_services import connecting_to_server
 
 #Test
 #from TestCases.test_api import test_Api_python_file
