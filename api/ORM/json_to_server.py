@@ -5,11 +5,11 @@ import requests
 from json.decoder import JSONDecodeError
 import os
 from decouple import config
-#from main_services import connecting_to_server
+from ORM_services import connecting_to_server
 
 class Json_to_server():
     def open_json_file(self):
-        with open('stock.json') as json_file:
+        with open('ORM/stock.json') as json_file:
             try:
                 self.data = json.load(json_file)
             except ValueError and AttributeError:
@@ -65,7 +65,7 @@ class Json_to_server():
                     else:
                         return None
 
-        conn = psycopg2.connect(dbname = self.DB_NAME, user=self.DB_USER, password=self.DB_PASS, host=self.DB_HOST)
+        conn = connecting_to_server()
         if self.already_exists_in_DB == False:
             with conn: 
                 with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
@@ -265,10 +265,7 @@ class Json_to_server():
         
                     
 
-#server = Json_to_server()
-#server.open_json_file()
-#server.checking_if_ticker_exists()
-#server.connecting_to_server()
-
-
-                    
+server = Json_to_server()
+server.open_json_file()
+server.checking_if_ticker_exists()
+server.connecting_to_server()
