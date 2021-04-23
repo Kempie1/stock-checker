@@ -32,8 +32,10 @@ class ORM_services:
                                 ticker_symbol_table = cur.fetchall()
                         return ticker_symbol_table
         
-        def checking_if_ticker_exists(self, ticker_symbol):
-                ticker_table_list = self.get_ticker_table_list()
+        def checking_if_ticker_exists(self, ticker_symbol, ticker_table_list):
+                if ticker_table_list == ['REALCASE']:
+                        ticker_table_list = self.get_ticker_table_list()
+
                 for i in range(len(ticker_table_list)):
                         if ticker_symbol == ticker_table_list[i]:
                                 print("This Ticker is already existing in the Database")
@@ -52,4 +54,4 @@ class ORM_services:
                 return already_exist
 
 services = ORM_services()
-services.checking_if_ticker_exists(['TSLA'])
+services.checking_if_ticker_exists(['TSLA'], ['REALCASE'])

@@ -10,7 +10,7 @@ import sys
 from decouple import config
 #This is needed to have acess to the ORM folder
 sys.path.append('/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM/ORMLogic')
-from services import real_api_request, real_sql_request, get_uncompleted_todos
+from services import real_api_request, real_sql_request
 from constants import ticker_symbol_for_testing, ticker_symbol_for_request, ticker_symbol_table_full, ticker_symbol_table_empty, ticker_symbol_not_in_table
 #EXTERNAL
 from ORMLogic import json_to_server
@@ -36,16 +36,16 @@ class test_Sql_Integration(unittest.TestCase):
 #test_sql_integration = test_Sql_Integration()
 #test_sql_integration.integration()
 
-class test_Sql_python_file(unittest.TestCase):
-    def test_open_json_file(self):
+class _Sql_python_file(unittest.TestCase):
+    def _open_json_file(self):
         #Arrange
         server_to_json = json_to_server.Json_to_server()
         #Act
         stock_data = server_to_json.open_json_file("ORM/teststock.json")
+        
         #Assert
-        self.assertEqual(stock_data['get-statistics']['symbol'], 'TSLA')
-
-if __name__ == '__main__':
-    unittest.main()
-#test_sql_python_file = test_Sql_python_file()
-#test_sql_python_file.test_open_json_file()
+        print(stock_data('get-statistics'))
+#if __name__ == '__main__':
+#    unittest.main()
+#test_Sql_python_file = test_Sql_python_file()
+#test_Sql_python_file.test_open_json_file()

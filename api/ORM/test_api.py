@@ -76,30 +76,6 @@ class test_Api_python_file(unittest.TestCase):
     def mock_user_input(self):
         return "Some User Input"
 
-    def test_checking_if_table_is_empty(self):
-        #Arrange
-        Api_function = api_call_to_json.Api_call()
-        #Act
-        empty_table_check = Api_function.checking_if_ticker_exists(ticker_symbol_for_request, ticker_symbol_table_empty)
-        #Assert
-        self.assertEqual(empty_table_check, False)
-
-    def test_checking_if_ticker_does_not_exists(self):
-        #Arrange
-        Api_function = api_call_to_json.Api_call()
-        #Act
-        ticker_does_not_exists = Api_function.checking_if_ticker_exists(ticker_symbol_not_in_table, ticker_symbol_table_full)
-        #Assert
-        self.assertEqual(ticker_does_not_exists, False)
-
-    def test_checking_if_ticker_exists(self):
-        #Arrange
-        Api_function = api_call_to_json.Api_call()
-        #Act
-        table_full_check = Api_function.checking_if_ticker_exists(ticker_symbol_for_request, ticker_symbol_table_full)
-        #Assert
-        self.assertEqual(table_full_check, True)
-
 if __name__ == '__main__':
     unittest.main()
 

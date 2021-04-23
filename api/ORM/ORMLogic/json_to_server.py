@@ -10,13 +10,13 @@ from api_call_to_json import Api_call
 
 class Json_to_server():
     def open_json_file(self, json_file):
-        self.data = open(json_file)
+        self.data = open(json_file,'r')
         return self.data
 
     def checking_if_ticker_exists_in_database(self):
         self.services = ORM_services()
         ticker_symbol = ["TSLA"]
-        self.already_exists_in_DB = self.services.checking_if_ticker_exists(ticker_symbol)
+        self.already_exists_in_DB = self.services.checking_if_ticker_exists(ticker_symbol, ['REALCASE'])
         print(self.already_exists_in_DB)
 
     def connecting_to_server(self):

@@ -18,7 +18,7 @@ class Api_call():
     def checking_if_ticker_exists_in_database(self):
         self.services = ORM_services()
         ticker_symbol = ["TSLA"]
-        self.already_exist = self.services.checking_if_ticker_exists(ticker_symbol)
+        self.already_exist = self.services.checking_if_ticker_exists(ticker_symbol, ['REALCASE'])
         print(self.already_exist)
 
     def api_request(self, request):
@@ -49,9 +49,9 @@ class Api_call():
             file1.write("")
             file1.close()
 
-Api = Api_call()
+#Api = Api_call()
 #Api.user_input("TSLA")
-Api.checking_if_ticker_exists_in_database()
+#Api.checking_if_ticker_exists_in_database()
 #Api.api_request_to_json(["get-statistics", "get-financials"])
 
 
