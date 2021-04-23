@@ -10,71 +10,83 @@ import SwiftUI
 
 struct LearningView: View {
 
-    @StateObject var learningViewBrain = LearningViewBrain()
+    @ObservedObject var vm = QuizViewModel()
     
-    @State var learningViewQuizBrain = LearningViewQuizBrain()
+    @ObservedObject var learningQuizViewModel: LearningQuizViewModel
     
-    @State public var beginner = 50.0
-    @State public var mediumRight = 40.0
-    @State public var mediumLeft = 20.0
-    @State public var advancedRight = 10.0
-    @State public var advancedLeft = 20.0
-    @State public var showView = false
-    @State public var beginnerLevel = ""
-    @State public var mediumRightLevel = ""
-    @State public var mediumLeftLevel = ""
-    @State public var advancedRightLevel = ""
-    @State public var advancedLeftLevel = ""
-    @State public var beginnerPressed = false
-    @State public var mediumRightPressed = false
-    @State public var mediumLeftPressed = false
-    @State public var advancedRightPressed = false
-    @State public var advancedLeftPressed = false
+    @StateObject var learningViewModel = LearningViewModel()
+    
+//    @State public var beginner = 50.0
+//    @State public var mediumRight = 40.0
+//    @State public var mediumLeft = 20.0
+//    @State public var advancedRight = 10.0
+//    @State public var advancedLeft = 20.0
+//    @State public var showView = false
+//    @State public var beginnerLevel = ""
+//    @State public var mediumRightLevel = ""
+//    @State public var mediumLeftLevel = ""
+//    @State public var advancedRightLevel = ""
+//    @State public var advancedLeftLevel = ""
+//    @State public var beginnerPressed = false
+//    @State public var mediumRightPressed = false
+//    @State public var mediumLeftPressed = false
+//    @State public var advancedRightPressed = false
+//    @State public var advancedLeftPressed = false
     let buttonText = "Start"
-
+    
+    @State var score = 0.0
+    @State var predictionInterval = 0.2
+    
     var body: some View {
         NavigationView {
             ScrollView{
-                NavigationLink(destination: LearningViewQuiz(), isActive: $showView) {EmptyView()}
+                NavigationLink(destination: LearningViewQuiz(), isActive: $learningViewModel.showView) {EmptyView()}
                 VStack(spacing: 20) {
                     Spacer()
-                    Text("Section 1").font(.system(size: 20))
+
+                    Text("Section 1").font(.system(size: 20)).onAppear(){
+                        print(learningQuizViewModel.score)
+                        learningViewModel.beginner += learningQuizViewModel.score
+                    }
+
                     HStack(){
-                        ProgressView("Beginner", value: learningViewQuizBrain.beginner, total: 100)
+                        ProgressView("Beginner", value: learningViewModel.beginner, total: 100)
                             .progressViewStyle(CirclerPercentageProgressViewStyle())
                     }
+
                     Button(action: {
-                            learningViewQuizBrain.beginner = startButton(level: beginner)
-                            learningViewBrain.level = "Beginner"
-                            beginnerPressed = true
-                            DispatchQueue.main.asyncAfter(deadline: .now()) {self.showView = true}
+                            learningViewModel.beginner = learningViewModel.startButton(level: learningViewModel.beginner)
+                            learningViewModel.level = "Beginner"
+                            vm.returnLevelBeginner()
+                            learningViewModel.beginnerPressed = true
+                        DispatchQueue.main.asyncAfter(deadline: .now()) {self.learningViewModel.showView = true}
                     }, label: {
                         Text(buttonText)
                     })
                     
                     
-                    
                     Text("Section 2").font(.system(size: 20))
+
                     HStack(spacing: 10){
-                        ProgressView("Medium", value: mediumRight, total: 100)
+                        ProgressView("Medium", value: learningViewModel.mediumRight, total: 100)
                             .progressViewStyle(CirclerPercentageProgressViewStyle())
                         
-                        ProgressView("Medium", value: mediumLeft, total: 100)
+                        ProgressView("Medium", value: learningViewModel.mediumLeft, total: 100)
                             .progressViewStyle(CirclerPercentageProgressViewStyle())
                     }
                     
                     HStack(spacing: 110){
                         Button(action: {
-                                learningViewBrain.level = "Medium Lvel 2"
-                                mediumRightPressed = true
-                                DispatchQueue.main.asyncAfter(deadline: .now()) {self.showView = true}
+                                learningViewModel.level = "Medium Lvel 2"
+                                learningViewModel.mediumRightPressed = true
+                            DispatchQueue.main.asyncAfter(deadline: .now()) {self.learningViewModel.showView = true}
                         }, label: {
                             Text(buttonText)
                         })
                         Button(action: {
-                                learningViewBrain.level = "Medium Level 1"
-                                mediumLeftPressed = true
-                                DispatchQueue.main.asyncAfter(deadline: .now()) {self.showView = true}
+                                learningViewModel.level = "Medium Level 1"
+                                learningViewModel.mediumLeftPressed = true
+                            DispatchQueue.main.asyncAfter(deadline: .now()) {self.learningViewModel.showView = true}
                         }, label: {
                             Text(buttonText)
                         })
@@ -84,28 +96,28 @@ struct LearningView: View {
                     
                     Text("Section 3").font(.system(size: 20))
                     HStack(spacing: 10){
-                        ProgressView("Advanced", value: advancedRight, total: 100)
+                        ProgressView("Advanced", value: learningViewModel.advancedRight, total: 100)
                             .progressViewStyle(CirclerPercentageProgressViewStyle())
                         
-                        ProgressView("Advanced", value: advancedLeft, total: 100)
+                        ProgressView("Advanced", value: learningViewModel.advancedLeft, total: 100)
                             .progressViewStyle(CirclerPercentageProgressViewStyle())
                     }
                     
                     HStack(spacing: 50)
                     {
                         Button(action: {
-                            learningViewBrain.level = "Advanced 2"
-                            advancedRightPressed = true
-                            DispatchQueue.main.asyncAfter(deadline: .now()) {self.showView = true}
+                            learningViewModel.level = "Advanced 2"
+                            learningViewModel.advancedRightPressed = true
+                            DispatchQueue.main.asyncAfter(deadline: .now()) {self.learningViewModel.showView = true}
                             
                         }, label: {
                             Text(buttonText)
                         })
                         
                         Button(action: {
-                            learningViewBrain.level = "Advanced 1"
-                            advancedLeftPressed = true
-                            DispatchQueue.main.asyncAfter(deadline: .now()) {self.showView = true}
+                            learningViewModel.level = "Advanced 1"
+                            learningViewModel.advancedLeftPressed = true
+                            DispatchQueue.main.asyncAfter(deadline: .now()) {self.learningViewModel.showView = true}
                             
                         }, label: {
                             Text(buttonText)
@@ -114,21 +126,15 @@ struct LearningView: View {
                     }
                 }
             }.navigationBarTitle("Learning View", displayMode: .inline)
-        }.environmentObject(learningViewBrain)
+        }.environmentObject(learningViewModel)
     }
     
-    func startButton(level: Double = 0.0)->Double{
-        var level = level
-        if level < 100 {
-            level += 10
-        }
-        return level
-    }
+    
 }
 
 struct LearningView_Previews: PreviewProvider {
     static var previews: some View {
-        LearningView(learningViewBrain: LearningViewBrain())
+        LearningView(learningQuizViewModel: LearningQuizViewModel(), learningViewModel: LearningViewModel())
     }
 }
 

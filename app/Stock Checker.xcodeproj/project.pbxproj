@@ -30,6 +30,7 @@
 		A7FFE30025FD2F46006BAB24 /* iLineChart in Frameworks */ = {isa = PBXBuildFile; productRef = A7FFE2FF25FD2F46006BAB24 /* iLineChart */; };
 		CE41120A83AEDF2365E4B7EA /* Pods_Stock_Checker_Stock_CheckerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EFF94A6A28E5A5244DF5319 /* Pods_Stock_Checker_Stock_CheckerUITests.framework */; };
 		D2C8009F552215CE1D01F33C /* Pods_Stock_Checker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60BC1AA983C00A63545D97F1 /* Pods_Stock_Checker.framework */; };
+		D5A7DD6426308E2C00D5347C /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A7DD6326308E2C00D5347C /* QuizViewModel.swift */; };
 		D5F8E649261F62B3003FB092 /* LearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E648261F62B3003FB092 /* LearningView.swift */; };
 		D5F8E6562624A742003FB092 /* LearningBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E6552624A742003FB092 /* LearningBrain.swift */; };
 		D5F8E65B2624A763003FB092 /* LearningStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E65A2624A763003FB092 /* LearningStructure.swift */; };
@@ -88,6 +89,7 @@
 		A7FFE2DD25FD1AC9006BAB24 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		A7FFE2F025FD23E4006BAB24 /* StockPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPreviewView.swift; sourceTree = "<group>"; };
 		C9BB5F27F9FF9EDB0CEFA0AE /* Pods-Stock Checker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock Checker.debug.xcconfig"; path = "Target Support Files/Pods-Stock Checker/Pods-Stock Checker.debug.xcconfig"; sourceTree = "<group>"; };
+		D5A7DD6326308E2C00D5347C /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		D5F8E648261F62B3003FB092 /* LearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningView.swift; sourceTree = "<group>"; };
 		D5F8E6552624A742003FB092 /* LearningBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningBrain.swift; sourceTree = "<group>"; };
 		D5F8E65A2624A763003FB092 /* LearningStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningStructure.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				A7815AE525FBAD5900527BF4 /* SignInWithAppleButton.swift */,
 				D5F8E648261F62B3003FB092 /* LearningView.swift */,
 				D5F8E6642625E226003FB092 /* LearningViewQuiz.swift */,
+				D5A7DD6326308E2C00D5347C /* QuizViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				A7815ADE25FBA9A000527BF4 /* SignInWithAppleCoordinator.swift in Sources */,
 				D5F8E6652625E226003FB092 /* LearningViewQuiz.swift in Sources */,
 				A7815AF025FBAE3300527BF4 /* AccountView.swift in Sources */,
+				D5A7DD6426308E2C00D5347C /* QuizViewModel.swift in Sources */,
 				A7FFE2F125FD23E4006BAB24 /* StockPreviewView.swift in Sources */,
 				A7815AF825FBB64F00527BF4 /* SignInView.swift in Sources */,
 				A71FEC7E25ED137A00C7A4B8 /* StockTitleView.swift in Sources */,

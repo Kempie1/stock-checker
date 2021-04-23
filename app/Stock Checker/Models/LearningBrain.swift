@@ -43,14 +43,3 @@ class QuizBrain: ObservableObject {
            
 }
 
-class LearningViewBrain: ObservableObject{
-    @Published var level = ""
-}
-
-class LearningViewQuizBrain: ObservableObject{
-    @Published var beginner = 50.0
-    @Published var mediumRight = 40.0
-    @Published var mediumLeft = 20.0
-    @Published var advancedRight = 10.0
-    @Published var advancedLeft = 20.0
-}

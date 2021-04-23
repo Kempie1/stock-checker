@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct LearningViewQuiz: View {
+    @ObservedObject var vm = QuizViewModel()
     
     var quizBrain = QuizBrain()
     
     //Readable
-    @EnvironmentObject var learningViewBrain: LearningViewBrain
+    @EnvironmentObject var learningViewModel: LearningViewModel
     
-    @StateObject var learningViewQuizBrain = LearningViewQuizBrain()
-
+    @StateObject var learningQuizViewModel = LearningQuizViewModel()
+    
     
     @State private var buttonColorTrue:Color = Color.black
     @State private var buttonColorFalse:Color = Color.black
@@ -23,12 +24,12 @@ struct LearningViewQuiz: View {
     @State var buttonResultTrue = ""
     @State var buttonResultFalse = ""
     
-    @State var userIsRight = false
+//    @State var userIsRight = false
     
-    @State var score = 0
-    @State public var questionNumber = 0
+//    @State var score = 0
+//    @State public var questionNumber = 0
     
-    @State private var showPopUp = false
+//    @State private var showPopUp = false
     
     
     var body: some View {
@@ -37,33 +38,28 @@ struct LearningViewQuiz: View {
                 VStack(alignment: .center, spacing: 80){
                     
                     VStack(spacing: 10){
-                        Text("Question Number \(questionNumber)").font(.system(size: 30))
+                        Text("Question Number \(learningQuizViewModel.questionNumber)").font(.system(size: 30))
                             .accessibilityIdentifier("questionNumber")
                         
-                        Text("Score \(score)").font(.system(size: 30))
+                        Text("Score \(learningQuizViewModel.score)").font(.system(size: 30))
                     }
                     
                     
                     VStack(spacing: 20){
                         Text("Question:").font(.system(size: 30))
-                        Text(quizBrain.quiz[questionNumber].text)
+                        Text(quizBrain.quiz[learningQuizViewModel.questionNumber].text)
                             .font(.system(size: 30))
                         
                         
                         Button(action: {
                             
-                            //Works 
-                            learningViewQuizBrain.beginner = 90
-                            print(learningViewQuizBrain.beginner)
-                            
-                            
                             buttonResultTrue = "True"
-                            if questionNumber == quizBrain.quiz.count {
-                                self.showPopUp = true
+                            if learningQuizViewModel.questionNumber == quizBrain.quiz.count {
+                                self.learningQuizViewModel.showPopUp = true
                             }
-                            checkAnwser(input: buttonResultTrue, questionNumber: questionNumber)
-                            nextQuestion()
-                            buttonColorTrue = changeButtonColor(buttonColor: buttonColorTrue)!
+                            learningQuizViewModel.checkAnwser(input: buttonResultTrue, questionNumber: learningQuizViewModel.questionNumber)
+                            learningQuizViewModel.nextQuestion()
+                            buttonColorTrue = learningQuizViewModel.changeButtonColor(buttonColor: buttonColorTrue)!
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
                                 buttonColorTrue = .black
@@ -78,12 +74,13 @@ struct LearningViewQuiz: View {
                         
                         Button(action: {
                             buttonResultFalse = "False"
-                            if questionNumber == quizBrain.quiz.count {
-                                self.showPopUp = true
+                            if learningQuizViewModel.questionNumber == quizBrain.quiz.count {
+                                self.learningQuizViewModel.showPopUp = true
                             }
-                            checkAnwser(input: buttonResultFalse, questionNumber: questionNumber)
-                            nextQuestion()
-                            buttonColorFalse = changeButtonColor(buttonColor: buttonColorFalse)!
+//                            quizViewModel.changeScore()
+                            learningQuizViewModel.checkAnwser(input: buttonResultFalse, questionNumber: learningQuizViewModel.questionNumber)
+                            learningQuizViewModel.nextQuestion()
+                            buttonColorFalse = learningQuizViewModel.changeButtonColor(buttonColor: buttonColorFalse)!
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
                                 buttonColorFalse = .black
@@ -99,7 +96,7 @@ struct LearningViewQuiz: View {
                     }
                 }
                 
-                if self.showPopUp == true{
+                if self.learningQuizViewModel.showPopUp == true{
                     
                     ZStack (alignment: .center){
                         Color.white
@@ -108,10 +105,10 @@ struct LearningViewQuiz: View {
                                 .foregroundColor(Color.black)
                                 .font(.system(size: 25, weight: .heavy,design: .default))
                             VStack(alignment: .leading, spacing: 10) {
-                                Text("Score: \(score)")
+                                Text("Score: \(learningQuizViewModel.score)")
                                     .foregroundColor(Color.black)
                                     .font(.system(size: 20, design: .default))
-                                Text("Level: \(learningViewBrain.level)")
+                                Text("Level: \(learningViewModel.level)")
                                     .foregroundColor(Color.black)
                                     .font(.system(size: 20, design: .default))
                                 Text("You can go back now!")
@@ -133,71 +130,67 @@ struct LearningViewQuiz: View {
                 }
             }
             
-        }.environmentObject(learningViewQuizBrain)
+        }.environmentObject(learningQuizViewModel)
         
     }
     
-    func getQuestionNumber()->Int{
-        return questionNumber
-    }
+//    func getQuestionNumber()->Int{
+//        return learningQuizViewModel.questionNumber
+//    }
     
-    func getScoreNumber(userIsRight: Bool)->Int{
-        var userIsCorrect = userIsRight
-        if userIsCorrect == true{
-            score += 1
-            return score
-        }
-            return score
-    }
+//    func getScoreNumber(userIsRight: Bool){
+//        var userIsCorrect = userIsRight
+//        if userIsCorrect == true{
+//            learningQuizViewModel.score += 1
+//        }
+//    }
     
-    func nextQuestion(){
-        if questionNumber < quizBrain.quiz.count {
-            questionNumber += 1
-        }
-        if questionNumber == quizBrain.quiz.count {
-            self.showPopUp = true
-            questionNumber = 0
-        }
-    }
+//    func nextQuestion(){
+//        if learningQuizViewModel.questionNumber < quizBrain.quiz.count {
+//            learningQuizViewModel.questionNumber += 1
+//        }
+//        if learningQuizViewModel.questionNumber == quizBrain.quiz.count {
+//            self.showPopUp = true
+//            learningQuizViewModel.questionNumber = 0
+//        }
+//    }
     
-    func checkAnwser(input: String, questionNumber: Int)->Bool{
-        if input == quizBrain.quiz[questionNumber].answer{
-            print("Correct")
-            userIsRight = true
-            score = getScoreNumber(userIsRight: userIsRight)
-            return true
-        }
-        else{
-            print("Wrong")
-            userIsRight = false
-            score = getScoreNumber(userIsRight: userIsRight)
-            return false
-        }
-    }
+//    func checkAnwser(input: String, questionNumber: Int)->Bool{
+//        if input == quizBrain.quiz[learningQuizViewModel.questionNumber].answer{
+//            print("Correct")
+//            userIsRight = true
+//            learningQuizViewModel.getScoreNumber(userIsRight: userIsRight)
+//            return true
+//        }
+//        else{
+//            print("Wrong")
+//            userIsRight = false
+//            return false
+//        }
+//    }
     
-    func changeButtonColor(buttonColor: Color) -> Color?{
-        var buttonColor = buttonColor
-        if userIsRight == false{
-            buttonColor = Color.green
-        }
-        
-        if userIsRight == true{
-            buttonColor = Color.red
-        }
-        return buttonColor
-    }
+//    func changeButtonColor(buttonColor: Color) -> Color?{
+//        var buttonColor = buttonColor
+//        if learningQuizViewModel.userIsRight == true{
+//            buttonColor = Color.green
+//        }
+//
+//        if learningQuizViewModel.userIsRight == false{
+//            buttonColor = Color.red
+//        }
+//        return buttonColor
+//    }
+    
+    
     
     
 }
 
 struct LearningViewQuiz_Previews: PreviewProvider {
     static var previews: some View {
-        LearningViewQuiz(learningViewQuizBrain: LearningViewQuizBrain())
+        LearningViewQuiz(learningQuizViewModel: LearningQuizViewModel())
     }
 }
-
-
-
 
 
 struct AppButtonStyle: ButtonStyle {
