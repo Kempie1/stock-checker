@@ -15,23 +15,7 @@ struct LearningView: View {
     @ObservedObject var learningQuizViewModel: LearningQuizViewModel
     
     @StateObject var learningViewModel = LearningViewModel()
-    
-//    @State public var beginner = 50.0
-//    @State public var mediumRight = 40.0
-//    @State public var mediumLeft = 20.0
-//    @State public var advancedRight = 10.0
-//    @State public var advancedLeft = 20.0
-//    @State public var showView = false
-//    @State public var beginnerLevel = ""
-//    @State public var mediumRightLevel = ""
-//    @State public var mediumLeftLevel = ""
-//    @State public var advancedRightLevel = ""
-//    @State public var advancedLeftLevel = ""
-//    @State public var beginnerPressed = false
-//    @State public var mediumRightPressed = false
-//    @State public var mediumLeftPressed = false
-//    @State public var advancedRightPressed = false
-//    @State public var advancedLeftPressed = false
+  
     let buttonText = "Start"
     
     @State var score = 0.0

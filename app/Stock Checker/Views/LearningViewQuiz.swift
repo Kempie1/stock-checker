@@ -17,21 +17,6 @@ struct LearningViewQuiz: View {
     
     @StateObject var learningQuizViewModel = LearningQuizViewModel()
     
-    
-//    @State private var buttonColorTrue:Color = Color.black
-//    @State private var buttonColorFalse:Color = Color.black
-//
-//    @State var buttonResultTrue = ""
-//    @State var buttonResultFalse = ""
-    
-//    @State var userIsRight = false
-    
-//    @State var score = 0
-//    @State public var questionNumber = 0
-    
-//    @State private var showPopUp = false
-    
-    
     var body: some View {
         NavigationView{
             ZStack(alignment: .center){
@@ -77,7 +62,6 @@ struct LearningViewQuiz: View {
                             if learningQuizViewModel.questionNumber == quizBrain.quiz.count {
                                 self.learningQuizViewModel.showPopUp = true
                             }
-//                            quizViewModel.changeScore()
                             learningQuizViewModel.checkAnwser(input: learningQuizViewModel.buttonResultFalse, questionNumber: learningQuizViewModel.questionNumber)
                             learningQuizViewModel.nextQuestion()
                             learningQuizViewModel.buttonColorFalse = learningQuizViewModel.changeButtonColor(buttonColor: learningQuizViewModel.buttonColorFalse)!
@@ -118,11 +102,6 @@ struct LearningViewQuiz: View {
                                     .foregroundColor(Color.black)
                                     .font(.system(size: 20, design: .default))
                             }
-                            //                            Button(action: {
-                            //                                self.showPopUp = false
-                            //                            }, label: {
-                            //                                Text("Close")
-                            //                            })
                         }.padding()
                     }
                     .frame(width: 360, height: 500)
@@ -133,57 +112,6 @@ struct LearningViewQuiz: View {
         }.environmentObject(learningQuizViewModel)
         
     }
-    
-//    func getQuestionNumber()->Int{
-//        return learningQuizViewModel.questionNumber
-//    }
-    
-//    func getScoreNumber(userIsRight: Bool){
-//        var userIsCorrect = userIsRight
-//        if userIsCorrect == true{
-//            learningQuizViewModel.score += 1
-//        }
-//    }
-    
-//    func nextQuestion(){
-//        if learningQuizViewModel.questionNumber < quizBrain.quiz.count {
-//            learningQuizViewModel.questionNumber += 1
-//        }
-//        if learningQuizViewModel.questionNumber == quizBrain.quiz.count {
-//            self.showPopUp = true
-//            learningQuizViewModel.questionNumber = 0
-//        }
-//    }
-    
-//    func checkAnwser(input: String, questionNumber: Int)->Bool{
-//        if input == quizBrain.quiz[learningQuizViewModel.questionNumber].answer{
-//            print("Correct")
-//            userIsRight = true
-//            learningQuizViewModel.getScoreNumber(userIsRight: userIsRight)
-//            return true
-//        }
-//        else{
-//            print("Wrong")
-//            userIsRight = false
-//            return false
-//        }
-//    }
-    
-//    func changeButtonColor(buttonColor: Color) -> Color?{
-//        var buttonColor = buttonColor
-//        if learningQuizViewModel.userIsRight == true{
-//            buttonColor = Color.green
-//        }
-//
-//        if learningQuizViewModel.userIsRight == false{
-//            buttonColor = Color.red
-//        }
-//        return buttonColor
-//    }
-    
-    
-    
-    
 }
 
 struct LearningViewQuiz_Previews: PreviewProvider {
