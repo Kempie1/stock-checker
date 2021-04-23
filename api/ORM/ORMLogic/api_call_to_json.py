@@ -24,20 +24,22 @@ class Api_call():
                 self.ticker_symbol_table = cur.fetchall()
                 return self.ticker_symbol_table
     
-    def checking_if_ticker_exists(self, ticker_symbol_table):
+    def checking_if_ticker_exists(self,ticker_symbol, ticker_symbol_table):
         for i in range(len(ticker_symbol_table)):
-            if self.ticker_symbol != str(ticker_symbol_table[i]):
-                self.already_exist = False
-    
-        for i in range(len(ticker_symbol_table)):
-            if self.ticker_symbol == str(ticker_symbol_table[i]):
+            if ticker_symbol == ticker_symbol_table[i]:
                 print("This Ticker is already existing in the Database")
                 self.already_exist = True
-
+                return self.already_exist
+            
+        for i in range(len(ticker_symbol_table)):
+            if ticker_symbol != str(ticker_symbol_table[i]):
+                print("This Ticker does not yet exists in the Database")
+                self.already_exist = False
+            
         if len(ticker_symbol_table) == 0:
             print("There is nothing in the ticker_symbol Table")
             self.already_exist = False
-
+        
         return self.already_exist
 
     def api_request(self, request):
@@ -78,10 +80,10 @@ class Api_call():
             file1.write("")
             file1.close()
 
-#Api = Api_call()
-#Api.user_input("TSLA")
-#Api.get_ticker_table_list()
-#Api.checking_if_ticker_exists(Api.get_ticker_table_list())
+Api = Api_call()
+Api.user_input("TSLA")
+Api.get_ticker_table_list()
+Api.checking_if_ticker_exists(["TSLA"], Api.get_ticker_table_list())
 #Api.api_request_to_json(["get-statistics", "get-financials"])
 
 

@@ -24,7 +24,7 @@ class Execute:
     def execute_api(self):
         self.Api.user_input("KME")
         self.Api.get_ticker_table_list()
-        self.Api.checking_if_ticker_exists(self.Api.get_ticker_table_list())
+        self.Api.checking_if_ticker_exists(["KME"], self.Api.get_ticker_table_list())
         self.Api.api_request_to_json(["get-statistics", "get-financials"])
 
     def execute_server(self):

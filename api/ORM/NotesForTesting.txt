@@ -39,3 +39,12 @@ NOTES FROM API TEST OLD
 # Calls the thrid party api and check if it has the correct response
 # Mock thridparty api 
 #  Need a framwork for testing (pytest)
+
+
+def checking_ticker(self, ticker_symbol, ticker_symbol_table):
+        self.already_exist = False
+        for i in range(len(ticker_symbol_table)):
+            if ticker_symbol == ticker_symbol_table[i]:
+                print("This Ticker is already existing in the Database")
+                self.already_exist = True
+                return self.already_exist
