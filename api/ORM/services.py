@@ -9,6 +9,9 @@ import requests
 import os
 import unittest
 from constants import ticker_symbol_for_testing
+from decouple import config
+import psycopg2
+import psycopg2.extras
 
 def real_api_request():
         ticker_symbol = ticker_symbol_for_testing
@@ -26,6 +29,17 @@ def real_api_request():
             #If request fails then nothing will be returned
 
 #Link: https://realpython.com/testing-third-party-apis-with-mocks/
+
+def real_sql_request():
+    DB_HOST = config('DB_HOST')
+    DB_NAME = config('DB_NAME')
+    DB_USER = config('DB_USER')
+    DB_PASS = config('DB_PASS')
+
+    conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
+
+    return conn
+
 
 def get_uncompleted_todos():
     response = get_todos()

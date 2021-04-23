@@ -28,7 +28,7 @@ class Execute:
         self.Api.api_request_to_json(["get-statistics", "get-financials"])
 
     def execute_server(self):
-        self.Server.open_json_file()
+        self.Server.open_json_file('stock.json')
         self.Server.checking_if_ticker_exists()
         self.Server.connecting_to_server()
 

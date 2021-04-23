@@ -8,8 +8,8 @@ from decouple import config
 from ORM_services import ORM_services
 
 class Json_to_server():
-    def open_json_file(self):
-        with open('stock.json') as json_file:
+    def open_json_file(self, json_file):
+        with open(json_file) as json_file:
             try:
                 self.data = json.load(json_file)
             except ValueError and AttributeError:
@@ -266,6 +266,6 @@ class Json_to_server():
                     
 
 #server = Json_to_server()
-#server.open_json_file()
+#server.open_json_file('stock.json')
 #server.checking_if_ticker_exists()
 #server.connecting_to_server()
