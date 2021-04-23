@@ -1,5 +1,5 @@
 //
-//  StockView.swift
+//  StockDetailView.swift
 //  Stock Checker
 //
 //  Created by Valentin Silvera on 01.03.21.
@@ -8,7 +8,7 @@
 import SwiftUI
 import iLineChart
 
-struct StockView: View {
+struct StockDetailView: View {
     var stock: Stock
     
     var body: some View {
