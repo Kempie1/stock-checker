@@ -6,17 +6,16 @@ from json.decoder import JSONDecodeError
 import os
 from decouple import config
 from ORM_services import ORM_services
+from api_call_to_json import Api_call
 
 class Json_to_server():
     def open_json_file(self, json_file):
-        with open(json_file) as json_file:
-            try:
-                self.data = json.load(json_file)
-            except ValueError and AttributeError:
-                print('Decoding JSON has failed')
+        self.data = open(json_file)
+             #as json_file:
+            #self.data = json.load(json_file)
         return self.data
     
-    def checking_if_ticker_exists(self):
+    def get_ticker_table_list(self):
 
         conn = ORM_services.connecting_to_server()
 
@@ -25,21 +24,29 @@ class Json_to_server():
                     cur.execute("SELECT stock.ticker_symbol FROM stock")
                     self.ticker_table = cur.fetchall()
 
-        json_ticker_symbol = self.data['get-statistics']['symbol']
-        self.ticker_symbol = "['" + json_ticker_symbol + "']"
+        #json_ticker_symbol = self.data['get-statistics']['symbol']
+        #self.ticker_symbol = "['" + json_ticker_symbol + "']"
+        
+        return self.ticker_table
 
-        for i in range(len(self.ticker_table)):
-            if self.ticker_symbol != str(self.ticker_table[i]):
-                self.already_exists_in_DB = False
+    def checking_if_ticker_exists_in_database(self):
+        self.services = ORM_services()
+        ticker_symbol = ["TSLA"]
+        self.already_exists_in_DB = self.services.checking_if_ticker_exists(ticker_symbol,self.get_ticker_table_list())
+        print(self.already_exists_in_DB)
+
+        #for i in range(len(self.ticker_table)):
+          #  if self.ticker_symbol != str(self.ticker_table[i]):
+         #       self.already_exists_in_DB = False
         #duplicated code
-        for i in range(len(self.ticker_table)):
-            if self.ticker_symbol == str(self.ticker_table[i]):
-                print("This Ticker is already existing in the Database")
-                self.already_exists_in_DB = True
+        #for i in range(len(self.ticker_table)):
+           # if self.ticker_symbol == str(self.ticker_table[i]):
+          #      print("This Ticker is already existing in the Database")
+         #       self.already_exists_in_DB = True
 
-        if len(self.ticker_table) == 0:
-            print("There is nothing in the ticker_symbol Table")
-            self.already_exists_in_DB = False
+        #if len(self.ticker_table) == 0:
+       #     print("There is nothing in the ticker_symbol Table")
+      #      self.already_exists_in_DB = False
 
     def connecting_to_server(self):
         
@@ -265,7 +272,7 @@ class Json_to_server():
         
                     
 
-#server = Json_to_server()
+server = Json_to_server()
 #server.open_json_file('stock.json')
-#server.checking_if_ticker_exists()
+server.checking_if_ticker_exists_in_database()
 #server.connecting_to_server()

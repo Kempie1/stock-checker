@@ -13,10 +13,10 @@ import sys
 sys.path.append('/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM/ORMLogic')
 
 #INTERNAL
-from services import real_api_request, get_uncompleted_todos
+from services import real_api_request
 from constants import ticker_symbol_for_testing, ticker_symbol_for_request, ticker_symbol_table_full, ticker_symbol_table_empty, ticker_symbol_not_in_table
 #EXTERNAL
-from ORMLogic import api_call_to_json
+from ORMLogic import api_call_to_json, ORM_services
 
 
 class test_Api_Integration(unittest.TestCase):

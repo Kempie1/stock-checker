@@ -40,19 +40,17 @@ def real_sql_request():
 
     return conn
 
-
-def get_uncompleted_todos():
-    response = get_todos()
-    if response is None:
-        return []
-    else:
-        todos = response.json()
-        for todo in todos: 
-            if todo == 'symbol':
-                if todos['symbol'] == 'CSV':
-                    completed = False
-            
-        return[todo]
+#def get_uncompleted_todos():
+ #   response = get_todos()
+  #  if response is None:
+   #     return []
+    #else:
+     #   todos = response.json()
+      #  for todo in todos: 
+       #     if todo == 'symbol':
+        #        if todos['symbol'] == 'CSV':
+         #           completed = False
+        #return[todo]
 
 #if todo('symbol') == "TSLA":
 #                return[todo]
