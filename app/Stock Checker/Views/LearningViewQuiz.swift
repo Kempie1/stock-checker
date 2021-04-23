@@ -18,11 +18,11 @@ struct LearningViewQuiz: View {
     @StateObject var learningQuizViewModel = LearningQuizViewModel()
     
     
-    @State private var buttonColorTrue:Color = Color.black
-    @State private var buttonColorFalse:Color = Color.black
-    
-    @State var buttonResultTrue = ""
-    @State var buttonResultFalse = ""
+//    @State private var buttonColorTrue:Color = Color.black
+//    @State private var buttonColorFalse:Color = Color.black
+//
+//    @State var buttonResultTrue = ""
+//    @State var buttonResultFalse = ""
     
 //    @State var userIsRight = false
     
@@ -53,42 +53,42 @@ struct LearningViewQuiz: View {
                         
                         Button(action: {
                             
-                            buttonResultTrue = "True"
+                            learningQuizViewModel.buttonResultTrue = "True"
                             if learningQuizViewModel.questionNumber == quizBrain.quiz.count {
                                 self.learningQuizViewModel.showPopUp = true
                             }
-                            learningQuizViewModel.checkAnwser(input: buttonResultTrue, questionNumber: learningQuizViewModel.questionNumber)
+                            learningQuizViewModel.checkAnwser(input: learningQuizViewModel.buttonResultTrue, questionNumber: learningQuizViewModel.questionNumber)
                             learningQuizViewModel.nextQuestion()
-                            buttonColorTrue = learningQuizViewModel.changeButtonColor(buttonColor: buttonColorTrue)!
+                            learningQuizViewModel.buttonColorTrue = learningQuizViewModel.changeButtonColor(buttonColor: learningQuizViewModel.buttonColorTrue)!
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                                buttonColorTrue = .black
+                                learningQuizViewModel.buttonColorTrue = .black
                             })
                             
                         }){
                             Text("True").font(.system(size: 20))
                         }
-                        .buttonStyle(AppButtonStyle(q: buttonColorTrue))
+                        .buttonStyle(AppButtonStyle(q: learningQuizViewModel.buttonColorTrue))
                         .accessibility(identifier: "TrueButton")
                         
                         
                         Button(action: {
-                            buttonResultFalse = "False"
+                            learningQuizViewModel.buttonResultFalse = "False"
                             if learningQuizViewModel.questionNumber == quizBrain.quiz.count {
                                 self.learningQuizViewModel.showPopUp = true
                             }
 //                            quizViewModel.changeScore()
-                            learningQuizViewModel.checkAnwser(input: buttonResultFalse, questionNumber: learningQuizViewModel.questionNumber)
+                            learningQuizViewModel.checkAnwser(input: learningQuizViewModel.buttonResultFalse, questionNumber: learningQuizViewModel.questionNumber)
                             learningQuizViewModel.nextQuestion()
-                            buttonColorFalse = learningQuizViewModel.changeButtonColor(buttonColor: buttonColorFalse)!
+                            learningQuizViewModel.buttonColorFalse = learningQuizViewModel.changeButtonColor(buttonColor: learningQuizViewModel.buttonColorFalse)!
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                                buttonColorFalse = .black
+                                learningQuizViewModel.buttonColorFalse = .black
                             })
                         }){
                             Text("False").font(.system(size: 20))
                         }
-                        .buttonStyle(AppButtonStyle(q: buttonColorFalse))
+                        .buttonStyle(AppButtonStyle(q: learningQuizViewModel.buttonColorFalse))
                         .accessibility(identifier: "FalseButton")
                         
                         

@@ -70,6 +70,10 @@ class LearningQuizViewModel: ObservableObject{
     @Published var questionNumber = 0
     @Published var showPopUp = false
     @Published var userIsRight = false
+    @Published var buttonColorTrue:Color = Color.black
+    @Published var buttonColorFalse:Color = Color.black
+    @Published var buttonResultTrue = ""
+    @Published var buttonResultFalse = ""
     
     func getQuestionNumber()->Int{
         return questionNumber
