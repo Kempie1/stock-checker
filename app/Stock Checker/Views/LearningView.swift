@@ -18,9 +18,6 @@ struct LearningView: View {
   
     let buttonText = "Start"
     
-    @State var score = 0.0
-    @State var predictionInterval = 0.2
-    
     var body: some View {
         NavigationView {
             ScrollView{
@@ -41,7 +38,6 @@ struct LearningView: View {
                     Button(action: {
                             learningViewModel.beginner = learningViewModel.startButton(level: learningViewModel.beginner)
                             learningViewModel.level = "Beginner"
-                            vm.returnLevelBeginner()
                             learningViewModel.beginnerPressed = true
                         DispatchQueue.main.asyncAfter(deadline: .now()) {self.learningViewModel.showView = true}
                     }, label: {

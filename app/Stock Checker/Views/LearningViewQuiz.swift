@@ -72,9 +72,6 @@ struct LearningViewQuiz: View {
                         }
                         .buttonStyle(AppButtonStyle(q: learningQuizViewModel.buttonColorFalse))
                         .accessibility(identifier: "FalseButton")
-                        
-                        
-                        
                     }
                 }
                 
