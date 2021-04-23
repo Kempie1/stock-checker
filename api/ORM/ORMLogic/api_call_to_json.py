@@ -15,61 +15,23 @@ class Api_call():
         self.ticker_symbol = "['" + user_input + "']"
         return self.ticker_symbol
 
-    def get_ticker_table_list(self):
-        conn = ORM_services.connecting_to_server()
-
-        with conn: 
-            with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
-                cur.execute("SELECT stock.ticker_symbol FROM stock")
-                self.ticker_symbol_table = cur.fetchall()
-                return self.ticker_symbol_table
-    
     def checking_if_ticker_exists_in_database(self):
         self.services = ORM_services()
         ticker_symbol = ["TSLA"]
-        self.already_exist = self.services.checking_if_ticker_exists(ticker_symbol,self.get_ticker_table_list())
+        self.already_exist = self.services.checking_if_ticker_exists(ticker_symbol)
         print(self.already_exist)
-
-  #  def checking_if_ticker_exists(self,ticker_symbol, ticker_symbol_table):
-   #     for i in range(len(ticker_symbol_table)):
-    #        if ticker_symbol == ticker_symbol_table[i]:
-       #         print("This Ticker is already existing in the Database")
-     #           self.already_exist = True
-      #          return self.already_exist
-            
-       # for i in range(len(ticker_symbol_table)):
-        #    if ticker_symbol != str(ticker_symbol_table[i]):
-         #       print("This Ticker does not yet exists in the Database")
-          #      self.already_exist = False
-            
-       # if len(ticker_symbol_table) == 0:
-        #    print("There is nothing in the ticker_symbol Table")
-         #   self.already_exist = False
-        
-       # return self.already_exist
 
     def api_request(self, request):
-        print(self.already_exist)
         if self.already_exist == False:
+            #self.services.api_request(["get-statistics", "get-financials"], ["TSL"])
             url = f"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/{request}"   
-            querystring = {"symbol": self.ticker_symbol,"region":"US"}
+            querystring = {"symbol": ["TSL"],"region":"US"}
             headers = {
             'x-rapidapi-key': config('APIKEY'),
             'x-rapidapi-host': config('APIHOST')
             }
             response = requests.request("GET", url, headers=headers, params=querystring)
             return response.text
-
-    #def api_request_to_json(self,request):
-     #   if self.already_exist == False:    
-      #      file1 = open(f"{request}.json","w") 
-       #     file1.write(api_request(request))
-        #    file1.close()
-         #   print("Stock Data has been added to Json")
-        #if self.already_exist == True:
-         #   file1 = open(f"{request}.json", "w")
-          #  file1.write("")
-           # file1.close()
 
     def api_request_to_json(self, request):
         if self.already_exist == False:
@@ -89,9 +51,7 @@ class Api_call():
 
 Api = Api_call()
 #Api.user_input("TSLA")
-#Api.get_ticker_table_list()
 Api.checking_if_ticker_exists_in_database()
-#Api.checking_if_ticker_exists(["TSLA"], Api.get_ticker_table_list())
 #Api.api_request_to_json(["get-statistics", "get-financials"])
 
 
