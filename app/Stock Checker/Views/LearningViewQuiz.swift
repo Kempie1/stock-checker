@@ -9,9 +9,7 @@ import SwiftUI
 
 struct LearningViewQuiz: View {
     @ObservedObject var vm = QuizViewModel()
-    
-    var quizBrain = QuizBrain()
-    
+
     //Readable
     @EnvironmentObject var learningViewModel: LearningViewModel
     
@@ -32,14 +30,14 @@ struct LearningViewQuiz: View {
                     
                     VStack(spacing: 20){
                         Text("Question:").font(.system(size: 30))
-                        Text(quizBrain.quiz[learningQuizViewModel.questionNumber].text)
+                        Text(learningQuizViewModel.quizBrain.quiz[learningQuizViewModel.questionNumber].text)
                             .font(.system(size: 30))
                         
                         
                         Button(action: {
                             
                             learningQuizViewModel.buttonResultTrue = "True"
-                            if learningQuizViewModel.questionNumber == quizBrain.quiz.count {
+                            if learningQuizViewModel.questionNumber == learningQuizViewModel.quizBrain.quiz.count {
                                 self.learningQuizViewModel.showPopUp = true
                             }
                             learningQuizViewModel.checkAnwser(input: learningQuizViewModel.buttonResultTrue, questionNumber: learningQuizViewModel.questionNumber)
@@ -59,7 +57,7 @@ struct LearningViewQuiz: View {
                         
                         Button(action: {
                             learningQuizViewModel.buttonResultFalse = "False"
-                            if learningQuizViewModel.questionNumber == quizBrain.quiz.count {
+                            if learningQuizViewModel.questionNumber == learningQuizViewModel.quizBrain.quiz.count {
                                 self.learningQuizViewModel.showPopUp = true
                             }
                             learningQuizViewModel.checkAnwser(input: learningQuizViewModel.buttonResultFalse, questionNumber: learningQuizViewModel.questionNumber)

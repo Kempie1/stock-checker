@@ -64,7 +64,7 @@ class LearningViewModel: ObservableObject{
 }
 
 class LearningQuizViewModel: ObservableObject{
-    var quizBrain = QuizBrain()
+    @Published var quizBrain = QuizBrain()
     
     @Published var score = 0.0
     @Published var questionNumber = 0
@@ -74,11 +74,10 @@ class LearningQuizViewModel: ObservableObject{
     @Published var buttonColorFalse:Color = Color.black
     @Published var buttonResultTrue = ""
     @Published var buttonResultFalse = ""
+    @Published var quizBrainText = []
+    @Published var quizBrainAnwsers = []
     
-    func getQuestionNumber()->Int{
-        return questionNumber
-    }
-    
+        
     func getScoreNumber(userIsRight: Bool){
         var userIsCorrect = userIsRight
         if userIsCorrect == true{
