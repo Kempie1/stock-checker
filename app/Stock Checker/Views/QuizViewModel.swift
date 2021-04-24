@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class QuizViewModel: ObservableObject{
-    @Published var level = ""
+    @Published var level: String
     @Published var showView = false
     @Published var predictionInterval = 0.2
     //LEVEL FOR LEANRINGVIEW
@@ -44,6 +44,14 @@ class QuizViewModel: ObservableObject{
     @Published var quizBrainText = []
     @Published var quizBrainAnwsers = []
     
+    init() {
+        level = ""
+    }
+    
+    func setLevelBeginner() {
+        level = "Beginner"
+    }
+    
     func startButton(level: Double = 0.0)->Double{
         var level = level
         if level < 100 {
@@ -75,7 +83,7 @@ class QuizViewModel: ObservableObject{
     
     func checkAnwser(input: String, questionNumber: Int)->Bool{
         if input == quizBrain.quiz[questionNumber].answer{
-            print("Correct")
+            print("Right")
             userIsRight = true
             getScoreNumber(userIsRight: userIsRight)
             return true
