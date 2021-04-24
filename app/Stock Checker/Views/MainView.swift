@@ -18,7 +18,7 @@ struct MainView: View {
                     Label("Explore", systemImage: "triangle.circle")
                 }
             
-            LearningView(learningQuizViewModel: LearningQuizViewModel(), learningViewModel: LearningViewModel())
+            LearningView(learningViewModel: LearningViewModel())
                 .tabItem {
                     Label("Learn", systemImage: "book.circle")
                 }

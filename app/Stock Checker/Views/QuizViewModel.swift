@@ -9,11 +9,11 @@ import Foundation
 import SwiftUI
 
 class QuizViewModel: ObservableObject{
-    @Published var level: String
+    @Published var level = ""
     @Published var showView = false
     @Published var predictionInterval = 0.2
     //LEVEL FOR LEANRINGVIEW
-    @Published var beginner = 50.0
+    @Published var beginner: Double = 50.0
     @Published var mediumRight = 40.0
     @Published var mediumLeft = 20.0
     @Published var advancedRight = 10.0
@@ -45,14 +45,18 @@ class QuizViewModel: ObservableObject{
     @Published var quizBrainAnwsers = []
     
     init() {
-        level = ""
+        setLevelBeginner()
     }
     
     func setLevelBeginner() {
         level = "Beginner"
     }
     
-    func startButton(level: Double = 0.0)->Double{
+    func addToBeginner(ammount: Double) {
+        beginner += ammount
+    }
+    
+    func startButton(level: Double = 0.0){
         var level = level
         if level < 100 {
             level += 10
@@ -60,7 +64,6 @@ class QuizViewModel: ObservableObject{
 //        Timer.scheduledTimer(withTimeInterval: self.predictionInterval ?? 1, repeats: true) { timer in
 //            beginner += learningQuizViewModel.score
 //        }
-        return level
     }
     
     
@@ -109,6 +112,21 @@ class QuizViewModel: ObservableObject{
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class LearningViewModel: ObservableObject{
     @Published var level = ""
     @Published var showView = false
@@ -131,6 +149,34 @@ class LearningViewModel: ObservableObject{
     @Published var mediumLeftPressed = false
     @Published var advancedRightPressed = false
     @Published var advancedLeftPressed = false
+   
+    init() {
+        setLevelBeginner()
+    }
+    
+    func setLevelBeginner() {
+        level = "Beginner"
+    }
+    
+    func addToBeginner(ammount: Double) {
+        beginner += ammount
+    }
+    
+    func addToMediumLeft(ammount: Double) {
+        mediumLeft += ammount
+    }
+    
+    func addToMediumRight(ammount: Double) {
+        mediumRight += ammount
+    }
+    
+    func addToAdvancedLeft(ammount: Double) {
+        advancedLeft += ammount
+    }
+    
+    func addToAdvancedRight(ammount: Double) {
+        advancedRight += ammount
+    }
     
     func startButton(level: Double = 0.0)->Double{
         var level = level

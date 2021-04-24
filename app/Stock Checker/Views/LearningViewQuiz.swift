@@ -21,61 +21,61 @@ struct LearningViewQuiz: View {
                 VStack(alignment: .center, spacing: 80){
                     
                     VStack(spacing: 10){
-                        Text("Question Number \(vm.questionNumber)").font(.system(size: 30))
+                        Text("Question Number \(learningQuizViewModel.questionNumber)").font(.system(size: 30))
                             .accessibilityIdentifier("questionNumber")
                         
-                        Text("Score \(vm.score)").font(.system(size: 30))
+                        Text("Score \(learningQuizViewModel.score)").font(.system(size: 30))
                     }
                     
                     
                     VStack(spacing: 20){
                         Text("Question:").font(.system(size: 30))
-                        Text(vm.quizBrain.quiz[vm.questionNumber].text)
+                        Text(learningQuizViewModel.quizBrain.quiz[learningQuizViewModel.questionNumber].text)
                             .font(.system(size: 30))
                         
                         
                         Button(action: {
                             
-                            vm.buttonResultTrue = "True"
-                            if vm.questionNumber == vm.quizBrain.quiz.count {
-                                self.vm.showPopUp = true
+                            learningQuizViewModel.buttonResultTrue = "True"
+                            if learningQuizViewModel.questionNumber == learningQuizViewModel.quizBrain.quiz.count {
+                                self.learningQuizViewModel.showPopUp = true
                             }
-                            vm.checkAnwser(input: vm.buttonResultTrue, questionNumber: vm.questionNumber)
-                            vm.nextQuestion()
-                            vm.buttonColorTrue = vm.changeButtonColor(buttonColor: vm.buttonColorTrue)!
+                            learningQuizViewModel.checkAnwser(input: learningQuizViewModel.buttonResultTrue, questionNumber: learningQuizViewModel.questionNumber)
+                            learningQuizViewModel.nextQuestion()
+                            learningQuizViewModel.buttonColorTrue = learningQuizViewModel.changeButtonColor(buttonColor: learningQuizViewModel.buttonColorTrue)!
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                                vm.buttonColorTrue = .black
+                                learningQuizViewModel.buttonColorTrue = .black
                             })
                             
                         }){
                             Text("True").font(.system(size: 20))
                         }
-                        .buttonStyle(AppButtonStyle(q: vm.buttonColorTrue))
+                        .buttonStyle(AppButtonStyle(q: learningQuizViewModel.buttonColorTrue))
                         .accessibility(identifier: "TrueButton")
                         
                         
                         Button(action: {
-                            vm.buttonResultFalse = "False"
-                            if vm.questionNumber == vm.quizBrain.quiz.count {
-                                self.vm.showPopUp = true
+                            learningQuizViewModel.buttonResultFalse = "False"
+                            if learningQuizViewModel.questionNumber == learningQuizViewModel.quizBrain.quiz.count {
+                                self.learningQuizViewModel.showPopUp = true
                             }
-                            vm.checkAnwser(input: vm.buttonResultFalse, questionNumber: vm.questionNumber)
-                            vm.nextQuestion()
-                            vm.buttonColorFalse = vm.changeButtonColor(buttonColor: vm.buttonColorFalse)!
+                            learningQuizViewModel.checkAnwser(input: learningQuizViewModel.buttonResultFalse, questionNumber: learningQuizViewModel.questionNumber)
+                            learningQuizViewModel.nextQuestion()
+                            learningQuizViewModel.buttonColorFalse = learningQuizViewModel.changeButtonColor(buttonColor: learningQuizViewModel.buttonColorFalse)!
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                                vm.buttonColorFalse = .black
+                                learningQuizViewModel.buttonColorFalse = .black
                             })
                         }){
                             Text("False").font(.system(size: 20))
                         }
-                        .buttonStyle(AppButtonStyle(q: vm.buttonColorFalse))
+                        .buttonStyle(AppButtonStyle(q: learningQuizViewModel.buttonColorFalse))
                         .accessibility(identifier: "FalseButton")
                     }
                 }
                 
-                if self.vm.showPopUp == true{
+                if self.learningQuizViewModel.showPopUp == true{
                     
                     ZStack (alignment: .center){
                         Color.white
@@ -84,10 +84,10 @@ struct LearningViewQuiz: View {
                                 .foregroundColor(Color.black)
                                 .font(.system(size: 25, weight: .heavy,design: .default))
                             VStack(alignment: .leading, spacing: 10) {
-                                Text("Score: \(vm.score)")
+                                Text("Score: \(learningQuizViewModel.score)")
                                     .foregroundColor(Color.black)
                                     .font(.system(size: 20, design: .default))
-                                Text("Level: \(vm.level)")
+                                Text("Level: \(learningViewModel.level)")
                                     .foregroundColor(Color.black)
                                     .font(.system(size: 20, design: .default))
                                 Text("You can go back now!")
@@ -98,6 +98,24 @@ struct LearningViewQuiz: View {
                                     .font(.system(size: 20, design: .default))
                             }
                         }.padding()
+                    }
+                    .onAppear {
+                        if learningViewModel.beginnerPressed == true{
+                            learningViewModel.addToBeginner(ammount: learningQuizViewModel.score)
+                        }
+                        if learningViewModel.mediumLeftPressed == true{
+                            learningViewModel.addToMediumLeft(ammount: learningQuizViewModel.score)
+                        }
+                        if learningViewModel.mediumRightPressed == true{
+                            learningViewModel.addToMediumRight(ammount: learningQuizViewModel.score)
+                        }
+                        if learningViewModel.advancedLeftPressed == true{
+                            learningViewModel.addToAdvancedLeft(ammount: learningQuizViewModel.score)
+                        }
+                        if learningViewModel.advancedRightPressed == true{
+                            learningViewModel.addToAdvancedRight(ammount: learningQuizViewModel.score)
+                        }
+                        print(learningViewModel.beginner)
                     }
                     .frame(width: 360, height: 500)
                     .cornerRadius(20).shadow(radius: 20)
