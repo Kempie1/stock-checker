@@ -6,6 +6,7 @@ target 'Stock Checker' do
   use_frameworks!
 
   # Pods for Stock Checker
+  pod 'Google-Mobile-Ads-SDK'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
 
