@@ -14,6 +14,7 @@ struct ExploreView: View {
     var body: some View {
         NavigationView{
             ScrollView {
+
                 Picker(selection: $selectedPickerIndex, label: Text("Select feed")) {
                     ForEach(0 ..< categories.count) {
                         Text(self.categories[$0])
@@ -23,13 +24,7 @@ struct ExploreView: View {
                 .padding([.trailing, .leading], 21)
                 
                 if selectedPickerIndex == 0 {
-                    VStack {
-                        ForEach(sampleStocks) { stock in
-                            NavigationLink(destination: StockView(stock: stock)) {
-                                StockPreviewView(stock: stock)
-                            }
-                        }
-                    }
+                    StocksListView()
                 } else if selectedPickerIndex == 1 {
                     Text("Here goes the news")
                 } else if selectedPickerIndex == 2 {
