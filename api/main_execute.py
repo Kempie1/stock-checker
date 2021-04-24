@@ -21,16 +21,19 @@ class Execute:
         self.Server = Json_to_server()
         self.Api_test = test_Api_python_file()
 
+    def user_input(self, myinput):
+        user_input = myinput
+        self.ticker_symbol = [user_input]
+        return self.ticker_symbol
+
     def execute_api(self):
-        self.Api.user_input("KME")
-        self.Api.get_ticker_table_list()
-        self.Api.checking_if_ticker_exists(["KME"], self.Api.get_ticker_table_list())
+        self.Api.checking_if_ticker_exists_in_database(self.ticker_symbol)
         self.Api.api_request_to_json(["get-statistics", "get-financials"])
 
     def execute_server(self):
         self.Server.open_json_file('stock.json')
-        self.Server.checking_if_ticker_exists()
-        self.Server.connecting_to_server()
+        self.Server.checking_if_ticker_exists_in_database(self.ticker_symbol)
+        self.Server.send_data_to_server()
 
     def execute_tests(self):
         print("")
@@ -38,7 +41,8 @@ class Execute:
         
 
 main = Execute()
-main.execute_api()
+main.user_input("AMC")
+#main.execute_api()
 main.execute_tests()
 main.execute_server()
 

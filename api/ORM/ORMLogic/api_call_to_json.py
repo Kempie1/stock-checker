@@ -10,22 +10,17 @@ from ORM_services import ORM_services
 
 class Api_call():
 
-    def user_input(self, myinput):
-        user_input = myinput
-        self.ticker_symbol = "['" + user_input + "']"
-        return self.ticker_symbol
-
-    def checking_if_ticker_exists_in_database(self):
+    def checking_if_ticker_exists_in_database(self, ticker_symbol):
         self.services = ORM_services()
-        ticker_symbol = ["TSLA"]
+        self.ticker_symbol = ticker_symbol
         self.already_exist = self.services.checking_if_ticker_exists(ticker_symbol, ['REALCASE'])
-        print(self.already_exist)
+        return self.already_exist
 
     def api_request(self, request):
         if self.already_exist == False:
             #self.services.api_request(["get-statistics", "get-financials"], ["TSL"])
             url = f"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/{request}"   
-            querystring = {"symbol": ["TSL"],"region":"US"}
+            querystring = {"symbol": self.ticker_symbol,"region":"US"}
             headers = {
             'x-rapidapi-key': config('APIKEY'),
             'x-rapidapi-host': config('APIHOST')
@@ -33,7 +28,7 @@ class Api_call():
             response = requests.request("GET", url, headers=headers, params=querystring)
             return response.text
 
-    def api_request_to_json(self, request):
+    def api_request_to_json(self,request):
         if self.already_exist == False:
             file1 = open("stock.json","w") 
             for x in range(len(request)):
