@@ -10,9 +10,10 @@ import XCTest
 
 class Stock_CheckerTests: XCTestCase {
     
-    var learningView = LearningView(learningQuizViewModel: LearningQuizViewModel())
+    var learningView = LearningView()
     var learningViewQuiz = LearningViewQuiz()
-    var quizBrain = QuizBrain()
+    var learningViewModel = LearningViewModel()
+    var leanringQuizViewModel = LearningQuizViewModel()
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -21,88 +22,126 @@ class Stock_CheckerTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-//    func testExample() throws {
-//        // This is an example of a functional test case.
-//        // Use XCTAssert and related functions to verify your tests produce the correct results.
-//        XCTAssertEqual(0, learningViewQuiz.score)
-//        XCTAssertEqual(0, learningViewQuiz.questionNumber)
-//        XCTAssertEqual(learningView.beginnerPressed, false)
-//        XCTAssertEqual(learningView.mediumRightPressed, false)
-//        XCTAssertEqual(learningView.mediumLeftPressed, false)
-//        XCTAssertEqual(learningView.advancedRightPressed, false)
-//        XCTAssertEqual(learningView.advancedLeftPressed, false)
-//        //Pick some fucntions that I want to test
-//        //Look at the aritcle send on slack
-//        //do enD to end test
-//        //I should cover every single possible failing case in order to find an error quikly remeber the 1+1 = or 1+1 = 3 its not going to fail but it is wrong
-////        for each otpion there will be 4 test 2 test for true and 2 test for false
-//
-//    }
     
-    func testCheckanwserbuttons(){
+    func testTrueButton() -> (Bool, Bool){
         //Arrange
         let buttonResultTrue = "True"
-        let buttonResultFalse = "False"
-        var checkScore: Int = 0
-        
         //Act
-        
         //BUTTONTRUE
-        var CheckAnwserReturnTrueButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 0)
-        CheckAnwserReturnTrueButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 1)
-        CheckAnwserReturnTrueButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 2)
-        CheckAnwserReturnTrueButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 3)
-        CheckAnwserReturnTrueButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 5)
-        CheckAnwserReturnTrueButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 7)
-        CheckAnwserReturnTrueButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 8)
-        CheckAnwserReturnTrueButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 11)
+        var CheckAnwserReturnTrueButtonTrue = leanringQuizViewModel.checkAnwser(input: buttonResultTrue,questionNumber: 0)
+        CheckAnwserReturnTrueButtonTrue = leanringQuizViewModel.checkAnwser(input: buttonResultTrue,questionNumber: 1)
+        CheckAnwserReturnTrueButtonTrue = leanringQuizViewModel.checkAnwser(input: buttonResultTrue,questionNumber: 2)
+        CheckAnwserReturnTrueButtonTrue = leanringQuizViewModel.checkAnwser(input: buttonResultTrue,questionNumber: 3)
+        CheckAnwserReturnTrueButtonTrue = leanringQuizViewModel.checkAnwser(input: buttonResultTrue,questionNumber: 5)
+        CheckAnwserReturnTrueButtonTrue = leanringQuizViewModel.checkAnwser(input: buttonResultTrue,questionNumber: 7)
+        CheckAnwserReturnTrueButtonTrue = leanringQuizViewModel.checkAnwser(input: buttonResultTrue,questionNumber: 8)
+        CheckAnwserReturnTrueButtonTrue = leanringQuizViewModel.checkAnwser(input: buttonResultTrue,questionNumber: 11)
         
-        var CheckAnwserReturnFalseButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 4)
-        CheckAnwserReturnFalseButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 6)
-        CheckAnwserReturnFalseButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 9)
-        CheckAnwserReturnFalseButtonTrue = learningViewQuiz.checkAnwser(input: buttonResultTrue,questionNumber: 10)
-        
-        //BUTTTONFALSE
-        var CheckAnwserReturnTrueButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 4)
-        CheckAnwserReturnTrueButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 6)
-        CheckAnwserReturnTrueButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 9)
-        CheckAnwserReturnTrueButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 10)
-        
-        var CheckAnwserReturnFalseButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 0)
-        CheckAnwserReturnFalseButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 1)
-        CheckAnwserReturnFalseButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 2)
-        CheckAnwserReturnFalseButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 3)
-        CheckAnwserReturnFalseButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 5)
-        CheckAnwserReturnFalseButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 7)
-        CheckAnwserReturnFalseButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 8)
-        CheckAnwserReturnFalseButtonFalse = learningViewQuiz.checkAnwser(input: buttonResultFalse,questionNumber: 11)
+        var CheckAnwserReturnFalseButtonTrue = leanringQuizViewModel.checkAnwser(input: buttonResultTrue,questionNumber: 4)
+        CheckAnwserReturnFalseButtonTrue = leanringQuizViewModel.checkAnwser(input: buttonResultTrue,questionNumber: 6)
+        CheckAnwserReturnFalseButtonTrue = leanringQuizViewModel.checkAnwser(input: buttonResultTrue,questionNumber: 9)
+        CheckAnwserReturnFalseButtonTrue = leanringQuizViewModel.checkAnwser(input: buttonResultTrue,questionNumber: 10)
         
         //Assert
         //BUTTONTRUE
         XCTAssertEqual(CheckAnwserReturnTrueButtonTrue, true)
-        //XCTAssertEqual(CheckAnwserReturnFalseButtonTrue, false)
+        XCTAssertEqual(CheckAnwserReturnFalseButtonTrue, false)
         
-        //BUTTTONFALSE
-        //XCTAssertEqual(CheckAnwserReturnTrueButtonFalse, true)
-        XCTAssertEqual(CheckAnwserReturnFalseButtonFalse, false)
+        return (CheckAnwserReturnTrueButtonTrue, CheckAnwserReturnFalseButtonTrue)
         }
     
-//    func testCheckScore(){
-//        //Arrange
-//        let userIsRightTrue = true
-//        let userIsRightFalse = false
-//
-//        //Act
-//        let checkUserIsRightTrue = learningViewQuiz.getScoreNumber(userIsRight: userIsRightTrue)
-//
-//        let checkUserIsRightFalse = learningViewQuiz.getScoreNumber(userIsRight: userIsRightFalse)
-//
-//        //Assert
-//        XCTAssertEqual(checkUserIsRightTrue,0)
-//        XCTAssertEqual(checkUserIsRightFalse,0)
-//    }
+    func testFalseButton() -> (Bool, Bool){
+        let buttonResultFalse = "False"
+        
+        //BUTTTONFALSE
+        var CheckAnwserReturnTrueButtonFalse = leanringQuizViewModel.checkAnwser(input: buttonResultFalse,questionNumber: 4)
+        CheckAnwserReturnTrueButtonFalse = leanringQuizViewModel.checkAnwser(input: buttonResultFalse,questionNumber: 6)
+        CheckAnwserReturnTrueButtonFalse = leanringQuizViewModel.checkAnwser(input: buttonResultFalse,questionNumber: 9)
+        CheckAnwserReturnTrueButtonFalse = leanringQuizViewModel.checkAnwser(input: buttonResultFalse,questionNumber: 10)
+        
+        var CheckAnwserReturnFalseButtonFalse = leanringQuizViewModel.checkAnwser(input: buttonResultFalse,questionNumber: 0)
+        CheckAnwserReturnFalseButtonFalse = leanringQuizViewModel.checkAnwser(input: buttonResultFalse,questionNumber: 1)
+        CheckAnwserReturnFalseButtonFalse = leanringQuizViewModel.checkAnwser(input: buttonResultFalse,questionNumber: 2)
+        CheckAnwserReturnFalseButtonFalse = leanringQuizViewModel.checkAnwser(input: buttonResultFalse,questionNumber: 3)
+        CheckAnwserReturnFalseButtonFalse = leanringQuizViewModel.checkAnwser(input: buttonResultFalse,questionNumber: 5)
+        CheckAnwserReturnFalseButtonFalse = leanringQuizViewModel.checkAnwser(input: buttonResultFalse,questionNumber: 7)
+        CheckAnwserReturnFalseButtonFalse = leanringQuizViewModel.checkAnwser(input: buttonResultFalse,questionNumber: 8)
+        CheckAnwserReturnFalseButtonFalse = leanringQuizViewModel.checkAnwser(input: buttonResultFalse,questionNumber: 11)
+        
+        //BUTTTONFALSE
+        XCTAssertEqual(CheckAnwserReturnTrueButtonFalse, true)
+        XCTAssertEqual(CheckAnwserReturnFalseButtonFalse, false)
+        
+        return (CheckAnwserReturnTrueButtonFalse, CheckAnwserReturnFalseButtonFalse)
+    }
     
+    func testScore(){
+        var resultTrueButtonAnswerTrue = [] as [Bool]
+        var resultTrueButtonAnswerFalse = [] as [Bool]
+        
+        var resultFalseButtonAnswerTrue = [] as [Bool]
+        var resultFalseButtonAnswerFalse = [] as [Bool]
+        
+        var resultsAllTrueAnswers = [] as [Bool]
+        var resultsAllFalseAnswers = [] as [Bool]
+        
+        let buttonResultFalse = "False"
+        let buttonResultTrue = "True"
+        var answer = false
+        
+        
+        //Filtering through results of True Button
+        for e in 0...11{
+            //TRUE BUTTON
+            if leanringQuizViewModel.checkAnwser(input: buttonResultTrue,questionNumber: e) == true{
+                resultTrueButtonAnswerTrue.append(leanringQuizViewModel.checkAnwser(input: buttonResultTrue,questionNumber: e))
+                print(e)
+            
+                print(Int(leanringQuizViewModel.score))
+                XCTAssert(Int(leanringQuizViewModel.score), 5)
+                XCTAssert(Int(leanringQuizViewModel.score), 7)
+                XCTAssert(Int(leanringQuizViewModel.score), 8)
+                XCTAssert(Int(leanringQuizViewModel.score), 0)
+                XCTAssert(Int(leanringQuizViewModel.score), Int(11))
+                XCTAssert(Int(leanringQuizViewModel.score), 1)
+                XCTAssert(Int(leanringQuizViewModel.score), 2)
+                XCTAssert(Int(leanringQuizViewModel.score), 3)
+            
+            }
+            
+            //FALSE BUTTON
+            if leanringQuizViewModel.checkAnwser(input: buttonResultFalse,questionNumber: e) == true{
+                resultTrueButtonAnswerTrue.append(leanringQuizViewModel.checkAnwser(input: buttonResultFalse,questionNumber: e))
+                //When all Anwseres are correct
+            }
+            
+
+        }
+        resultsAllTrueAnswers = resultTrueButtonAnswerTrue + resultTrueButtonAnswerTrue
+        
+        
+        
+        
+        for e in 0...11{
+            if leanringQuizViewModel.checkAnwser(input: buttonResultTrue,questionNumber: e) == false{
+                resultFalseButtonAnswerTrue.append(leanringQuizViewModel.checkAnwser(input: buttonResultTrue,questionNumber: e))
+                //When all Anwseres are Wrong
+                XCTAssertEqual(Int(leanringQuizViewModel.score), 0)
+            }
+            if leanringQuizViewModel.checkAnwser(input: buttonResultFalse,questionNumber: e) == false{
+                resultFalseButtonAnswerFalse.append(leanringQuizViewModel.checkAnwser(input: buttonResultFalse,questionNumber: e))
+                //When all Anwseres are Wrong
+                XCTAssertEqual(Int(leanringQuizViewModel.score), 0)
+            }
+            
+        }
+        resultsAllFalseAnswers = resultFalseButtonAnswerTrue + resultFalseButtonAnswerFalse
+        
+        for i in 0...11{
+            
+        }
+        
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

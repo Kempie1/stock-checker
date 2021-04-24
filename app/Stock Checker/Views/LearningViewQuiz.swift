@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LearningViewQuiz: View {
-    @ObservedObject var vm = QuizViewModel()
 
     //Readable
     @EnvironmentObject var learningViewModel: LearningViewModel
@@ -35,11 +34,9 @@ struct LearningViewQuiz: View {
                         
                         
                         Button(action: {
-                            
                             learningQuizViewModel.buttonResultTrue = "True"
-                            if learningQuizViewModel.questionNumber == learningQuizViewModel.quizBrain.quiz.count {
-                                self.learningQuizViewModel.showPopUp = true
-                            }
+                            learningQuizViewModel.checkShowPopUp()
+                            
                             learningQuizViewModel.checkAnwser(input: learningQuizViewModel.buttonResultTrue, questionNumber: learningQuizViewModel.questionNumber)
                             learningQuizViewModel.nextQuestion()
                             learningQuizViewModel.buttonColorTrue = learningQuizViewModel.changeButtonColor(buttonColor: learningQuizViewModel.buttonColorTrue)!
@@ -57,9 +54,8 @@ struct LearningViewQuiz: View {
                         
                         Button(action: {
                             learningQuizViewModel.buttonResultFalse = "False"
-                            if learningQuizViewModel.questionNumber == learningQuizViewModel.quizBrain.quiz.count {
-                                self.learningQuizViewModel.showPopUp = true
-                            }
+                            learningQuizViewModel.checkShowPopUp()
+                            
                             learningQuizViewModel.checkAnwser(input: learningQuizViewModel.buttonResultFalse, questionNumber: learningQuizViewModel.questionNumber)
                             learningQuizViewModel.nextQuestion()
                             learningQuizViewModel.buttonColorFalse = learningQuizViewModel.changeButtonColor(buttonColor: learningQuizViewModel.buttonColorFalse)!
@@ -100,22 +96,7 @@ struct LearningViewQuiz: View {
                         }.padding()
                     }
                     .onAppear {
-                        if learningViewModel.beginnerPressed == true{
-                            learningViewModel.addToBeginner(ammount: learningQuizViewModel.score)
-                        }
-                        if learningViewModel.mediumLeftPressed == true{
-                            learningViewModel.addToMediumLeft(ammount: learningQuizViewModel.score)
-                        }
-                        if learningViewModel.mediumRightPressed == true{
-                            learningViewModel.addToMediumRight(ammount: learningQuizViewModel.score)
-                        }
-                        if learningViewModel.advancedLeftPressed == true{
-                            learningViewModel.addToAdvancedLeft(ammount: learningQuizViewModel.score)
-                        }
-                        if learningViewModel.advancedRightPressed == true{
-                            learningViewModel.addToAdvancedRight(ammount: learningQuizViewModel.score)
-                        }
-                        print(learningViewModel.beginner)
+                        learningViewModel.addScoreToLevel(amount: learningQuizViewModel.score)
                     }
                     .frame(width: 360, height: 500)
                     .cornerRadius(20).shadow(radius: 20)

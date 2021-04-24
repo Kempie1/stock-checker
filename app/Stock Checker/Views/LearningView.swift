@@ -9,8 +9,6 @@ import SwiftUI
 
 
 struct LearningView: View {
-
-    @ObservedObject var vm = QuizViewModel()
     
     //USED TO BE OBSERVED OBJECT
     @EnvironmentObject var learningQuizViewModel: LearningQuizViewModel
@@ -21,7 +19,7 @@ struct LearningView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView{
+            ScrollView(showsIndicators: false){
                 NavigationLink(destination: LearningViewQuiz(), isActive: $learningViewModel.showView) {EmptyView()}
                 VStack(spacing: 20) {
                     Spacer()
@@ -35,10 +33,8 @@ struct LearningView: View {
                     }
 
                     Button(action: {
-                            //learningViewModel.beginner = learningViewModel.startButton(level: learningViewModel.beginner)
-                            learningViewModel.setLevelBeginner()
-                            print(learningViewModel.level)
-                            learningViewModel.beginnerPressed = true
+                        learningViewModel.level = "Beginner"
+                        learningViewModel.beginnerPressed = true
                         DispatchQueue.main.asyncAfter(deadline: .now()) {self.learningViewModel.showView = true}
                     }, label: {
                         Text(buttonText)
@@ -57,15 +53,15 @@ struct LearningView: View {
                     
                     HStack(spacing: 110){
                         Button(action: {
-                                learningViewModel.level = "Medium Lvel 2"
-                                learningViewModel.mediumRightPressed = true
+                            learningViewModel.level = "Medium Lvel 2"
+                            learningViewModel.mediumRightPressed = true
                             DispatchQueue.main.asyncAfter(deadline: .now()) {self.learningViewModel.showView = true}
                         }, label: {
                             Text(buttonText)
                         })
                         Button(action: {
-                                learningViewModel.level = "Medium Level 1"
-                                learningViewModel.mediumLeftPressed = true
+                            learningViewModel.level = "Medium Level 1"
+                            learningViewModel.mediumLeftPressed = true
                             DispatchQueue.main.asyncAfter(deadline: .now()) {self.learningViewModel.showView = true}
                         }, label: {
                             Text(buttonText)
@@ -83,7 +79,7 @@ struct LearningView: View {
                             .progressViewStyle(CirclerPercentageProgressViewStyle())
                     }
                     
-                    HStack(spacing: 50)
+                    HStack(spacing: 110)
                     {
                         Button(action: {
                             learningViewModel.level = "Advanced 2"
