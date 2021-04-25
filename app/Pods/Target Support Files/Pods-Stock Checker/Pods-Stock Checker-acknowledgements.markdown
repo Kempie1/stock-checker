@@ -1264,10 +1264,6 @@ Copyright 2021 Google
    limitations under the License.
 
 
-## Google-Mobile-Ads-SDK
-
-Copyright 2021 Google
-
 ## GoogleAppMeasurement
 
 Copyright 2021 Google
@@ -1477,10 +1473,6 @@ Copyright 2021 Google
    See the License for the specific language governing permissions and
    limitations under the License.
 
-
-## GoogleUserMessagingPlatform
-
-Copyright 2021 Google
 
 ## GoogleUtilities
 
