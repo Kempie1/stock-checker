@@ -10,7 +10,8 @@ from api_call_to_json import Api_call
 
 class Json_to_server():
     def open_json_file(self, json_file):
-        self.data = open("stock.json","r")
+        json_data = open(json_file,"r")
+        self.data = json.load(json_data)
         return self.data
 
     def checking_if_ticker_exists_in_database(self, ticker_symbol):

@@ -16,26 +16,14 @@ class Api_call():
         self.already_exist = self.services.checking_if_ticker_exists(ticker_symbol, ['REALCASE'])
         return self.already_exist
 
-    def api_request(self, request):
-        if self.already_exist == False:
-            #self.services.api_request(["get-statistics", "get-financials"], ["TSL"])
-            url = f"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/{request}"   
-            querystring = {"symbol": self.ticker_symbol,"region":"US"}
-            headers = {
-            'x-rapidapi-key': config('APIKEY'),
-            'x-rapidapi-host': config('APIHOST')
-            }
-            response = requests.request("GET", url, headers=headers, params=querystring)
-            return response.text
-
     def api_request_to_json(self,request):
         if self.already_exist == False:
             file1 = open("stock.json","w") 
             for x in range(len(request)):
                 if x==0:
-                    file1.write(f"{{\"{request[x]}\": " + self.api_request(request[x]))
+                    file1.write(f"{{\"{request[x]}\": " + self.services.api_request(request[x], self.ticker_symbol))
                 else:
-                    file1.write(f",\"{request[x]}\": " + self.api_request(request[x]))
+                    file1.write(f",\"{request[x]}\": " + self.services.api_request(request[x], self.ticker_symbol))
             file1.write("}")
             file1.close()
             print("Stock Data has been added to Json")
