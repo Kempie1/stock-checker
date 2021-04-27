@@ -247,3 +247,31 @@ class Json_to_server():
 #server.open_json_file('stock.json')
 #server.checking_if_ticker_exists_in_database()
 #server.connecting_to_server()
+
+
+
+#all = [
+ #   ['summaryDetails', 'bit'],
+  #  ['summaryDetails', 'bitAsk'],
+   # ['summaryDetails', 'bitHigh'],
+  #  ['summaryDetails', 'bitHigh']
+#]
+
+#def validate_api():
+ #   print()
+
+#def validate_all_data():
+#    for row in all:
+        # row = ['summaryDetails', 'bit'],
+ #       validate_api(['get-statistics', row[0], row[1]])
+
+
+#def send_to_server():
+
+ #   validate_all_data()
+    
+  #  write_to_sql()
+
+  #Notes show 
+    #Show the progress that I have made and what I have done so far 
+    #In the Refactoring like he used git lab or so to show what was deleted and what hasnt 
