@@ -31,9 +31,15 @@ class Api_call():
             file1 = open(f"stock.json", "w")
             file1.write("")
             file1.close()
+             #test für ticker exists und nicht exists
+
 
 #Api = Api_call()
+<<<<<<< HEAD
 #Api.checking_if_ticker_exists_in_database("AMD")
+=======
+#Api.checking_if_ticker_exists_in_database()
+>>>>>>> f97f64249c237b74b5e104cdf3352bb957418dda
 #Api.api_request_to_json(["get-statistics", "get-financials"])
 
 

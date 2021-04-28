@@ -11,7 +11,6 @@ sys.path.append('/home/kempie/Projects/stock-checker/api/ORM')
 from ORM.ORMLogic.api_call_to_json import Api_call
 from ORM.ORMLogic.json_to_server import Json_to_server
 from ORM.ORMLogic.ORM_services import ORM_services
-#from ORM.test_api import test_Api_python_file
 #Test
 #from TestCases.test_api import test_Api_python_file
 
@@ -19,7 +18,6 @@ class Execute:
     def __init__(self):
         self.Api = Api_call()
         self.Server = Json_to_server()
-#        self.Api_test = test_Api_python_file()
 
     def user_input(self, myinput):
         user_input = myinput
