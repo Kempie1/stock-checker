@@ -39,7 +39,7 @@ class Execute:
         
 
 main = Execute()
-main.user_in put("TSLA")
+main.user_input("TSLA")
 main.execute_api()
 main.execute_tests()
 main.execute_server()
