@@ -29,11 +29,12 @@
 		A7E58ED225FB7EAF000AFEC0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7E58ECF25FB7EAF000AFEC0 /* GoogleService-Info.plist */; };
 		A7FFE2DE25FD1AC9006BAB24 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FFE2DD25FD1AC9006BAB24 /* Stock.swift */; };
 		A7FFE2F125FD23E4006BAB24 /* StockPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FFE2F025FD23E4006BAB24 /* StockPreviewView.swift */; };
-		A7FFE30025FD2F46006BAB24 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = A7FFE2FF25FD2F46006BAB24 /* SwiftPackageProductDependency */; };
-		D5A7DD6426308E2C00D5347C /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A7DD6326308E2C00D5347C /* QuizViewModel.swift */; };
+		A7FFE30025FD2F46006BAB24 /* iLineChart in Frameworks */ = {isa = PBXBuildFile; productRef = A7FFE2FF25FD2F46006BAB24 /* iLineChart */; };
+		D59A4EE3263839E800A062B0 /* LearningQuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59A4EE2263839E800A062B0 /* LearningQuizViewModel.swift */; };
+		D5A7DD6426308E2C00D5347C /* LearningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A7DD6326308E2C00D5347C /* LearningViewModel.swift */; };
 		D5F8E649261F62B3003FB092 /* LearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E648261F62B3003FB092 /* LearningView.swift */; };
-		D5F8E6562624A742003FB092 /* LearningBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E6552624A742003FB092 /* LearningBrain.swift */; };
-		D5F8E65B2624A763003FB092 /* LearningStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E65A2624A763003FB092 /* LearningStructure.swift */; };
+		D5F8E6562624A742003FB092 /* LearningQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E6552624A742003FB092 /* LearningQuestions.swift */; };
+		D5F8E65B2624A763003FB092 /* QuestionStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E65A2624A763003FB092 /* QuestionStructure.swift */; };
 		D5F8E6652625E226003FB092 /* LearningViewQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E6642625E226003FB092 /* LearningViewQuiz.swift */; };
 		DC45F95926712334DB74F969 /* Pods_Stock_Checker_Stock_CheckerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4F420DC334FBB84999A276 /* Pods_Stock_Checker_Stock_CheckerUITests.framework */; };
 /* End PBXBuildFile section */
@@ -86,10 +87,11 @@
 		A7E58ECF25FB7EAF000AFEC0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A7FFE2DD25FD1AC9006BAB24 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		A7FFE2F025FD23E4006BAB24 /* StockPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPreviewView.swift; sourceTree = "<group>"; };
-		D5A7DD6326308E2C00D5347C /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
+		D59A4EE2263839E800A062B0 /* LearningQuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningQuizViewModel.swift; sourceTree = "<group>"; };
+		D5A7DD6326308E2C00D5347C /* LearningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewModel.swift; sourceTree = "<group>"; };
 		D5F8E648261F62B3003FB092 /* LearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningView.swift; sourceTree = "<group>"; };
-		D5F8E6552624A742003FB092 /* LearningBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningBrain.swift; sourceTree = "<group>"; };
-		D5F8E65A2624A763003FB092 /* LearningStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningStructure.swift; sourceTree = "<group>"; };
+		D5F8E6552624A742003FB092 /* LearningQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningQuestions.swift; sourceTree = "<group>"; };
+		D5F8E65A2624A763003FB092 /* QuestionStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStructure.swift; sourceTree = "<group>"; };
 		D5F8E6642625E226003FB092 /* LearningViewQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewQuiz.swift; sourceTree = "<group>"; };
 		E536F93496FBD66237CE2FC7 /* Pods-Stock Checker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock Checker.release.xcconfig"; path = "Target Support Files/Pods-Stock Checker/Pods-Stock Checker.release.xcconfig"; sourceTree = "<group>"; };
 		EA4F420DC334FBB84999A276 /* Pods_Stock_Checker_Stock_CheckerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stock_Checker_Stock_CheckerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7FFE30025FD2F46006BAB24 /* BuildFile in Frameworks */,
+				A7FFE30025FD2F46006BAB24 /* iLineChart in Frameworks */,
 				7F42F82912CE18C834C33B3A /* Pods_Stock_Checker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +176,7 @@
 		A72096E025E2B89500277617 /* Stock Checker */ = {
 			isa = PBXGroup;
 			children = (
+				D59A4EE42638708B00A062B0 /* ViewModels */,
 				A73D784F25FB882300E96752 /* Stock Checker.entitlements */,
 				A72096E125E2B89500277617 /* Stock_CheckerApp.swift */,
 				A75C06ED25FD41EC006A3633 /* Utilities */,
@@ -236,7 +239,6 @@
 				A7815AE525FBAD5900527BF4 /* SignInWithAppleButton.swift */,
 				D5F8E648261F62B3003FB092 /* LearningView.swift */,
 				D5F8E6642625E226003FB092 /* LearningViewQuiz.swift */,
-				D5A7DD6326308E2C00D5347C /* QuizViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -253,10 +255,19 @@
 			isa = PBXGroup;
 			children = (
 				A7FFE2DD25FD1AC9006BAB24 /* Stock.swift */,
-				D5F8E6552624A742003FB092 /* LearningBrain.swift */,
-				D5F8E65A2624A763003FB092 /* LearningStructure.swift */,
+				D5F8E6552624A742003FB092 /* LearningQuestions.swift */,
+				D5F8E65A2624A763003FB092 /* QuestionStructure.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D59A4EE42638708B00A062B0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D5A7DD6326308E2C00D5347C /* LearningViewModel.swift */,
+				D59A4EE2263839E800A062B0 /* LearningQuizViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,7 +289,7 @@
 			);
 			name = "Stock Checker";
 			packageProductDependencies = (
-				A7FFE2FF25FD2F46006BAB24 /* SwiftPackageProductDependency */,
+				A7FFE2FF25FD2F46006BAB24 /* iLineChart */,
 			);
 			productName = "Stock Checker";
 			productReference = A72096DE25E2B89500277617 /* Stock Checker.app */;
@@ -355,8 +366,8 @@
 			);
 			mainGroup = A72096D525E2B89500277617;
 			packageReferences = (
-				A71FEC6F25ED119B00C7A4B8 /* RemoteSwiftPackageReference */,
-				A7FFE2FE25FD2F46006BAB24 /* RemoteSwiftPackageReference */,
+				A71FEC6F25ED119B00C7A4B8 /* XCRemoteSwiftPackageReference "ChartView" */,
+				A7FFE2FE25FD2F46006BAB24 /* XCRemoteSwiftPackageReference "iLineChart" */,
 			);
 			productRefGroup = A72096DF25E2B89500277617 /* Products */;
 			projectDirPath = "";
@@ -509,19 +520,20 @@
 				A71FEC8325ED16AC00C7A4B8 /* StockTextView.swift in Sources */,
 				A7FFE2DE25FD1AC9006BAB24 /* Stock.swift in Sources */,
 				A71FEC8825ED1AA400C7A4B8 /* MainView.swift in Sources */,
-				D5F8E65B2624A763003FB092 /* LearningStructure.swift in Sources */,
+				D5F8E65B2624A763003FB092 /* QuestionStructure.swift in Sources */,
 				A7815ADE25FBA9A000527BF4 /* SignInWithAppleCoordinator.swift in Sources */,
 				D5F8E6652625E226003FB092 /* LearningViewQuiz.swift in Sources */,
 				A7815AF025FBAE3300527BF4 /* AccountView.swift in Sources */,
-				D5A7DD6426308E2C00D5347C /* QuizViewModel.swift in Sources */,
+				D5A7DD6426308E2C00D5347C /* LearningViewModel.swift in Sources */,
 				A7FFE2F125FD23E4006BAB24 /* StockPreviewView.swift in Sources */,
 				A7815AF825FBB64F00527BF4 /* SignInView.swift in Sources */,
 				A71FEC7E25ED137A00C7A4B8 /* StockTitleView.swift in Sources */,
+				D59A4EE3263839E800A062B0 /* LearningQuizViewModel.swift in Sources */,
 				A71FEC6B25ED107300C7A4B8 /* StockView.swift in Sources */,
 				A764D33A25ECF4B8006D7ECF /* ExploreView.swift in Sources */,
 				A7815AE625FBAD5900527BF4 /* SignInWithAppleButton.swift in Sources */,
 				A72096E225E2B89500277617 /* Stock_CheckerApp.swift in Sources */,
-				D5F8E6562624A742003FB092 /* LearningBrain.swift in Sources */,
+				D5F8E6562624A742003FB092 /* LearningQuestions.swift in Sources */,
 				D5F8E649261F62B3003FB092 /* LearningView.swift in Sources */,
 				A75C06EF25FD41FE006A3633 /* Extensions.swift in Sources */,
 			);
@@ -853,7 +865,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A71FEC6F25ED119B00C7A4B8 /* RemoteSwiftPackageReference */ = {
+		A71FEC6F25ED119B00C7A4B8 /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
 			requirement = {
@@ -861,7 +873,7 @@
 				minimumVersion = 1.5.4;
 			};
 		};
-		A7FFE2FE25FD2F46006BAB24 /* RemoteSwiftPackageReference */ = {
+		A7FFE2FE25FD2F46006BAB24 /* XCRemoteSwiftPackageReference "iLineChart" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AlexFine/iLineChart.git";
 			requirement = {
@@ -872,9 +884,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A7FFE2FF25FD2F46006BAB24 /* SwiftPackageProductDependency */ = {
+		A7FFE2FF25FD2F46006BAB24 /* iLineChart */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A7FFE2FE25FD2F46006BAB24 /* RemoteSwiftPackageReference */;
+			package = A7FFE2FE25FD2F46006BAB24 /* XCRemoteSwiftPackageReference "iLineChart" */;
 			productName = iLineChart;
 		};
 /* End XCSwiftPackageProductDependency section */

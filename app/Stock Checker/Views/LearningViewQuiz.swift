@@ -8,72 +8,76 @@
 import SwiftUI
 
 struct LearningViewQuiz: View {
-
-    //Readable
+    
     @EnvironmentObject var learningViewModel: LearningViewModel
     
     @StateObject var learningQuizViewModel = LearningQuizViewModel()
     
     var body: some View {
-        NavigationView{
-            ZStack(alignment: .center){
-                VStack(alignment: .center, spacing: 80){
+        NavigationView {
+            ZStack(alignment: .center) {
+                VStack(alignment: .center, spacing: 80) {
                     
-                    VStack(spacing: 10){
-                        Text("Question Number \(learningQuizViewModel.questionNumber)").font(.system(size: 30))
+                    VStack(spacing: 10) {
+                        Text("Question Number \(learningQuizViewModel.questionNumber)")
+                            .font(.system(size: 30))
                             .accessibilityIdentifier("questionNumber")
                         
                         Text("Score \(learningQuizViewModel.score)").font(.system(size: 30))
+                            .accessibilityIdentifier("scoreNumber")
                     }
                     
                     
-                    VStack(spacing: 20){
+                    VStack(spacing: 30){
                         Text("Question:").font(.system(size: 30))
-                        Text(learningQuizViewModel.quizBrain.quiz[learningQuizViewModel.questionNumber].text)
+                        
+                        Text(learningQuizViewModel.learningQuestions.quiz[learningQuizViewModel.questionNumber].question)
                             .font(.system(size: 30))
-                        
-                        
+                    }
+                    
+                    
+                    VStack(spacing: 20) {
                         Button(action: {
-                            learningQuizViewModel.buttonResultTrue = "True"
+                            learningQuizViewModel.buttonTrueResult = "True"
                             learningQuizViewModel.checkShowPopUp()
                             
-                            learningQuizViewModel.checkAnwser(input: learningQuizViewModel.buttonResultTrue, questionNumber: learningQuizViewModel.questionNumber)
-                            learningQuizViewModel.nextQuestion()
-                            learningQuizViewModel.buttonColorTrue = learningQuizViewModel.changeButtonColor(buttonColor: learningQuizViewModel.buttonColorTrue)!
+                            _ = learningQuizViewModel.checkAnwser(input: learningQuizViewModel.buttonTrueResult, questionNumber: learningQuizViewModel.questionNumber)
                             
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                                learningQuizViewModel.buttonColorTrue = .black
-                            })
+                            learningQuizViewModel.nextQuestion()
+                            
+                            learningQuizViewModel.buttonTrueColor = learningQuizViewModel.changeButtonColor(buttonColor: learningQuizViewModel.buttonTrueColor)!
+                            
+                            learningQuizViewModel.changeButtonTrueColorBackToBlack()
                             
                         }){
                             Text("True").font(.system(size: 20))
                         }
-                        .buttonStyle(AppButtonStyle(q: learningQuizViewModel.buttonColorTrue))
-                        .accessibility(identifier: "TrueButton")
+                        .buttonStyle(AppButtonStyle(buttonColor: learningQuizViewModel.buttonTrueColor))
+                        .accessibility(identifier: "trueButton")
                         
                         
                         Button(action: {
-                            learningQuizViewModel.buttonResultFalse = "False"
+                            learningQuizViewModel.buttonFalseResult = "False"
                             learningQuizViewModel.checkShowPopUp()
                             
-                            learningQuizViewModel.checkAnwser(input: learningQuizViewModel.buttonResultFalse, questionNumber: learningQuizViewModel.questionNumber)
-                            learningQuizViewModel.nextQuestion()
-                            learningQuizViewModel.buttonColorFalse = learningQuizViewModel.changeButtonColor(buttonColor: learningQuizViewModel.buttonColorFalse)!
+                            _ = learningQuizViewModel.checkAnwser(input: learningQuizViewModel.buttonFalseResult, questionNumber: learningQuizViewModel.questionNumber)
                             
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                                learningQuizViewModel.buttonColorFalse = .black
-                            })
+                            learningQuizViewModel.nextQuestion()
+                            
+                            learningQuizViewModel.buttonFalseColor = learningQuizViewModel.changeButtonColor(buttonColor: learningQuizViewModel.buttonFalseColor)!
+                            
+                            learningQuizViewModel.changeButtonFalseColorBackToBlack()
                         }){
                             Text("False").font(.system(size: 20))
                         }
-                        .buttonStyle(AppButtonStyle(q: learningQuizViewModel.buttonColorFalse))
-                        .accessibility(identifier: "FalseButton")
+                        .buttonStyle(AppButtonStyle(buttonColor: learningQuizViewModel.buttonFalseColor))
+                        .accessibility(identifier: "falseButton")
                     }
                 }
                 
-                if self.learningQuizViewModel.showPopUp == true{
+                if self.learningQuizViewModel.showPopUp == true {
                     
-                    ZStack (alignment: .center){
+                    ZStack (alignment: .center) {
                         Color.white
                         VStack(alignment: .center, spacing: 30) {
                             Text("Congratulations ")
@@ -121,8 +125,8 @@ struct AppButtonStyle: ButtonStyle {
     
     let buttonColor: Color
     
-    init(q: Color) {
-        self.buttonColor = q
+    init(buttonColor: Color) {
+        self.buttonColor = buttonColor
     }
     
     func makeBody(configuration: Self.Configuration) -> some View {

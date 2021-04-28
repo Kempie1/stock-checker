@@ -45,6 +45,8 @@ class Stock_CheckerUITests: XCTestCase {
         //OPTIONAL(Given)
         //When
         //Then
+        //Assert
+        //ACT
     }
 
     func testLaunchPerformance() throws {
