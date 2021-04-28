@@ -18,7 +18,7 @@ sys.path.append('/home/kempie/Projects/stock-checker/api/')
 from services import real_api_request
 from constants import ticker_symbol_for_testing, ticker_symbol_for_request, ticker_symbol_table_full, ticker_symbol_table_empty, ticker_symbol_not_in_table
 #EXTERNAL
-import main_execute 
+from main_execute import Execute
 
 class test_Api_python_file(unittest.TestCase):
     #dependcy injection
@@ -27,7 +27,7 @@ class test_Api_python_file(unittest.TestCase):
     #This function realies on the input fucntion which is a dependcy so I need to mock the user_input
     def test_user_input(self):
         #Arrange
-        Main_function = main_execute()
+        Main_function = Execute()
         #Act
         ticker_symbol_from_user = Main_function.user_input(self.mock_user_input())
         #Assert

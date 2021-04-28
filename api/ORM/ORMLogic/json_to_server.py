@@ -10,7 +10,7 @@ from api_call_to_json import Api_call
 
 class Json_to_server():
     def open_json_file(self, json_file):
-        if os.path.getsize(json_file)>3:
+        if os.path.getsize(json_file)>40:
             json_data = open(json_file,"r")
             self.data = json.load(json_data)
             return self.data

@@ -38,9 +38,10 @@ class Execute:
         #self.Api_test.test_api()
         
 
-main = Execute()
-main.user_input("TSLA")
-main.execute_api()
-main.execute_tests()
-main.execute_server()
+#main = Execute()
+#main.user_input("TSLA")
+#main.execute_api()
+#main.execute_tests()
+#main.execute_server()
+
 
