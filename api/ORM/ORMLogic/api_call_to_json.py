@@ -33,8 +33,7 @@ class Api_call():
             file1.close()
 
 #Api = Api_call()
-#Api.user_input("TSLA")
-#Api.checking_if_ticker_exists_in_database()
+#Api.checking_if_ticker_exists_in_database("AMD")
 #Api.api_request_to_json(["get-statistics", "get-financials"])
 
 
