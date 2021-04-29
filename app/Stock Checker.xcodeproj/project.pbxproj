@@ -179,7 +179,7 @@
 				A7CD1D5C2632460100531E18 /* Repositories */,
 				A7815ADC25FBA98200527BF4 /* Services */,
 				A75C06ED25FD41EC006A3633 /* Utilities */,
-				A7CD1D41263244B700531E18 /* View Models */,
+				A7CD1D41263244B700531E18 /* ViewModels */,
 				A764D33825ECF493006D7ECF /* Views */,
 				A72096E525E2B89500277617 /* Assets.xcassets */,
 				A72096E725E2B89500277617 /* Preview Content */,
@@ -253,13 +253,13 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		A7CD1D41263244B700531E18 /* View Models */ = {
+		A7CD1D41263244B700531E18 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				A7CD1D42263244D500531E18 /* StocksListViewModel.swift */,
 				A7D247DE2632554A00629929 /* StockCellViewModel.swift */,
 			);
-			path = "View Models";
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		A7CD1D5C2632460100531E18 /* Repositories */ = {
