@@ -20,7 +20,7 @@ from constants import ticker_symbol_for_testing, ticker_symbol_for_request, tick
 from ORMLogic import api_call_to_json, ORM_services
 
 
-class test_Api_Integration(unittest.TestCase):
+class test_Third_Party_Api_Integration(unittest.TestCase):
 
     #This Test should have probally be in the server itself
     def test_api_request_status(self):
@@ -54,7 +54,7 @@ class test_Api_Integration(unittest.TestCase):
 #if __name__ == '__main__':
     #unittest.main()
 
-#Api_Integration_test = test_Api_Integration()
+#Api_Integration_test = test_Third_Party_Api_Integration()
 #Api_Integration_test.test_api_request_status()
 #Api_Integration_test.test_api_data()
 #Api_Integration_test.test_json_data()
