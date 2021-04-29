@@ -36,16 +36,16 @@ APIKEY= Your API Creditals GO HERE
 APIHOST= Your API Creditals GO HERE
 ```
 
-At the Moment the Reposotory contains a mock and an Integration Test
+At the Moment the Repository contains a mock and an Integration Test
 
 Those Test can be executed by typing: 
 
 
 ```bash
-$ pytest TestCases 
+$ pytest ORM
 ```
 
-Which will execute all the Tests in the TestCases folder
+You can execute all python files in the ORM folder through this command
 
 Execute the this file:
 
@@ -66,7 +66,7 @@ In the Database SQL foder is the SQL commands that were sued to create the Datab
 ## ER Model of Database
 
 This PNG file: ER Model of Database.png
-Contains the Model of the Database
+Contains the ER Model of the Database
 
 ## Flask Server
 

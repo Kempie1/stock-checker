@@ -1,3 +1,5 @@
+#Some Notes from Max
+
 #Is there a way to break your backend 
 #figure out why the test coverage does not make the project 100% save 
 #how does test coverage work
