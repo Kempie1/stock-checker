@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23C26F7210862B51BBB62C8B /* Pods_Stock_CheckerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D80F0776E5B80CB3270A8FE /* Pods_Stock_CheckerTests.framework */; };
-		7F42F82912CE18C834C33B3A /* Pods_Stock_Checker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD22EDAD038787FFF73AABA /* Pods_Stock_Checker.framework */; };
-		A71FEC6B25ED107300C7A4B8 /* StockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FEC6A25ED107300C7A4B8 /* StockView.swift */; };
+		A71FEC6B25ED107300C7A4B8 /* StockDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FEC6A25ED107300C7A4B8 /* StockDetailView.swift */; };
 		A71FEC7E25ED137A00C7A4B8 /* StockTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FEC7D25ED137A00C7A4B8 /* StockTitleView.swift */; };
 		A71FEC8325ED16AC00C7A4B8 /* StockTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FEC8225ED16AC00C7A4B8 /* StockTextView.swift */; };
 		A71FEC8825ED1AA400C7A4B8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71FEC8725ED1AA400C7A4B8 /* MainView.swift */; };
@@ -24,19 +22,19 @@
 		A7815AE625FBAD5900527BF4 /* SignInWithAppleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7815AE525FBAD5900527BF4 /* SignInWithAppleButton.swift */; };
 		A7815AF025FBAE3300527BF4 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7815AEF25FBAE3300527BF4 /* AccountView.swift */; };
 		A7815AF825FBB64F00527BF4 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7815AF725FBB64F00527BF4 /* SignInView.swift */; };
+		A7CD1D43263244D500531E18 /* StocksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CD1D42263244D500531E18 /* StocksListViewModel.swift */; };
+		A7CD1D5E2632462700531E18 /* StockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CD1D5D2632462700531E18 /* StockRepository.swift */; };
+		A7CD1D662632465C00531E18 /* Resolving.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CD1D652632465C00531E18 /* Resolving.swift */; };
+		A7D247A126324A5F00629929 /* StocksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D247A026324A5F00629929 /* StocksListView.swift */; };
+		A7D247DF2632554A00629929 /* StockCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D247DE2632554A00629929 /* StockCellViewModel.swift */; };
 		A7E58ED025FB7EAF000AFEC0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7E58ECF25FB7EAF000AFEC0 /* GoogleService-Info.plist */; };
 		A7E58ED125FB7EAF000AFEC0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7E58ECF25FB7EAF000AFEC0 /* GoogleService-Info.plist */; };
 		A7E58ED225FB7EAF000AFEC0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7E58ECF25FB7EAF000AFEC0 /* GoogleService-Info.plist */; };
 		A7FFE2DE25FD1AC9006BAB24 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FFE2DD25FD1AC9006BAB24 /* Stock.swift */; };
-		A7FFE2F125FD23E4006BAB24 /* StockPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FFE2F025FD23E4006BAB24 /* StockPreviewView.swift */; };
 		A7FFE30025FD2F46006BAB24 /* iLineChart in Frameworks */ = {isa = PBXBuildFile; productRef = A7FFE2FF25FD2F46006BAB24 /* iLineChart */; };
-		D59A4EE3263839E800A062B0 /* LearningQuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59A4EE2263839E800A062B0 /* LearningQuizViewModel.swift */; };
-		D5A7DD6426308E2C00D5347C /* LearningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A7DD6326308E2C00D5347C /* LearningViewModel.swift */; };
-		D5F8E649261F62B3003FB092 /* LearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E648261F62B3003FB092 /* LearningView.swift */; };
-		D5F8E6562624A742003FB092 /* LearningQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E6552624A742003FB092 /* LearningQuestions.swift */; };
-		D5F8E65B2624A763003FB092 /* QuestionStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E65A2624A763003FB092 /* QuestionStructure.swift */; };
-		D5F8E6652625E226003FB092 /* LearningViewQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F8E6642625E226003FB092 /* LearningViewQuiz.swift */; };
-		DC45F95926712334DB74F969 /* Pods_Stock_Checker_Stock_CheckerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4F420DC334FBB84999A276 /* Pods_Stock_Checker_Stock_CheckerUITests.framework */; };
+		CE41120A83AEDF2365E4B7EA /* Pods_Stock_Checker_Stock_CheckerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EFF94A6A28E5A5244DF5319 /* Pods_Stock_Checker_Stock_CheckerUITests.framework */; };
+		D2C8009F552215CE1D01F33C /* Pods_Stock_Checker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60BC1AA983C00A63545D97F1 /* Pods_Stock_Checker.framework */; };
+		E7681E29B78CCA90C8608B9F /* Pods_Stock_CheckerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56F843DC91EA31362AD96DC /* Pods_Stock_CheckerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,12 +55,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		077BA2038D29C74148943241 /* Pods-Stock Checker-Stock CheckerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock Checker-Stock CheckerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Stock Checker-Stock CheckerUITests/Pods-Stock Checker-Stock CheckerUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		2D064D7DECECE1F9BD86E01A /* Pods-Stock CheckerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock CheckerTests.debug.xcconfig"; path = "Target Support Files/Pods-Stock CheckerTests/Pods-Stock CheckerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5AD22EDAD038787FFF73AABA /* Pods_Stock_Checker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stock_Checker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D80F0776E5B80CB3270A8FE /* Pods_Stock_CheckerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stock_CheckerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		83007CB654C4F7DD9D969259 /* Pods-Stock Checker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock Checker.debug.xcconfig"; path = "Target Support Files/Pods-Stock Checker/Pods-Stock Checker.debug.xcconfig"; sourceTree = "<group>"; };
-		A71FEC6A25ED107300C7A4B8 /* StockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockView.swift; sourceTree = "<group>"; };
+		00D608F876A19DEB23E5BEAF /* Pods-Stock Checker-Stock CheckerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock Checker-Stock CheckerUITests.release.xcconfig"; path = "Target Support Files/Pods-Stock Checker-Stock CheckerUITests/Pods-Stock Checker-Stock CheckerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0512CB819C68656FF0D73AA1 /* Pods-Stock Checker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock Checker.release.xcconfig"; path = "Target Support Files/Pods-Stock Checker/Pods-Stock Checker.release.xcconfig"; sourceTree = "<group>"; };
+		1EFF94A6A28E5A5244DF5319 /* Pods_Stock_Checker_Stock_CheckerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stock_Checker_Stock_CheckerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EB8DB4AE11DD82DB8B0F06F /* Pods-Stock Checker-Stock CheckerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock Checker-Stock CheckerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Stock Checker-Stock CheckerUITests/Pods-Stock Checker-Stock CheckerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		60BC1AA983C00A63545D97F1 /* Pods_Stock_Checker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stock_Checker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A1276B7B6071607C991BE50 /* Pods-Stock CheckerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock CheckerTests.debug.xcconfig"; path = "Target Support Files/Pods-Stock CheckerTests/Pods-Stock CheckerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9850F90F843B590E3A0E89F8 /* Pods-Stock CheckerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock CheckerTests.release.xcconfig"; path = "Target Support Files/Pods-Stock CheckerTests/Pods-Stock CheckerTests.release.xcconfig"; sourceTree = "<group>"; };
+		A71FEC6A25ED107300C7A4B8 /* StockDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailView.swift; sourceTree = "<group>"; };
 		A71FEC7D25ED137A00C7A4B8 /* StockTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTitleView.swift; sourceTree = "<group>"; };
 		A71FEC8225ED16AC00C7A4B8 /* StockTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTextView.swift; sourceTree = "<group>"; };
 		A71FEC8725ED1AA400C7A4B8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -84,19 +84,15 @@
 		A7815AE525FBAD5900527BF4 /* SignInWithAppleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButton.swift; sourceTree = "<group>"; };
 		A7815AEF25FBAE3300527BF4 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		A7815AF725FBB64F00527BF4 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		A7CD1D42263244D500531E18 /* StocksListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksListViewModel.swift; sourceTree = "<group>"; };
+		A7CD1D5D2632462700531E18 /* StockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockRepository.swift; sourceTree = "<group>"; };
+		A7CD1D652632465C00531E18 /* Resolving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolving.swift; sourceTree = "<group>"; };
+		A7D247A026324A5F00629929 /* StocksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksListView.swift; sourceTree = "<group>"; };
+		A7D247DE2632554A00629929 /* StockCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCellViewModel.swift; sourceTree = "<group>"; };
 		A7E58ECF25FB7EAF000AFEC0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A7FFE2DD25FD1AC9006BAB24 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
-		A7FFE2F025FD23E4006BAB24 /* StockPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPreviewView.swift; sourceTree = "<group>"; };
-		D59A4EE2263839E800A062B0 /* LearningQuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningQuizViewModel.swift; sourceTree = "<group>"; };
-		D5A7DD6326308E2C00D5347C /* LearningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewModel.swift; sourceTree = "<group>"; };
-		D5F8E648261F62B3003FB092 /* LearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningView.swift; sourceTree = "<group>"; };
-		D5F8E6552624A742003FB092 /* LearningQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningQuestions.swift; sourceTree = "<group>"; };
-		D5F8E65A2624A763003FB092 /* QuestionStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStructure.swift; sourceTree = "<group>"; };
-		D5F8E6642625E226003FB092 /* LearningViewQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewQuiz.swift; sourceTree = "<group>"; };
-		E536F93496FBD66237CE2FC7 /* Pods-Stock Checker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock Checker.release.xcconfig"; path = "Target Support Files/Pods-Stock Checker/Pods-Stock Checker.release.xcconfig"; sourceTree = "<group>"; };
-		EA4F420DC334FBB84999A276 /* Pods_Stock_Checker_Stock_CheckerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stock_Checker_Stock_CheckerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2BA4E8EBE47A060060988F6 /* Pods-Stock Checker-Stock CheckerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock Checker-Stock CheckerUITests.release.xcconfig"; path = "Target Support Files/Pods-Stock Checker-Stock CheckerUITests/Pods-Stock Checker-Stock CheckerUITests.release.xcconfig"; sourceTree = "<group>"; };
-		FEB0BF3FB7637E7180FD6BE7 /* Pods-Stock CheckerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock CheckerTests.release.xcconfig"; path = "Target Support Files/Pods-Stock CheckerTests/Pods-Stock CheckerTests.release.xcconfig"; sourceTree = "<group>"; };
+		C9BB5F27F9FF9EDB0CEFA0AE /* Pods-Stock Checker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stock Checker.debug.xcconfig"; path = "Target Support Files/Pods-Stock Checker/Pods-Stock Checker.debug.xcconfig"; sourceTree = "<group>"; };
+		F56F843DC91EA31362AD96DC /* Pods_Stock_CheckerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stock_CheckerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7FFE30025FD2F46006BAB24 /* iLineChart in Frameworks */,
-				7F42F82912CE18C834C33B3A /* Pods_Stock_Checker.framework in Frameworks */,
+				D2C8009F552215CE1D01F33C /* Pods_Stock_Checker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,16 +172,16 @@
 		A72096E025E2B89500277617 /* Stock Checker */ = {
 			isa = PBXGroup;
 			children = (
-				D59A4EE42638708B00A062B0 /* ViewModels */,
+				A72096EA25E2B89500277617 /* Info.plist */,
 				A73D784F25FB882300E96752 /* Stock Checker.entitlements */,
-				A72096E125E2B89500277617 /* Stock_CheckerApp.swift */,
-				A75C06ED25FD41EC006A3633 /* Utilities */,
-				A7815ADC25FBA98200527BF4 /* Services */,
+				A7CD1D402632448700531E18 /* App */,
 				A7FFE2DC25FD1A35006BAB24 /* Models */,
+				A7CD1D5C2632460100531E18 /* Repositories */,
+				A7815ADC25FBA98200527BF4 /* Services */,
+				A75C06ED25FD41EC006A3633 /* Utilities */,
+				A7CD1D41263244B700531E18 /* ViewModels */,
 				A764D33825ECF493006D7ECF /* Views */,
 				A72096E525E2B89500277617 /* Assets.xcassets */,
-				A72096EA25E2B89500277617 /* Info.plist */,
-				A7E58ECF25FB7EAF000AFEC0 /* GoogleService-Info.plist */,
 				A72096E725E2B89500277617 /* Preview Content */,
 			);
 			path = "Stock Checker";
@@ -228,14 +224,12 @@
 		A764D33825ECF493006D7ECF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A7D247CC26324F5000629929 /* StockDetailView */,
 				A71FEC8725ED1AA400C7A4B8 /* MainView.swift */,
 				A764D33925ECF4B8006D7ECF /* ExploreView.swift */,
+				A7D247A026324A5F00629929 /* StocksListView.swift */,
 				A7815AEF25FBAE3300527BF4 /* AccountView.swift */,
 				A7815AF725FBB64F00527BF4 /* SignInView.swift */,
-				A7FFE2F025FD23E4006BAB24 /* StockPreviewView.swift */,
-				A71FEC6A25ED107300C7A4B8 /* StockView.swift */,
-				A71FEC7D25ED137A00C7A4B8 /* StockTitleView.swift */,
-				A71FEC8225ED16AC00C7A4B8 /* StockTextView.swift */,
 				A7815AE525FBAD5900527BF4 /* SignInWithAppleButton.swift */,
 				D5F8E648261F62B3003FB092 /* LearningView.swift */,
 				D5F8E6642625E226003FB092 /* LearningViewQuiz.swift */,
@@ -246,9 +240,46 @@
 		A7815ADC25FBA98200527BF4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A7E58ECF25FB7EAF000AFEC0 /* GoogleService-Info.plist */,
 				A7815ADD25FBA9A000527BF4 /* SignInWithAppleCoordinator.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		A7CD1D402632448700531E18 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A72096E125E2B89500277617 /* Stock_CheckerApp.swift */,
+				A7CD1D652632465C00531E18 /* Resolving.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A7CD1D41263244B700531E18 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A7CD1D42263244D500531E18 /* StocksListViewModel.swift */,
+				A7D247DE2632554A00629929 /* StockCellViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A7CD1D5C2632460100531E18 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				A7CD1D5D2632462700531E18 /* StockRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		A7D247CC26324F5000629929 /* StockDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				A71FEC7D25ED137A00C7A4B8 /* StockTitleView.swift */,
+				A71FEC6A25ED107300C7A4B8 /* StockDetailView.swift */,
+				A71FEC8225ED16AC00C7A4B8 /* StockTextView.swift */,
+			);
+			path = StockDetailView;
 			sourceTree = "<group>";
 		};
 		A7FFE2DC25FD1A35006BAB24 /* Models */ = {
@@ -520,18 +551,19 @@
 				A71FEC8325ED16AC00C7A4B8 /* StockTextView.swift in Sources */,
 				A7FFE2DE25FD1AC9006BAB24 /* Stock.swift in Sources */,
 				A71FEC8825ED1AA400C7A4B8 /* MainView.swift in Sources */,
-				D5F8E65B2624A763003FB092 /* QuestionStructure.swift in Sources */,
+				A7CD1D662632465C00531E18 /* Resolving.swift in Sources */,
 				A7815ADE25FBA9A000527BF4 /* SignInWithAppleCoordinator.swift in Sources */,
 				D5F8E6652625E226003FB092 /* LearningViewQuiz.swift in Sources */,
 				A7815AF025FBAE3300527BF4 /* AccountView.swift in Sources */,
-				D5A7DD6426308E2C00D5347C /* LearningViewModel.swift in Sources */,
-				A7FFE2F125FD23E4006BAB24 /* StockPreviewView.swift in Sources */,
 				A7815AF825FBB64F00527BF4 /* SignInView.swift in Sources */,
 				A71FEC7E25ED137A00C7A4B8 /* StockTitleView.swift in Sources */,
-				D59A4EE3263839E800A062B0 /* LearningQuizViewModel.swift in Sources */,
-				A71FEC6B25ED107300C7A4B8 /* StockView.swift in Sources */,
+				A7D247DF2632554A00629929 /* StockCellViewModel.swift in Sources */,
+				A71FEC6B25ED107300C7A4B8 /* StockDetailView.swift in Sources */,
+				A7CD1D5E2632462700531E18 /* StockRepository.swift in Sources */,
 				A764D33A25ECF4B8006D7ECF /* ExploreView.swift in Sources */,
 				A7815AE625FBAD5900527BF4 /* SignInWithAppleButton.swift in Sources */,
+				A7D247A126324A5F00629929 /* StocksListView.swift in Sources */,
+				A7CD1D43263244D500531E18 /* StocksListViewModel.swift in Sources */,
 				A72096E225E2B89500277617 /* Stock_CheckerApp.swift in Sources */,
 				D5F8E6562624A742003FB092 /* LearningQuestions.swift in Sources */,
 				D5F8E649261F62B3003FB092 /* LearningView.swift in Sources */,
@@ -694,6 +726,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Stock Checker/Stock Checker.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Stock Checker/Preview Content\"";
 				DEVELOPMENT_TEAM = 9F4D8754ZW;
@@ -706,6 +739,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.valentinsilvera.Stock-Checker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -718,6 +752,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Stock Checker/Stock Checker.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Stock Checker/Preview Content\"";
 				DEVELOPMENT_TEAM = 9F4D8754ZW;
@@ -730,6 +765,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.valentinsilvera.Stock-Checker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

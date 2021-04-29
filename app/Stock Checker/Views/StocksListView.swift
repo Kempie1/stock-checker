@@ -1,31 +1,41 @@
 //
-//  StockPreviewView.swift
+//  StocksListView.swift
 //  Stock Checker
 //
-//  Created by Valentin Silvera on 13.03.21.
+//  Created by Valentin Silvera on 22.04.21.
 //
 
 import SwiftUI
 import iLineChart
 
-struct StockPreviewView: View {
-    var stock: Stock
+struct StocksListView: View {
+    @ObservedObject var stockListVM = StocksListViewModel()
     
     var body: some View {
-        
+        VStack(alignment: .leading) {
+            ForEach(stockListVM.stockCellViewModels) { stockCellVM in
+//                NavigationLink(destination: StockDetailView(stock: stock)) {
+                    StockCell(stockCellVM: stockCellVM)
+//                }
+            }
+        }
+    }
+}
+
+struct StockCell: View {
+    @ObservedObject var stockCellVM: StockCellViewModel
+    
+    var body: some View {
         HStack(spacing: 15){
-            
             VStack{
-                
                 HStack{
-                    
                     VStack(alignment: .leading, spacing: 5) {
                         
-                        Text(stock.name)
+                        Text(stockCellVM.stock.name)
                             .font(.title2)
                             .foregroundColor(.primary)
                         
-                        Text(stock.ticker)
+                        Text(stockCellVM.stock.ticker)
                             .font(.caption)
                             .foregroundColor(.gray)
                     }
@@ -34,7 +44,7 @@ struct StockPreviewView: View {
                     
                     //TODO: Create my own preview chart
                     iLineChart(
-                        data: stock.history,
+                        data: stockCellVM.stock.history,
                         style: .tertiary,
                         canvasBackgroundColor: Color.clear,
                         curvedLines: false
@@ -46,14 +56,17 @@ struct StockPreviewView: View {
                         RoundedRectangle(cornerRadius: 8)
                             .fill(Color.green)
                             .frame(width: 100, height: 50)
-                        Text(String(stock.price))
+                        Text(String(stockCellVM.stock.price))
                             .foregroundColor(.white)
                     }
                 }
-                
                 Divider()
             }
         }
         .padding(.horizontal)
     }
+}
+
+enum InputError: Error {
+    case empty
 }
