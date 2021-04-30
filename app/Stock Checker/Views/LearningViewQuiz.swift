@@ -20,19 +20,18 @@ struct LearningViewQuiz: View {
                     
                     VStack(spacing: 10) {
                         Text("Question Number \(learningQuizViewModel.questionNumber)")
-                            .font(.system(size: 30))
+                            .font(.system(size: 25))
                             .accessibilityIdentifier("questionNumber")
                         
-                        Text("Score \(learningQuizViewModel.score)").font(.system(size: 30))
+                        Text("Score \(Int(learningQuizViewModel.score))").font(.system(size: 25))
                             .accessibilityIdentifier("scoreNumber")
                     }
                     
                     
                     VStack(spacing: 30){
-                        Text("Question:").font(.system(size: 30))
-                        
+                        Text("Question:").font(.system(size: 25))
                         Text(learningQuizViewModel.learningQuestions.quiz[learningQuizViewModel.questionNumber].question)
-                            .font(.system(size: 30))
+                            .font(.system(size: 20))
                     }
                     
                     
@@ -84,7 +83,7 @@ struct LearningViewQuiz: View {
                                 .foregroundColor(Color.black)
                                 .font(.system(size: 25, weight: .heavy,design: .default))
                             VStack(alignment: .leading, spacing: 10) {
-                                Text("Score: \(learningQuizViewModel.score)")
+                                Text("Score: \(Int(learningQuizViewModel.score))")
                                     .foregroundColor(Color.black)
                                     .font(.system(size: 20, design: .default))
                                 Text("Level: \(learningViewModel.level)")
@@ -102,7 +101,7 @@ struct LearningViewQuiz: View {
                     .onAppear {
                         learningViewModel.addScoreToLevel(amount: learningQuizViewModel.score)
                     }
-                    .frame(width: 360, height: 500)
+                    .frame(width: 360, height: 550)
                     .cornerRadius(20).shadow(radius: 20)
                 }
             }

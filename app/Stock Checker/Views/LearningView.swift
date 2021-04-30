@@ -27,7 +27,7 @@ struct LearningView: View {
 
                     HStack(){
                         ProgressView("Beginner", value: learningViewModel.beginner, total: 100)
-                            .progressViewStyle(CircledProgressBar())
+                            .progressViewStyle(CircledLevelProgressBar())
                     }
 
                     Button(action: {
@@ -43,10 +43,10 @@ struct LearningView: View {
 
                     HStack(spacing: 10) {
                         ProgressView("Medium", value: learningViewModel.mediumRight, total: 100)
-                            .progressViewStyle(CircledProgressBar())
+                            .progressViewStyle(CircledLevelProgressBar())
                         
                         ProgressView("Medium", value: learningViewModel.mediumLeft, total: 100)
-                            .progressViewStyle(CircledProgressBar())
+                            .progressViewStyle(CircledLevelProgressBar())
                     }
                     
                     HStack(spacing: 110) {
@@ -71,10 +71,10 @@ struct LearningView: View {
                     Text("Section 3").font(.system(size: 20))
                     HStack(spacing: 10) {
                         ProgressView("Advanced", value: learningViewModel.advancedRight, total: 100)
-                            .progressViewStyle(CircledProgressBar())
+                            .progressViewStyle(CircledLevelProgressBar())
                         
                         ProgressView("Advanced", value: learningViewModel.advancedLeft, total: 100)
-                            .progressViewStyle(CircledProgressBar())
+                            .progressViewStyle(CircledLevelProgressBar())
                     }
                     
                     HStack(spacing: 110) {
@@ -109,7 +109,7 @@ struct LearningView_Previews: PreviewProvider {
     }
 }
 
-struct CircledProgressBar : ProgressViewStyle {
+struct CircledLevelProgressBar : ProgressViewStyle {
     func makeBody(configuration: LinearProgressViewStyle.Configuration) -> some View {
         VStack(spacing: 10) {
             configuration.label
