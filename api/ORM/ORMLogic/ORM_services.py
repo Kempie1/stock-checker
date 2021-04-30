@@ -50,5 +50,5 @@ class ORM_services:
                         print(f"{ticker_symbol} does not yet exist in the Database")
                 return already_exist
 
-services = ORM_services()
-services.checking_if_ticker_exists(['TSLA'], ['REALCASE'])
+#services = ORM_services()
+#services.checking_if_ticker_exists(['TSLA'], ['REALCASE'])
