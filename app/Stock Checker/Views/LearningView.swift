@@ -97,6 +97,9 @@ struct LearningView: View {
                     }
                 }
             }.navigationBarTitle("Learning View", displayMode: .inline)
+            .onAppear{
+                learningViewModel.changeButtonPressedToFalse()
+            }
         }.environmentObject(learningViewModel)
     }
     

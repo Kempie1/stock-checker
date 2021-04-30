@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 class LearningViewModel: ObservableObject {
+    @Published var learningQuestions = LearningQuestions()
+    
     @Published var level = ""
     @Published var showView = false
     @Published var predictionInterval = 0.2
@@ -52,5 +54,14 @@ class LearningViewModel: ObservableObject {
     func showQuestionView() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {self.showView = true}
     }
+    
+    func changeButtonPressedToFalse(){
+        beginnerPressed = false
+        mediumRightPressed = false
+        mediumLeftPressed = false
+        advancedRightPressed = false
+        advancedLeftPressed = false
+    }
+    
 }
 
