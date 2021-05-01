@@ -38,7 +38,7 @@ class Execute:
         
 
 main = Execute()
-main.user_input("AMC")
+main.user_input("APHA")
 main.execute_api()
 main.execute_tests()
 main.execute_server()

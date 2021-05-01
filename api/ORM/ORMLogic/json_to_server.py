@@ -43,10 +43,10 @@ class Json_to_server():
                 if x==(len(l)-1):
                     if l[x] in cursor:
                         cursor=cursor.get(l[x])
-                        if 'raw' in cursor:
-                            return cursor.get('raw')
                         if not cursor:
                             return None
+                        if 'raw' in cursor:
+                            return cursor.get('raw')
                         if isinstance(cursor, list):
                             if 'raw' in cursor[0]:
                                 return cursor[0].get('raw')
@@ -58,6 +58,14 @@ class Json_to_server():
                         cursor=cursor.get(l[x])
                     else:
                         return None
+
+
+
+
+
+
+    
+            
 
 
         def toDate(i):
