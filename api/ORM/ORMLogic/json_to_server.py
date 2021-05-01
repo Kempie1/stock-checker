@@ -120,7 +120,24 @@ class Json_to_server():
         )
 
         self.session.add (new_stock)
-        #new_chart
+        #cursor = self.data
+        #cursor = cursor.get(chart)
+        #cursor = cursor.get(result)
+        #if isinstance(cursor, list):
+        #    cursor=cursor[0]
+        #
+        #while(not done)
+        ##new_chart=( \
+        ##time                                                        = 
+        #open_bid                                                    = 
+        #volume                                                      = 
+        #low                                                         = 
+        #high                                                        = 
+        #close                                                       = 
+        #ticker_symbol                                               = 
+        #)
+
+
         self.session.commit()
         print(f"{validate_api(['get-statistics','quoteType','longName'])} Data has been added to the database")
         
