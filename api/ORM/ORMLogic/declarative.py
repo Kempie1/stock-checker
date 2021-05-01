@@ -1,6 +1,6 @@
 from decouple import config
 import sys
-from sqlalchemy import Column, Integer, Date, Numeric, String
+from sqlalchemy import Column, Integer, Date, Numeric, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship 
 from sqlalchemy import create_engine    
@@ -109,6 +109,18 @@ class Stock(Base):
     dividend_date                                               = Column(Date)
     #last_split_factor                                           = Column(Numeric)
     #last_split_date                                             = Column(Date)
+
+class Chart(Base):
+    __tablename__                                               = "chart"
+    id                                                          = Column(Integer, primary_key=True)
+    time                                                        = Column(Date)
+    open_bid                                                    = Column(Numeric)
+    volume                                                      = Column(Numeric)
+    low                                                         = Column(Numeric)
+    high                                                        = Column(Numeric)
+    close                                                       = Column(Numeric)
+    ticker_symbol                                               = Column(String(10),ForeignKey('stock.ticker_symbol'),nullable=False)
+    ticker                                                      = relationship('Stock', foreign_keys='Chart.ticker_symbol')
 
 
 engine = create_engine(config("DB_URL"))

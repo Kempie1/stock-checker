@@ -21,12 +21,12 @@ class Execute:
 
     def user_input(self, myinput):
         user_input = myinput
-        self.ticker_symbol = [user_input]
+        self.ticker_symbol = user_input
         return self.ticker_symbol
 
     def execute_api(self):
         self.Api.checking_if_ticker_exists_in_database(self.ticker_symbol)
-        self.Api.api_request_to_json(["get-statistics", "get-financials"])
+        self.Api.api_request_to_json(["get-statistics", "get-financials", "get-chart"])
 
     def execute_server(self):
         if self.Server.open_json_file('stock.json'):
@@ -38,7 +38,7 @@ class Execute:
         
 
 main = Execute()
-main.user_input("APHA")
+main.user_input("TLRY")
 main.execute_api()
 main.execute_tests()
 main.execute_server()

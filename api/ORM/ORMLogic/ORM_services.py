@@ -29,12 +29,15 @@ class ORM_services:
                 ticker_symbol_table= []
                 for ticker_symbol in self.session.query(Stock.ticker_symbol):
                         ticker_symbol_table.append(ticker_symbol[0])
-
+                
                 return ticker_symbol_table
 
         def checking_if_ticker_exists(self, ticker_symbol, ticker_table_list):
+                print(ticker_symbol)
+                print(ticker_table_list)
                 if ticker_table_list == ['REALCASE']:
                         ticker_table_list = self.get_ticker_table_list()
+                print(ticker_table_list)
                         
                 already_exist = False
 
@@ -44,7 +47,7 @@ class ORM_services:
                 for i in ticker_table_list:
                         if ticker_symbol == i:
                                 already_exist = True
-
+                
                 return already_exist
 
 #services = ORM_services()
