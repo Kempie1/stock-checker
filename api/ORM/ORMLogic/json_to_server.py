@@ -5,7 +5,7 @@ import requests
 from json.decoder import JSONDecodeError
 import os
 from decouple import config
-from ORM_services import ORM_services
+#from ORM_services import ORM_services
 from api_call_to_json import Api_call
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -15,10 +15,10 @@ from datetime import datetime
 class Json_to_server():
     
     def __init__(self):
-        self.engine = create_engine(config("DB_URL"))
-        self.services = ORM_services()
-        Base.metadata.bind = self.engine
-        self.DBSession = sessionmaker(bind=self.engine)
+        engine = create_engine(config("DB_URL"))
+    #    self.services = ORM_services()
+        Base.metadata.bind = engine
+        self.DBSession = sessionmaker(bind=engine)
         
 
     
@@ -26,13 +26,14 @@ class Json_to_server():
         if os.path.getsize(json_file)>40:
             json_data = open(json_file,"r")
             self.data = json.load(json_data)
-            return self.data
-        return {}
+            return True
+        print("Stock.json is empty \nStock wasn't added to the database")
+        return False
 
         
 
-    def checking_if_ticker_exists_in_database(self, ticker_symbol):
-        self.already_exists_in_DB = self.services.checking_if_ticker_exists(ticker_symbol, ['REALCASE'])
+    #def checking_if_ticker_exists_in_database(self, ticker_symbol):
+    #    self.already_exists_in_DB = self.services.checking_if_ticker_exists(ticker_symbol, ['REALCASE'])
 
     def send_data_to_server(self):
         
@@ -91,7 +92,6 @@ class Json_to_server():
         one_year_target_est                                         =validate_api(['get-statistics','financialData','targetMeanPrice']),  \
         #forward_dividend_and_yield                                  =#Forward_Dividend_AND_Yield  \
         ex_dividend_date                                            =toDate(validate_api(['get-statistics','summaryDetail','exDividendDate'])),  \
-        
         #basic_average_shares                                        =#Basic_Average_Shares  \
         #diluted_average_shares                                      =#Diluted_Average_Shares  \
         total_revenue                                               =validate_api(['get-statistics','financialData','totalRevenue']),  \
@@ -133,7 +133,6 @@ class Json_to_server():
         operating_cash_flow_ttm                                     =validate_api(['get-statistics','financialData','operatingCashflow']),  \
         levered_free_cash_flow_ttm                                  =validate_api(['get-statistics','financialData','freeCashflow']),   \
         fiscal_year_ends                                            =toDate(validate_api(['get-statistics','defaultKeyStatistics','nextFiscalYearEnd'])),    \
-        
         most_recent_quarter_mrq                                     =toDate(validate_api(['get-statistics','defaultKeyStatistics','mostRecentQuarter'])),    \
         total_cash_mrq                                              =validate_api(['get-statistics','financialData','totalCash']),  \
         total_cash_per_share_mrq                                    =validate_api(['get-statistics','financialData','totalCashPerShare']),  \
@@ -172,7 +171,7 @@ class Json_to_server():
 
         self.session.add (new_stock)
         self.session.commit()
-        print("Everything was added to the database")
+        print(f"{validate_api(['get-statistics','quoteType','longName'])} Data has been added to the database")
         
     #    conn = self.services.connecting_to_server()
     #    if self.already_exists_in_DB == False:

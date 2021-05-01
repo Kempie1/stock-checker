@@ -2,16 +2,18 @@ from decouple import config
 import psycopg2
 import psycopg2.extras
 import requests
+from declarative import Stock, Base
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 class ORM_services:
-        def connecting_to_server(self):
-                DB_HOST = config('DB_HOST')
-                DB_NAME = config('DB_NAME')
-                DB_USER = config('DB_USER')
-                DB_PASS = config('DB_PASS')
-                
-                conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
-                return conn
+        def __init__(self):
+                engine = create_engine(config("DB_URL"))
+                Base.metadata.bind = engine
+                DBSession = sessionmaker()
+                DBSession.bind = engine
+                self.session = DBSession()
+
 
         def api_request(self, request, ticker_symbol):
                 url = f"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/{request}"   
@@ -24,12 +26,11 @@ class ORM_services:
                 return response.text
 
         def get_ticker_table_list(self):
-                conn = self.connecting_to_server()
-                with conn: 
-                        with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
-                                cur.execute("SELECT stock.ticker_symbol FROM stock")
-                                ticker_symbol_table = cur.fetchall()
-                        return ticker_symbol_table
+                ticker_symbol_table= []
+                for ticker_symbol in self.session.query(Stock.ticker_symbol):
+                        ticker_symbol_table.append(ticker_symbol[0])
+
+                return ticker_symbol_table
 
         def checking_if_ticker_exists(self, ticker_symbol, ticker_table_list):
                 if ticker_table_list == ['REALCASE']:
@@ -38,16 +39,12 @@ class ORM_services:
                 already_exist = False
 
                 if not ticker_table_list:
-                        print("There is nothing in the ticker_table_list Table")
                         return already_exist
 
                 for i in ticker_table_list:
                         if ticker_symbol == i:
-                                print(f"{i} already exists in the Database")
                                 already_exist = True
 
-                if not already_exist:
-                        print(f"{ticker_symbol} does not yet exist in the Database")
                 return already_exist
 
 #services = ORM_services()

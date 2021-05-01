@@ -29,9 +29,8 @@ class Execute:
         self.Api.api_request_to_json(["get-statistics", "get-financials"])
 
     def execute_server(self):
-        self.Server.open_json_file('stock.json')
-        self.Server.checking_if_ticker_exists_in_database(self.ticker_symbol)
-        self.Server.send_data_to_server()
+        if self.Server.open_json_file('stock.json'):
+            self.Server.send_data_to_server()
 
     def execute_tests(self):
         print("")
@@ -39,7 +38,7 @@ class Execute:
         
 
 main = Execute()
-main.user_input("TSLA")
+main.user_input("AMC")
 main.execute_api()
 main.execute_tests()
 main.execute_server()
