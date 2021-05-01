@@ -8,8 +8,6 @@ import jsonpath
 import unittest
 import os
 import sys
-#This is needed to have acess to the ORM folder
-#sys.path.insert(1, '/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM')
 sys.path.append('/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM/ORMLogic')
 sys.path.append('/Users/maximilianhues/Documents/CODE/stock-checker/api')
 

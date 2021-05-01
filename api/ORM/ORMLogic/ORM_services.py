@@ -1,10 +1,13 @@
+#External
 from decouple import config
 import psycopg2
 import psycopg2.extras
 import requests
-from declarative import Stock, Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+#Internal
+from declarative import Stock, Base
+
 
 class ORM_services:
         def __init__(self):
@@ -13,7 +16,6 @@ class ORM_services:
                 DBSession = sessionmaker()
                 DBSession.bind = engine
                 self.session = DBSession()
-
 
         def api_request(self, request, ticker_symbol):
                 url = f"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/{request}"   
@@ -47,8 +49,5 @@ class ORM_services:
                 for i in ticker_table_list:
                         if ticker_symbol == i:
                                 already_exist = True
-                
-                return already_exist
 
-#services = ORM_services()
-#services.checking_if_ticker_exists(['TSLA'], ['REALCASE'])
+                return already_exist
