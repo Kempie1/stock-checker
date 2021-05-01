@@ -31,11 +31,5 @@ class Api_call():
             file1 = open(f"stock.json", "w")
             file1.write("")
             file1.close()
-             #test for ticker exists and none exists
-
-
-#Api = Api_call()
-#Api.checking_if_ticker_exists_in_database()
-#Api.api_request_to_json(["get-statistics", "get-financials"])
 
 

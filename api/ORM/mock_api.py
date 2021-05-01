@@ -10,11 +10,8 @@ class Mock(unittest.TestCase):
     def mock_api(self, mock_get):
         #Arrange
         mock_response = mock.Mock()
-        # set status code and content
         mock_response.status_code = 200
-        #mock_response.content = content
-        
-        # add json data
+   
         mock_response.json = mock.Mock(
             return_value={'symbol': 'TSLA'}
         )
