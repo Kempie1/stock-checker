@@ -1,6 +1,6 @@
 ## Backend-Stock-Checker
 
-Calling the Yahoo Finance API and sending the Data from that API to the SQL Database
+Calling the Yahoo Finance API and sending the Data from that API to the SQL Database using SQLAlchemy ORM and psycopg2 
 
 ## Installation
 
@@ -22,27 +22,44 @@ $ touch .env
 ```
 
 After that insert you Creditails for the Database and
-Yahoo Finance Api.
+Yahoo Finance Api. Including your system path example below.
 
 In this format:
 
 ```.env
-DB_HOST= Your Database Creditals GO HERE
-DB_NAME= Your Database Creditals GO HERE
-DB_USER= Your Database Creditals GO HERE
-DB_PASS= Your Database Creditals GO HERE
+Path to ORM and ORMLogic files example:
 
-APIKEY= Your API Creditals GO HERE
-APIHOST= Your API Creditals GO HERE
+APIFOLDER = "/Users/maximilianhues/Documents/CODE/stock-checker/api"
+ORMLogic = "/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM/ORMLogic"
+ORM = "/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM"
+
+DB_URL= "Your Database URL Creditals GO HERE"
+
+APIKEY= "Your API Creditals GO HERE"
+APIHOST= "Your API Creditals GO HERE"
+```
+
+CODE Profesors our Api and Database are hosted on HEROKU you can get your creditals at HEROKU:
+
+Link: Click [here](heroku.com) to go to heroku
+```
+You have been invited via your e-mail (approx. May 3)
+
+To get your database creditals you would have to go to stockcheckerdb under installed add-ons click on Heroku-Postgres then click on settings and 'View Credentials..."
 ```
 
 At the Moment the Repository contains a mock and an Integration Test
 
 Those Test can be executed by typing: 
 
-
 ```bash
 $ pytest ORM
+```
+
+To initlaize the database run 
+
+```bash
+$ python ORM/ORMLogic/declarative.py
 ```
 
 You can execute all python files in the ORM folder through this command
@@ -52,8 +69,6 @@ Execute the this file:
 ```bash
 $ python ORM\main_execute.py
 ```
-
-Follow the Instructions after that
 
 ## Contributing
 
@@ -68,9 +83,27 @@ In the Database SQL foder is the SQL commands that were sued to create the Datab
 This PNG file: ER Model of Database.png
 Contains the ER Model of the Database
 
-## Flask Server
+# Flask Server
 
-Under the Folder Flask Server there is a  README.md file which will expplain the flask server
+querries and returns the given stock row as a json.
+Currently hosted on Heroku
+
+## Installation
+
+Use the package manager pip to install get the requirenments from requirements.txt in the previous folder.
+
+## Usage
+```
+https://stockcheckerdb.herokuapp.com/getavailable/
+
+https://stockcheckerdb.herokuapp.com/getst/?ticker=AAPL
+```
+or if ran localy
+```
+localhost:{THE Port}/getst/?ticker=AAPL
+```
+for the json file of the ticker AAPL.
+
 
 ## License
 

@@ -7,11 +7,10 @@ import json
 import jsonpath
 import unittest
 import os
+from decouple import config
 import sys
-#This is needed to have acess to the ORM folder
-#sys.path.insert(1, '/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM')
-sys.path.append('/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM/ORMLogic')
-sys.path.append('/Users/maximilianhues/Documents/CODE/stock-checker/api')
+sys.path.append(config('ORMLogic'))
+sys.path.append(config('APIFOLDER'))
 
 #INTERNAL
 from services import real_api_request
