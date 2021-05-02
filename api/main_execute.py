@@ -5,8 +5,8 @@ import psycopg2
 import psycopg2.extras
 import json
 import sys
-sys.path.append('/home/kempie/Projects/stock-checker/api/ORM/ORMLogic')
-sys.path.append('/home/kempie/Projects/stock-checker/api/ORM')
+sys.path.append('/Users/maximilianhues/Documents/CODE/TESTCheckerTEST/stock-checker/api/ORM/ORMLogic')
+sys.path.append('/Users/maximilianhues/Documents/CODE/TESTCheckerTEST/stock-checker/api/ORM')
 
 #Internal
 from ORM.ORMLogic.api_call_to_json import Api_call

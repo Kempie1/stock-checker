@@ -72,10 +72,6 @@ class Chart(Base):
     __tablename__                                               = "chart"
     id                                                          = Column(Integer, primary_key=True)
     time                                                        = Column(String(255))
-    open_bid                                                    = Column(String(255))
-    volume                                                      = Column(String(255))
-    low                                                         = Column(String(255))
-    high                                                        = Column(String(255))
     close                                                       = Column(String(255))
     ticker_symbol                                               = Column(String(10),ForeignKey('stock.ticker_symbol'),nullable=False)
     ticker                                                      = relationship('Stock', foreign_keys='Chart.ticker_symbol')
