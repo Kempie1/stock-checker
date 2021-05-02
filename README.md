@@ -44,11 +44,11 @@ Use the following gitflow commands to perform various operations:
 ![mvvm](./mvvm.png)
 
 ### How to run locally
-1- Clone or download the repo
-2- Open the [/app](./app) directory
-3- This project uses cocoapods, therefore open Stock_Checker.xcworkspace, not .xcodeproj
-4- In Xcode, tap the project, go to Signing & Capabilities, pick your Apple Developer account as a Team
-5- Make sure Stock_Checker is the selected scheme, select a device or simulator and hit Run (Cmd+R)
+1- Clone or download the repo  
+2- Open the [/app](./app) directory  
+3- This project uses cocoapods, therefore open Stock_Checker.xcworkspace, not .xcodeproj  
+4- In Xcode, tap the project, go to Signing & Capabilities, pick your Apple Developer account as a Team. 
+5- Make sure Stock_Checker is the selected scheme, select a device or simulator and hit Run (Cmd+R)  
 Important to know: this project uses Sign in with Apple, if you don't have a paid Developer account, you won't be able to run the app in an actual device, only the simulator.
 
 ### Dependencies used
