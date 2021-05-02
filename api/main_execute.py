@@ -32,7 +32,7 @@ class Execute:
         
 
 main = Execute()
-main.user_input("AAPL")
+main.user_input("F")
 main.execute_api()
 main.execute_server()
 
