@@ -52,11 +52,7 @@ class Json_to_server():
                     else:
                         return None
 
-        def toDate(i):
-            if i is None:
-                return None
-            return datetime.utcfromtimestamp(i).strftime('%Y-%m-%d')
-        self.session = self.DBSession()
+        self.session=self.DBSession()
 
         new_stock=Stock( \
         ticker_symbol                                               =validate_api(['get-statistics','symbol']),  \
@@ -74,13 +70,13 @@ class Json_to_server():
         fifty_two_week_range_low                                    =validate_api(['get-statistics','summaryDetail','fiftyTwoWeekLow']),  \
         pe_ratio_ttm                                                =validate_api(['get-statistics','summaryDetail','trailingPE']),  \
         eps_ttm                                                     =validate_api(['get-statistics','defaultKeyStatistics','trailingEps']),  \
-        earnings_date                                               =toDate(validate_api(['get-statistics','calendarEvents','earnings','earningsDate'])),   \
+        earnings_date                                               =validate_api(['get-statistics','calendarEvents','earnings','earningsDate']),   \
         volume                                                      =validate_api(['get-statistics','summaryDetail','volume']),  \
         avg_volume_3_month                                          =validate_api(['get-statistics','get-statistics','price','averageDailyVolume3Month']),  \
         market_cap                                                  =validate_api(['get-statistics','price','marketCap']),  \
         beta                                                        =validate_api(['get-statistics','defaultKeyStatistics','beta']),  \
         one_year_target_est                                         =validate_api(['get-statistics','financialData','targetMeanPrice']),  \
-        ex_dividend_date                                            =toDate(validate_api(['get-statistics','summaryDetail','exDividendDate'])),  \
+        ex_dividend_date                                            =validate_api(['get-statistics','summaryDetail','exDividendDate']),  \
         total_revenue                                               =validate_api(['get-statistics','financialData','totalRevenue']),  \
         gross_profit                                                =validate_api(['get-statistics','financialData','grossProfits']),  \
         profit_margin                                               =validate_api(['get-statistics','defaultKeyStatistics','profitMargin']),  \
@@ -94,8 +90,8 @@ class Json_to_server():
         return_on_equity_ttm                                        =validate_api(['get-statistics','financialData','returnOnEquity']),  \
         operating_cash_flow_ttm                                     =validate_api(['get-statistics','financialData','operatingCashflow']),  \
         levered_free_cash_flow_ttm                                  =validate_api(['get-statistics','financialData','freeCashflow']),   \
-        fiscal_year_ends                                            =toDate(validate_api(['get-statistics','defaultKeyStatistics','nextFiscalYearEnd'])),    \
-        most_recent_quarter_mrq                                     =toDate(validate_api(['get-statistics','defaultKeyStatistics','mostRecentQuarter'])),    \
+        fiscal_year_ends                                            =validate_api(['get-statistics','defaultKeyStatistics','nextFiscalYearEnd']),    \
+        most_recent_quarter_mrq                                     =validate_api(['get-statistics','defaultKeyStatistics','mostRecentQuarter']),    \
         total_cash_mrq                                              =validate_api(['get-statistics','financialData','totalCash']),  \
         total_cash_per_share_mrq                                    =validate_api(['get-statistics','financialData','totalCashPerShare']),  \
         total_debt_mrq                                              =validate_api(['get-statistics','financialData','totalDebt']),  \
@@ -116,7 +112,7 @@ class Json_to_server():
         trailing_annual_dividend_yield                              =validate_api(['get-statistics','calendarEvents','dividendDate']),  \
         five_year_average_dividend_yield                            =validate_api(['get-statistics','summaryDetail','trailingAnnualDividendRate']),  \
         payout_ratio                                                =validate_api(['get-statistics','summaryDetail','trailingAnnualDividendYield']),  \
-        dividend_date                                               =toDate(validate_api(['get-statistics','summaryDetail','fiveYearAvgDividendYield']))    \
+        dividend_date                                               =validate_api(['get-statistics','summaryDetail','fiveYearAvgDividendYield'])   \
         )
 
         self.session.add (new_stock)

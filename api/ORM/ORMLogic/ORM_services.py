@@ -35,11 +35,8 @@ class ORM_services:
                 return ticker_symbol_table
 
         def checking_if_ticker_exists(self, ticker_symbol, ticker_table_list):
-                print(ticker_symbol)
-                print(ticker_table_list)
                 if ticker_table_list == ['REALCASE']:
                         ticker_table_list = self.get_ticker_table_list()
-                print(ticker_table_list)
                         
                 already_exist = False
 
