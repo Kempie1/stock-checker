@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (5.4.3)
   - Disk (0.6.4)
   - Firebase/Analytics (7.11.0):
     - Firebase/Core
@@ -96,7 +95,6 @@ PODS:
   - Resolver (1.4.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.2)
   - Disk (~> 0.6.4)
   - Firebase/Analytics
   - Firebase/Auth
@@ -104,7 +102,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - Alamofire
     - Disk
     - Firebase
     - FirebaseAnalytics
@@ -121,7 +118,6 @@ SPEC REPOS:
     - Resolver
 
 SPEC CHECKSUMS:
-  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Disk: dcee5c2e98fb72f9a924cde8da8435b08244a80e
   Firebase: c121feb35e4126c0b355e3313fa9b487d47319fd
   FirebaseAnalytics: cd3bd84d722a24a8923918af8af8e5236f615d77
@@ -137,6 +133,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Resolver: c293d0177cbc69fcb700cfd49922ae2122c1829c
 
-PODFILE CHECKSUM: bdcc8741f80f347187bc79bff17b47c9f6ae4437
+PODFILE CHECKSUM: 80d2598c4efae6aa02cb058e464d77ea6b9c152e
 
 COCOAPODS: 1.10.1
