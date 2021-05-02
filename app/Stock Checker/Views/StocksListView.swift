@@ -14,9 +14,9 @@ struct StocksListView: View {
     var body: some View {
         VStack(alignment: .leading) {
             ForEach(stockListVM.stockCellViewModels) { stockCellVM in
-//                NavigationLink(destination: StockDetailView(stock: stock)) {
+                NavigationLink(destination: StockDetailView(stock: stockCellVM.stock)) {
                     StockCell(stockCellVM: stockCellVM)
-//                }
+                }
             }
         }
     }
