@@ -9,15 +9,17 @@ import Foundation
 import SwiftUI
 
 class LearningViewModel: ObservableObject {
+    @Published var learningQuestions = LearningQuestions()
+    
     @Published var level = ""
     @Published var showView = false
     @Published var predictionInterval = 0.2
     //LEVEL FOR LEANRINGVIEW
-    @Published var beginner = 50.0
-    @Published var mediumRight = 40.0
-    @Published var mediumLeft = 20.0
-    @Published var advancedRight = 10.0
-    @Published var advancedLeft = 20.0
+    @AppStorage("Beginner") var beginner = 50.0
+    @AppStorage("Medium 1") var mediumLeft = 20.0
+    @AppStorage("Medium 2") var mediumRight = 40.0
+    @AppStorage("Advanced 1") var advancedLeft = 20.0
+    @AppStorage("Advanced 2") var advancedRight = 10.0
     //LEVEL INIDCATOR
     @Published var beginnerLevel = ""
     @Published var mediumRightLevel = ""
@@ -52,5 +54,14 @@ class LearningViewModel: ObservableObject {
     func showQuestionView() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {self.showView = true}
     }
+    
+    func changeButtonPressedToFalse(){
+        beginnerPressed = false
+        mediumRightPressed = false
+        mediumLeftPressed = false
+        advancedRightPressed = false
+        advancedLeftPressed = false
+    }
+    
 }
 
