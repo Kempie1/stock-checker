@@ -60,7 +60,7 @@ def getAvailable():
 @app.route('/')
 def index():
     print("Index")
-    return "<h1>Welcome to our server :)!!</h1>"
+    return "<h1>Welcome to our server :)!!</h1> <p>Usage: https://stockcheckerdb.herokuapp.com/getst/?ticker=AAPL to get stock info on AAPL (apple)</p><p>https://stockcheckerdb.herokuapp.com/getavailable/  to get currently available data</p>"
 
 
 if __name__ == '__main__':
