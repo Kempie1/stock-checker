@@ -4,9 +4,10 @@ import json
 import psycopg2
 import psycopg2.extras
 import json
+from decouple import config
 import sys
-sys.path.append('/Users/maximilianhues/Documents/CODE/TESTCheckerTEST/stock-checker/api/ORM/ORMLogic')
-sys.path.append('/Users/maximilianhues/Documents/CODE/TESTCheckerTEST/stock-checker/api/ORM')
+sys.path.append(config('ORM'))
+sys.path.append(config('ORMLogic'))
 
 #Internal
 from ORM.ORMLogic.api_call_to_json import Api_call
@@ -32,7 +33,7 @@ class Execute:
         
 
 main = Execute()
-main.user_input("F")
+main.user_input("TSLA")
 main.execute_api()
 main.execute_server()
 

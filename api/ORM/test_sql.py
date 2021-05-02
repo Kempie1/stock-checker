@@ -9,7 +9,7 @@ import os
 import sys
 from decouple import config
 #This is needed to have acess to the ORM folder
-sys.path.append('/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM/ORMLogic')
+sys.path.append(config('ORMLogic'))
 from services import real_api_request, real_sql_request
 from constants import ticker_symbol_for_testing, ticker_symbol_for_request, ticker_symbol_table_full, ticker_symbol_table_empty, ticker_symbol_not_in_table
 #EXTERNAL

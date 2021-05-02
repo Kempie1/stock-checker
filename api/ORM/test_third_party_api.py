@@ -7,9 +7,10 @@ import json
 import jsonpath
 import unittest
 import os
+from decouple import config
 import sys
-sys.path.append('/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM/ORMLogic')
-sys.path.append('/Users/maximilianhues/Documents/CODE/stock-checker/api')
+sys.path.append(config('ORMLogic'))
+sys.path.append(config('APIFOLDER'))
 
 #INTERNAL
 from services import real_api_request

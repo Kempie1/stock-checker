@@ -4,13 +4,14 @@ from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship 
 from sqlalchemy import create_engine    
+from sqlalchemy.ext.indexable import index_property
 
 Base = declarative_base()   
 
 class Stock(Base):  
     __tablename__                                               = "stock" 
-    ticker_symbol                                               = Column(String(10),primary_key=True,nullable=False)
-    stock_name                                                  = Column(String(255),nullable=False)
+    ticker_symbol                                               = Column(String(10),primary_key=True,nullable=False,unique=True, index=True)
+    stock_name                                                  = Column(String(255),nullable=False, unique=True, index=True)
     stock_price                                                 = Column(String(255))
     previous_close                                              = Column(String(255))
     open_bid                                                    = Column(String(255))     
@@ -68,6 +69,8 @@ class Stock(Base):
     payout_ratio                                                = Column(String(255))
     dividend_date                                               = Column(String(255))
 
+    stock_index = index_property('ticker_symbol', 'stock_name')
+
 class Chart(Base):
     __tablename__                                               = "chart"
     id                                                          = Column(Integer, primary_key=True)
@@ -76,6 +79,24 @@ class Chart(Base):
     ticker_symbol                                               = Column(String(10),ForeignKey('stock.ticker_symbol'),nullable=False)
     ticker                                                      = relationship('Stock', foreign_keys='Chart.ticker_symbol')
 
+    chart_index = index_property('ticker_symbol', 'time')
+    
+class Users(Base):
+    __tablename__                                               = "users"
+    id                                                          = Column(Integer, primary_key=True,nullable=False)
+    username                                                    = Column(String(255))
+    email_address                                               = Column(String(255))
+    progress                                                    = Column(String(255))
+
+    users_index = index_property('id', 'email_address', 'username')
+
+class Watchlist(Base):
+    __tablename__                                               = "watchlist"
+    id                                                          = Column(Integer, primary_key=True,nullable=False)
+    user_id                                                     = Column(Integer, ForeignKey('users.id'), nullable=False, index=True)
+    stock_ticker                                                = Column(String(10),ForeignKey('stock.ticker_symbol'),nullable=False)
+    user                                                        = relationship('Users', foreign_keys='Watchlist.user_id')
+    ticker                                                      = relationship('Stock', foreign_keys='Watchlist.stock_ticker')
 
 engine = create_engine(config("DB_URL"))
 
