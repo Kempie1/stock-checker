@@ -5,12 +5,6 @@
 This repo uses the `nvie/gitflow` git extension to make it so easy to use the
 popular gitflow branching model.
 
-We also use the [`commitizen`](https://github.com/commitizen/cz-cli) command-line
-tool to ensure memorable and epic git commit messages that our commit conventions,
-based on the awesome conventional commits standard.
-
-Also to clone the repo you have to set up github with SSH and can't use HTTPS to clone it.
-
 ### Gitflow
 
 - To set it up, [follow the instructions here](https://github.com/nvie/gitflow/wiki/Installation)
@@ -32,27 +26,6 @@ Support branches? [support/]      <-- same here
 Version tag prefix?               <-- same here
 ```
 
-### Commitizen
-
-The repo uses [commitizen](https://github.com/commitizen/cz-cli) to automate
-git commit conventions.
-
-- To set it up, run `npm install` in this repo.
-- To use it, use `git cz` instead of `git commit`
-
-Ex:
-
-```sh
-$ git add .
-$ git cz
-cz-cli@4.0.3, cz-conventional-changelog@3.1.0
-
-? Select the type of change that you're committing: chore:    Other changes that don't modify src or test files
-? What is the scope of this change (e.g. component or file name): (press enter to skip) project
-? Write a short, imperative tense description of the change (max 84 chars):
- (17) integrate commitizen
-```
-
 ## Workflow notes
 
 ### Gitflow
@@ -64,3 +37,26 @@ Use the following gitflow commands to perform various operations:
 | Push commits on a feature branch | `git flow feature publish FEATURE_NAME` |
 | Pull latest changes on feature branch | `git flow feature pull origin FEATURE_NAME` |
 | Complete and merge feature branch | `git flow feature finish FEATURE_NAME` |
+
+## App
+
+### Architecture
+![mvvm](./mvvm.png)
+
+### How to run locally
+1- Clone or download the repo  
+2- Open the [/app](./app) directory  
+3- This project uses cocoapods, therefore open Stock_Checker.xcworkspace, not .xcodeproj  
+4- In Xcode, tap the project, go to Signing & Capabilities, pick your Apple Developer account as a Team. 
+5- Make sure Stock_Checker is the selected scheme, select a device or simulator and hit Run (Cmd+R)  
+Important to know: this project uses Sign in with Apple, if you don't have a paid Developer account, you won't be able to run the app in an actual device, only the simulator.
+
+### Dependencies used
+All necessary dependencies are already installed. You won't need to run pod install or update.
+- Firebase/Analytics and /Auth, for authentication with Firebase (user database)
+- Resolver, for resolving dependency injection
+- Disk, for on-device storage
+- iLineChart and SwiftUICharts, for the interactive charts
+
+### Demo video
+You can watch a demo video of the app [here](https://youtu.be/nYtJxTl_pqo)
