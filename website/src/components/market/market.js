@@ -2,15 +2,17 @@ import React, {  useState, useEffect  } from 'react';
 import {  useAuth  } from "../../providers/AuthProvider"
 import { BrowserRouter as Router, Link, useHistory } from "react-router-dom"
 import axios from 'axios'
+import './market.css'
 
 const Market = (props) => {
-const [tickers, setTickers] = useState("")
+const [tickers, setTickers] = useState([])
 const { currentUser} = useAuth()
-
 useEffect(()=>{
   axios.get(`https://stockcheckerdb.herokuapp.com/getavailable/`)
   .then(res => {
+    //if (Array.isArray(res.data.Stocks)){
     setTickers(res.data.Stocks);
+   // }
   })
   .catch(error => {
     if (error.response) {
@@ -28,26 +30,51 @@ useEffect(()=>{
   }
   );
 }, [])
-//[Array(1), Array(1), Array(1)]
-function listStocks(){
-  //limit 10
-  //var count = 0
-  if (Array.isArray(tickers)){
-  tickers.map((value) => {
-    console.log(value[0])
-    return <p>{value}</p>}
-  )
+
+function gainOrLoss(open,close){
+  if(close-open>0){
+    return "loss"
   }
+  if(close-open<0){
+    return "gain"
   }
+  if(close-open==0){
+    return "same"
+  }
+}
 
 
-
+//returns the proper icon
+function differenceArrow(open,close){
+  if(close-open>0){
+    return "fa-arrow-down"
+  }
+  if(close-open<0){
+    return "fa-arrow-up"
+  }
+  if(close-open==0){
+    return "fa-equals"
+  }
+}
+//{(currentUser==null) ? <Redirect to="/" /> : <Profile/>}
+console.log(gainOrLoss(5,4))
 return (
     <div>
-    <Link to="/stock/AAPL">
-      Apple
-    </Link>
-    {listStocks()}
+    {
+      tickers.map((value) => {
+        return (
+        <Link to={"/stock/"+value[0]}>
+          <li key={value[0]} className="stock_block">
+            <p>{value[1]}</p>
+            <p>({value[0]})</p>
+            <p>Day's Volume: {value[2]}</p>
+            <p className={gainOrLoss(value[4],value[3])}>Day's change: {(value[4]-value[3]).toFixed(2)} <i class={"fas "+differenceArrow(value[4],value[3])}></i></p>
+            
+            </li>
+        </Link>
+        )
+      })
+    }
     </div>
     
   );
