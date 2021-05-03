@@ -104,6 +104,24 @@ localhost:{THE Port}/getst/?ticker=AAPL
 ```
 for the json file of the ticker AAPL.
 
+## Contributions for SE_05
+
+Maximilian first used psycopg2 to build the ORM and this was then switched out from Artem with SQLAlchemy. 
+We both worked in a call while screensharing the code.
+Whenever bigger erros occured we collabrated together to solve them.
+
+Maximilian Hues: 
+- psycopg2
+- Tests in the ORM
+- Created SQL Database
+- Refactoring
+
+Artem Miroshnichenko:
+- SQLAlchemy
+- Flask Server
+- Refactoring
+
+The rest of the work was done together in a call while screensharing
 
 ## License
 
