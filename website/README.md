@@ -3,8 +3,24 @@
 ## How to run locally
 1- Clone or download the repo  
 2- Open the [/website](./website) directory  
-3- This project uses React, and npm  
-4- to run use 
+3- Create a .env and add    
+```
+CHOKIDAR_USEPOLLING=true 
+
+
+
+REACT_APP_API_KEY="Firebase Credentials"
+REACT_APP_AUTH_DOMAIN="Firebase Credentials"
+REACT_APP_DATABASE_URL="Firebase Credentials"
+REACT_APP_PROJECT_ID="Firebase Credentials"
+REACT_APP_STORAGE_BUCKET="Firebase Credentials"
+REACT_APP_MESSAGING_SENDER_ID="Firebase Credentials"
+REACT_APP_APP_ID="Firebase Credentials"
+REACT_APP_MEASUREMENT_ID="Firebase Credentials"
+
+```  
+4- This project uses React, and npm  
+5- to run use 
 ```bash
 $ npm start
 ```
