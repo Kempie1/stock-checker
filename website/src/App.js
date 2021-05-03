@@ -21,7 +21,7 @@ function App() {
   return (
       <Router>
         <div className="App">
-          <Navbar/>
+          <Navbar user={currentUser}/>
           <Switch>
             <Route path="/" exact ={true}>
               <Market/>
@@ -30,10 +30,10 @@ function App() {
               <Stock/>
             </Route>
             <Route path="/login">
-              <Login/>
+            {(currentUser!=null) ? <Redirect to="/profile" /> : <Login/>}
             </Route>
             <Route path="/profile">
-              {(currentUser==null) ? <Redirect to="/" /> : <Profile/>}
+              {(currentUser==null) ? <Redirect to="/login" /> : <Profile/>}
             </Route>
           </Switch>
         </div>

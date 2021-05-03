@@ -4,18 +4,37 @@ import {Button} from '../Button/Button'
 import './navbar.css'
 import {  Link  } from "react-router-dom";
 
+
 class Navbar extends Component {
-    state = { clicked:false }
+    state = { clicked:false, }
 
     handleClick = () =>{
         this.setState({ clicked: !this.state.clicked })
     }
 
+    whatButton = () =>{
+        if(this.props.user===null)
+        {
+            return (
+        <Link to="/login">
+            <Button>Sign In</Button>
+        </Link>)
+        }
+        else{
+            return (
+                <Link to="/profile">
+                    <Button>Profile</Button>
+                </Link>
+            )
+        }
+    }
+    
 
     render(){
+        console.log(this.props.user)
         return(
             <nav className="NavbarItems">
-                <h1 className="navbar-logo">StockChecker</h1>
+                <Link to="/"><h1 className="navbar-logo">StockChecker</h1></Link>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
@@ -31,9 +50,7 @@ class Navbar extends Component {
                     })}
                     
                 </ul>
-                <Link to="/login">
-                    <Button>Sign In</Button>
-                </Link>
+                {this.whatButton()}
             </nav>
         )
     }

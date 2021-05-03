@@ -1,7 +1,7 @@
 import React, {  useState  } from 'react';
 import {  useAuth  } from "../../providers/AuthProvider"
 import { BrowserRouter as Router, useHistory } from "react-router-dom"
-
+import './profile.css'
 const Home = (props) => {
 const [error, setError] = useState("")
 const { currentUser, logout } = useAuth()
@@ -27,9 +27,10 @@ const history = useHistory()
 
 
   return (
-    <div>
+    <div className="profile">
     {error && <div>{error}</div>}
-    Home {currentUser.displayName}
+    <img src={currentUser.photoURL}/>
+    <h2>Home {currentUser.displayName}</h2>
   <div className="w-100 text-center mt-2">
         <button variant="link" onClick={handleLogout}>
           Log Out
