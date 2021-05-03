@@ -108,11 +108,11 @@ class Json_to_server():
         avg_vol_ten_day                                             =validate_api(['get-statistics','summaryDetail','averageVolume10Day']),  \
         forward_annual_dividend_rate                                =validate_api(['get-statistics','summaryDetail','dividendRate']),  \
         forward_annual_dividend_yield                               =validate_api(['get-statistics','summaryDetail','dividendYield']),  \
-        trailing_annual_dividend_rate                               =validate_api(['get-statistics','summaryDetail','payoutRatio']),  \
-        trailing_annual_dividend_yield                              =validate_api(['get-statistics','calendarEvents','dividendDate']),  \
-        five_year_average_dividend_yield                            =validate_api(['get-statistics','summaryDetail','trailingAnnualDividendRate']),  \
-        payout_ratio                                                =validate_api(['get-statistics','summaryDetail','trailingAnnualDividendYield']),  \
-        dividend_date                                               =validate_api(['get-statistics','summaryDetail','fiveYearAvgDividendYield'])   \
+        trailing_annual_dividend_rate                               =validate_api(['get-statistics','summaryDetail','trailingAnnualDividendRate']),  \     
+        trailing_annual_dividend_yield                              =validate_api(['get-statistics','summaryDetail','trailingAnnualDividendYield']),  \  
+        five_year_average_dividend_yield                            =validate_api(['get-statistics','summaryDetail','fiveYearAvgDividendYield'])   \
+        payout_ratio                                                =validate_api(['get-statistics','summaryDetail','payoutRatio']),  \
+        dividend_date                                               =validate_api(['get-statistics','calendarEvents','dividendDate']),  \   
         )
 
         self.session.add (new_stock)
