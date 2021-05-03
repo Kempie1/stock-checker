@@ -13,11 +13,11 @@ class LearningViewModel: ObservableObject {
     @Published var showView = false
     @Published var predictionInterval = 0.2
     //LEVEL FOR LEANRINGVIEW
-    @Published var beginner = 50.0
-    @Published var mediumRight = 40.0
-    @Published var mediumLeft = 20.0
-    @Published var advancedRight = 10.0
-    @Published var advancedLeft = 20.0
+    @AppStorage("Beginner") var beginner = 50.0
+    @AppStorage("Medium Right") var mediumRight = 40.0
+    @AppStorage("Medium Left") var mediumLeft = 20.0
+    @AppStorage("Advanced Right") var advancedRight = 10.0
+    @AppStorage("Advanced Left") var advancedLeft = 20.0
     //LEVEL INIDCATOR
     @Published var beginnerLevel = ""
     @Published var mediumRightLevel = ""
