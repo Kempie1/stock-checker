@@ -60,3 +60,21 @@ All necessary dependencies are already installed. You won't need to run pod inst
 
 ### Demo video
 You can watch a demo video of the app [here](https://youtu.be/nYtJxTl_pqo)
+
+##Contributions for SE_05
+
+Maximilian first used psycopg2 to build the ORM and this was then switched out from Artem with SQLArchemy. 
+We both worked in a call while screensharing the code.
+Whenever bigger erros occured we collabrated together to solve them.
+
+Maximilian Hues: 
+- psycopg2
+- Tests in the ORM
+- Created SQL Database
+- Refactroing
+Artem Miroshnichenko:
+- SQLArchemy
+- Flask Server
+- Refactoring
+
+All of the other work was done together in a call while screensharing 
