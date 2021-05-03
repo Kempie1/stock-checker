@@ -72,6 +72,7 @@ Maximilian Hues:
 - Tests in the ORM
 - Created SQL Database
 - Refacotring
+
 Artem Miroshnichenko:
 - SQLAlchemy
 - Flask Server
