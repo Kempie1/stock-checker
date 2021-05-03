@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/stock-checker/static/css/main.d95c7fed.chunk.css",
+    "main.js": "/stock-checker/static/js/main.2a1d7705.chunk.js",
+    "main.js.map": "/stock-checker/static/js/main.2a1d7705.chunk.js.map",
+    "runtime-main.js": "/stock-checker/static/js/runtime-main.a5087d93.js",
+    "runtime-main.js.map": "/stock-checker/static/js/runtime-main.a5087d93.js.map",
+    "static/css/2.373bc5f8.chunk.css": "/stock-checker/static/css/2.373bc5f8.chunk.css",
+    "static/js/2.13117baa.chunk.js": "/stock-checker/static/js/2.13117baa.chunk.js",
+    "static/js/2.13117baa.chunk.js.map": "/stock-checker/static/js/2.13117baa.chunk.js.map",
+    "static/js/3.0f09399a.chunk.js": "/stock-checker/static/js/3.0f09399a.chunk.js",
+    "static/js/3.0f09399a.chunk.js.map": "/stock-checker/static/js/3.0f09399a.chunk.js.map",
+    "index.html": "/stock-checker/index.html",
+    "static/css/2.373bc5f8.chunk.css.map": "/stock-checker/static/css/2.373bc5f8.chunk.css.map",
+    "static/css/main.d95c7fed.chunk.css.map": "/stock-checker/static/css/main.d95c7fed.chunk.css.map",
+    "static/js/2.13117baa.chunk.js.LICENSE.txt": "/stock-checker/static/js/2.13117baa.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a5087d93.js",
+    "static/css/2.373bc5f8.chunk.css",
+    "static/js/2.13117baa.chunk.js",
+    "static/css/main.d95c7fed.chunk.css",
+    "static/js/main.2a1d7705.chunk.js"
+  ]
+}
