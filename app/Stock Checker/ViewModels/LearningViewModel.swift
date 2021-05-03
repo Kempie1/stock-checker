@@ -11,7 +11,6 @@ import SwiftUI
 class LearningViewModel: ObservableObject {
     @Published var level = ""
     @Published var showView = false
-    @Published var predictionInterval = 0.2
     //LEVEL FOR LEANRINGVIEW
     @AppStorage("Beginner") var beginner = 50.0
     @AppStorage("Medium 1") var mediumLeft = 20.0
