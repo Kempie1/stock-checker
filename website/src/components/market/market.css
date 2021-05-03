@@ -1,8 +1,12 @@
+.stock_blocks{
+  margin:auto
+}
+
 .stock_block{
     margin-top: 1rem;
     margin-left: 1rem;
     display: inline-block;
-    width: 15rem;
+    width: 20rem;
     height:10rem;
     padding: 1rem;
     border-style: solid;

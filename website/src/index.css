@@ -20,3 +20,9 @@ ul {
 a{
   color: #063D74;
 }
+
+.loader{
+  margin: auto;
+  width: 0%;
+  padding-top: 30px;
+}

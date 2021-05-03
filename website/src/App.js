@@ -1,6 +1,6 @@
 import React from  "react";
-import Navbar from "./components/navbar/Navbar";
-import Login from  "./components/Login/Login";
+import Navbar from "./components/navbar/navbar";
+import Login from  "./components/login/login";
 import Market from "./components/market/market";
 import Stock from  "./components/stock/stock";
 import './App.css';
