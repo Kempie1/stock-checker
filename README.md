@@ -71,11 +71,11 @@ Maximilian Hues:
 - psycopg2
 - Tests in the ORM
 - Created SQL Database
-- Refacotring
+- Refactoring
 
 Artem Miroshnichenko:
 - SQLAlchemy
 - Flask Server
-- Refacotring
+- Refactoring
 
 The rest of the work was done together in a call while screensharing 
