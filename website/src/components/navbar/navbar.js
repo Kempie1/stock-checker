@@ -31,7 +31,6 @@ class Navbar extends Component {
     
 
     render(){
-        console.log(this.props.user)
         return(
             <nav className="NavbarItems">
                 <Link to="/"><h1 className="navbar-logo">StockChecker</h1></Link>

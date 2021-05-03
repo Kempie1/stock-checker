@@ -5,7 +5,6 @@ import './profile.css'
 const Home = (props) => {
 const [error, setError] = useState("")
 const { currentUser, logout } = useAuth()
-console.log(currentUser)
 
 
 
@@ -29,7 +28,7 @@ const history = useHistory()
   return (
     <div className="profile">
     {error && <div>{error}</div>}
-    <img src={currentUser.photoURL}/>
+    <img src={currentUser.photoURL} alt="Profile pic"/>
     <h2>Home {currentUser.displayName}</h2>
   <div className="w-100 text-center mt-2">
         <button variant="link" onClick={handleLogout}>

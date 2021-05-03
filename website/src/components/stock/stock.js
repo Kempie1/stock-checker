@@ -1,16 +1,13 @@
 import React, {  useState, useEffect  } from 'react';
-import {  useAuth  } from "../../providers/AuthProvider"
-import { BrowserRouter as Router, Route, Link, Switch, useParams } from "react-router-dom";
+import { BrowserRouter as Router, useParams } from "react-router-dom";
 import axios from 'axios'
 import './stock.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from "react-loader-spinner";
-import Chart from "./chart"
+
 
 const Stock = () => {
   const params = useParams().ticker
   const [ticker, setTicker] = useState({})
-  const { currentUser } = useAuth()
 
   useEffect(()=>{
     axios.get(`https://stockcheckerdb.herokuapp.com/getst/?ticker=${params}`)
