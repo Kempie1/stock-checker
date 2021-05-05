@@ -1,24 +1,43 @@
-import logo from './logo.svg';
+import React from  "react";
+import Navbar from "./components/navbar/navbar";
+import Login from  "./components/login/login";
+import Market from "./components/market/market";
+import Stock from  "./components/stock/stock";
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import {  useAuth  } from "./providers/AuthProvider"
+import Profile from "./components/profile/profile"
+
+
 
 function App() {
+  const { currentUser } = useAuth()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+        <div className="App">
+          <Navbar user={currentUser}/>
+          <Switch>
+            <Route path="/" exact ={true}>
+              <Market/>
+            </Route>
+            <Route path="/stock/:ticker">
+              <Stock/>
+            </Route>
+            <Route path="/login">
+            {(currentUser!=null) ? <Redirect to="/profile" /> : <Login/>}
+            </Route>
+            <Route path="/profile">
+              {(currentUser==null) ? <Redirect to="/login" /> : <Profile/>}
+            </Route>
+          </Switch>
+        </div>
+      </Router>
   );
 }
 
