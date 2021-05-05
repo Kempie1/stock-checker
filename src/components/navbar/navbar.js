@@ -16,13 +16,13 @@ class Navbar extends Component {
         if(this.props.user===null)
         {
             return (
-        <Link to="/login">
+        <Link to="/stock-checker/login">
             <Button>Sign In</Button>
         </Link>)
         }
         else{
             return (
-                <Link to="/profile">
+                <Link to="/stock-checker/profile">
                     <Button>Profile</Button>
                 </Link>
             )
@@ -33,7 +33,7 @@ class Navbar extends Component {
     render(){
         return(
             <nav className="NavbarItems">
-                <Link to="/"><h1 className="navbar-logo">StockChecker</h1></Link>
+                <Link to="/stock-checker"><h1 className="navbar-logo">StockChecker</h1></Link>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>

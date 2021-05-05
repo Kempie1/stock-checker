@@ -15,7 +15,7 @@ const history = useHistory()
 
     try {
       await logout()
-      history.push("/login")
+      history.push("/stock-checker/login")
     } catch {
       setError("Failed to log out")
     }

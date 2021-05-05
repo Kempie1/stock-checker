@@ -67,7 +67,7 @@ return (
     {
       tickers.map((value) => {
         return (
-        <Link to={"/stock/"+value[0]}>
+        <Link to={"/stock-checker/stock/"+value[0]}>
           <li key={value[0]} className="stock_block">
             <p>{value[1]}</p>
             <p>({value[0]})</p>

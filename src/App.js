@@ -23,17 +23,17 @@ function App() {
         <div className="App">
           <Navbar user={currentUser}/>
           <Switch>
-            <Route path="/" exact ={true}>
+            <Route path="/stock-checker" exact ={true}>
               <Market/>
             </Route>
-            <Route path="/stock/:ticker">
+            <Route path="/stock-checker/stock/:ticker">
               <Stock/>
             </Route>
-            <Route path="/login">
-            {(currentUser!=null) ? <Redirect to="/profile" /> : <Login/>}
+            <Route path="/stock-checker/login">
+            {(currentUser!=null) ? <Redirect to="/stock-checker/profile" /> : <Login/>}
             </Route>
-            <Route path="/profile">
-              {(currentUser==null) ? <Redirect to="/login" /> : <Profile/>}
+            <Route path="/stock-checker/profile">
+              {(currentUser==null) ? <Redirect to="/stock-checker/login" /> : <Profile/>}
             </Route>
           </Switch>
         </div>

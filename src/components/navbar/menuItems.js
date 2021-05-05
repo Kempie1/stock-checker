@@ -1,17 +1,17 @@
 export const MenuItems =[
     {
         title: 'The Market',
-        url: '/',
+        url: '/stock-checker',
         cName: 'nav-links'
     },
     {
         title: 'Learning',
-        url: '/learning',
+        url: '/stock-checker/learning',
         cName: 'nav-links'
     },
     {
         title: 'Sign In',
-        url: '/login',
+        url: '/stock-checker/login',
         cName: 'nav-links-mobile'
     }
 ]
