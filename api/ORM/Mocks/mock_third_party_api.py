@@ -3,7 +3,7 @@ from flask import Flask, json
 app = Flask(__name__)
 
 @app.route('/json', methods=['POST', 'GET'])
-def test_json():
+def mock_third_party_api():
     #Variables that Python does not know but SQL does
     true = True
     false = False

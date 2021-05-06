@@ -14,11 +14,18 @@ from decouple import config
 import sys
 sys.path.append(config('ORM'))
 sys.path.append(config('ORMLogic'))
+sys.path.append(config('MockFolder'))
 sys.path.append(config('APIFOLDER'))
 #Internal
 from declarative import Stock, Base
 from constants import ticker_symbol_for_testing
+def mock_api_request():
+    response = requests.get("http://127.0.0.1:5000/json")
+    return response
 
+def mock_third_party_api_request():
+    response = requests.get("http://127.0.0.1:4000/json")
+    return response
 
 def real_api_request():
     response = requests.get(f"https://stockcheckerdb.herokuapp.com/getst/?ticker={ticker_symbol_for_testing}")
@@ -50,3 +57,5 @@ def real_sql_request():
     #session = sessionmaker(bind=engine)
     #session.query(Stock).all()
     print("")
+
+mock_api_request

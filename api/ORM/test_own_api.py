@@ -39,7 +39,7 @@ class test_Api_Integration(unittest.TestCase):
         #Assert
         self.assertEqual(response.status_code, 200)
 
-    def test_json_getting_json_format(self):
+    def test_api_json_getting_json_format(self):
         response = real_api_request()
         self.assertEqual(response.headers["Content-Type"], "application/json")
 
@@ -51,10 +51,9 @@ class test_Api_Integration(unittest.TestCase):
     def test_api_data_length_ticker_symbol(self):
         response = real_api_request()
         response_body = response.json()
-        #As TSLA is 4 long
         self.assertEqual(len(response_body["ticker_symbol"]), 4)
 
-    def test_respose_keys(self):
+    def test_api_dict_keys(self):
         response = real_api_request()
         response_body = response.json()
         response_keys = []
