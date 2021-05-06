@@ -29,7 +29,7 @@ class test_Api_python_file(unittest.TestCase):
         #Act
         ticker_symbol_from_user = Main_function.user_input(self.mock_user_input())
         #Assert
-        self.assertEqual(ticker_symbol_from_user, "['Some User Input']")
+        self.assertEqual(ticker_symbol_from_user, "Some User Input")
 
     def mock_user_input(self):
         return "Some User Input"

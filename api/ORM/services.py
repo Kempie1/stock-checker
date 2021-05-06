@@ -8,11 +8,23 @@ import os
 import unittest
 import psycopg2
 import psycopg2.extras
-#Internal
-from constants import ticker_symbol_for_testing
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 from decouple import config
+import sys
+sys.path.append(config('ORM'))
+sys.path.append(config('ORMLogic'))
+sys.path.append(config('APIFOLDER'))
+#Internal
+from declarative import Stock, Base
+from constants import ticker_symbol_for_testing
+
 
 def real_api_request():
+    response = requests.get(f"https://stockcheckerdb.herokuapp.com/getst/?ticker={ticker_symbol_for_testing}")
+    return response
+
+def real_third_party_api_request():
         ticker_symbol = ticker_symbol_for_testing
         url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics"
         querystring = {"symbol": ticker_symbol,"region":"US"}
@@ -27,11 +39,14 @@ def real_api_request():
             return None
 
 def real_sql_request():
-    DB_HOST = config('DB_HOST')
-    DB_NAME = config('DB_NAME')
-    DB_USER = config('DB_USER')
-    DB_PASS = config('DB_PASS')
-
-    conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
-
-    return conn
+    #This is creating an engine connected to the Database URL
+    #engine = create_engine(config("DB_URL"))
+    #Base.metadata.bind = engine
+    #DBSession = sessionmaker()
+    #DBSession.bind = engine
+    #session = DBSession()
+   # engine = create_engine(config("DB_URL"))
+    #Base.metadata.bind = engine
+    #session = sessionmaker(bind=engine)
+    #session.query(Stock).all()
+    print("")

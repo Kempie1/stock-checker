@@ -17,6 +17,16 @@ from ORMLogic import json_to_server
 
 class test_Sql_Integration(unittest.TestCase):
     def test_sql_connection(self):
+
+        conn = real_sql_request()
+        #ticker_table = request.session.query(self.col1)
+        #print(ticker_table)
+
+        trans = conn.begin()
+        
+        # Close connection
+        conn.close()
+
         #Act
         conn = real_sql_request()
         #Assert
@@ -45,7 +55,7 @@ class _Sql_python_file(unittest.TestCase):
         
         #Assert
         print(stock_data('get-statistics'))
-#if __name__ == '__main__':
-#    unittest.main()
+if __name__ == '__main__':
+    unittest.main()
 #test_Sql_python_file = test_Sql_python_file()
 #test_Sql_python_file.test_open_json_file()
