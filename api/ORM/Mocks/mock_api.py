@@ -2,6 +2,7 @@ from flask import Flask, json
 
 app = Flask(__name__)
 
+
 @app.route('/json', methods=['POST', 'GET'])
 def mock_api():
     null = None

@@ -24,8 +24,8 @@ def mock_api_request():
     response = requests.get("http://127.0.0.1:5000/json")
     return response
 
-def mock_third_party_api_request():
-    response = requests.get("http://127.0.0.1:4000/json")
+def mock_third_party_api_request(request):
+    response = requests.get(f"http://127.0.0.1:4000/{request}")
     return response
 
 def real_api_request():

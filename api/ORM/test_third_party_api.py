@@ -28,14 +28,24 @@ class test_Third_Party_Api_Integration(unittest.TestCase):
             #Assert
             self.assertEqual(response.status_code, 200)
         
+    def test_third_party_api_format(self):
+        request = ["get-statistics", "get-financials", "get-chart"]
+        for i in request:
+            response = third_party_api_request(i)
+            self.assertEqual(response.headers["Content-Type"], "application/json")
+
     def test_api_data(self):
-        #Arrange
-        constant_input = ticker_symbol_for_testing
-        #Act
-        response = third_party_api_request("get-statistics")
+         #Act
+        response1 = third_party_api_request("get-statistics")
+        response2 = third_party_api_request("get-financials")
+        response3 = third_party_api_request("get-chart")
+        response1_json = response1.json()
+        response2_json = response2.json()
+        response3_json = response3.json()
         #Assert
-        json_response = response.json()
-        self.assertEqual(json_response['symbol'], constant_input)
+        self.assertEqual(response1_json['symbol'], ticker_symbol_for_testing)
+        self.assertEqual(response2_json['symbol'], ticker_symbol_for_testing)
+        self.assertEqual(response3_json['chart']['result'][0]['meta']['symbol'], ticker_symbol_for_testing)
 
     def test_api_main_keys(self):
         request = ["get-statistics", "get-financials", "get-chart"]
@@ -55,6 +65,7 @@ class test_Third_Party_Api_Integration(unittest.TestCase):
         expected_keys = "dict_keys(['get-statistics', 'get-financials', 'get-chart'])"
         response_keys = str(merge_all_dicts.keys())
         self.assertEqual(expected_keys, response_keys)
+        
 
     def test_api_statistics_nested_keys(self):
         response = third_party_api_request("get-statistics")

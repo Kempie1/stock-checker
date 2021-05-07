@@ -6,10 +6,13 @@ sys.path.append(config('ORM'))
 sys.path.append(config('ORMLogic'))
 sys.path.append(config('MockFolder'))
 sys.path.append(config('APIFOLDER'))
+import pytest
 
 from ORM import services
 from ORM import constants
 
+@pytest.mark.mock
+#@pytest.mark.skip(reason="I dont want to run this test at the moment")
 class test_Mock_Api(unittest.TestCase):
     
     def test_mock_api_request_status(self):
