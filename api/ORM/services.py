@@ -1,4 +1,3 @@
-#External
 try:
     from urllib.parse import urljoin
 except ImportError:
@@ -12,11 +11,11 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from decouple import config
 import sys
+
 sys.path.append(config('ORM'))
 sys.path.append(config('ORMLogic'))
 sys.path.append(config('MockFolder'))
 sys.path.append(config('APIFOLDER'))
-#Internal
 from declarative import Stock, Base
 from constants import ticker_symbol_for_testing
 
