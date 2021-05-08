@@ -142,7 +142,7 @@ class test_Third_Party_Api_Integration(unittest.TestCase):
 
     def test_json_data(self):
         #Act
-        with open('ORM/teststock.json') as json_file:
+        with open('ORM/TestCases/teststock.json') as json_file:
             request_json = json.load(json_file)
             ticker_symbol_json = request_json['get-statistics']['symbol']
         #Assert    

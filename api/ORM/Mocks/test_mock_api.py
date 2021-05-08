@@ -5,11 +5,12 @@ import sys
 import pytest
 
 sys.path.append(config('ORM'))
+sys.path.append(config('TestCases'))
 sys.path.append(config('ORMLogic'))
 sys.path.append(config('MockFolder'))
 sys.path.append(config('APIFOLDER'))
-from ORM import services
-from ORM import constants
+from TestCases import services
+from TestCases import constants
 
 @pytest.mark.skip(reason="I dont want to run this test at the moment")
 class test_Mock_Api(unittest.TestCase):
