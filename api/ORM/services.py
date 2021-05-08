@@ -46,13 +46,5 @@ def third_party_api_request(request):
 
 def real_sql_request():
     #This is creating an engine connected to the Database URL
-    #engine = create_engine(config("DB_URL"))
-    #Base.metadata.bind = engine
-    #DBSession = sessionmaker()
-    #DBSession.bind = engine
-    #session = DBSession()
-   # engine = create_engine(config("DB_URL"))
-    #Base.metadata.bind = engine
-    #session = sessionmaker(bind=engine)
-    #session.query(Stock).all()
-    print("")
+    engine = create_engine(config("DB_URL"))        
+    return engine
