@@ -55,7 +55,7 @@ class _Sql_python_file(unittest.TestCase):
         
         #Assert
         print(stock_data('get-statistics'))
-if __name__ == '__main__':
-    unittest.main()
-#test_Sql_python_file = test_Sql_python_file()
-#test_Sql_python_file.test_open_json_file()
+#if __name__ == '__main__':
+ #   unittest.main()
+test_Sql_python_file = test_Sql_Integration()
+test_Sql_python_file.test_sql_connection()

@@ -11,8 +11,8 @@ import pytest
 from ORM import services
 from ORM import constants
 
-@pytest.mark.mock
-#@pytest.mark.skip(reason="I dont want to run this test at the moment")
+#@pytest.mark.mock
+@pytest.mark.skip(reason="I dont want to run this test at the moment")
 class test_Mock_Third_Party_Api(unittest.TestCase):
     
     def test_mock_third_party_api_status(self):
