@@ -55,8 +55,9 @@ class test_Sql_python_file(unittest.TestCase):
         open_json = json_to_server_class.open_json_file("ORM/TestCases/teststock.json")
         self.assertEqual(open_json, True)
 
-#test_sql_python_file = test_Sql_python_file()
-#test_sql_python_file.test_validate_function()
-
 if __name__ == '__main__':
     unittest.main()
+
+
+#test_sql_python_file = test_Sql_python_file()
+#test_sql_python_file.test_function()
