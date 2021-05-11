@@ -4,13 +4,27 @@ import axios from 'axios'
 import './stock.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
+export function getStock(param){
+  return (axios.get(`https://stockcheckerdb.herokuapp.com/getst/?ticker=${param}`)
+  )
+}
+
+export function timeConverter(UNIX_timestamp){
+  var a = new Date(UNIX_timestamp * 1000);
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var year = a.getFullYear();
+  var month = months[a.getMonth()];
+  var date = a.getDate();
+  var time = date + ' ' + month + ' ' + year;
+  return time;
+}
 
 const Stock = () => {
   const params = useParams().ticker
   const [ticker, setTicker] = useState({})
 
   useEffect(()=>{
-    axios.get(`https://stockcheckerdb.herokuapp.com/getst/?ticker=${params}`)
+    getStock(params)
     .then(res => {
       setTicker(res.data);
     })
@@ -31,24 +45,13 @@ const Stock = () => {
     );
     }, [])
 
-  function timeConverter(UNIX_timestamp){
-    var a = new Date(UNIX_timestamp * 1000);
-    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    var year = a.getFullYear();
-    var month = months[a.getMonth()];
-    var date = a.getDate();
-
-    var time = date + ' ' + month + ' ' + year;
-    return time;
-  }
+  
 
   
 return (
   
     <div className="stock_data">
-      
       <div className="block-shadow">
-
         <h2>{ticker.stock_name}</h2>
         <p>{ticker.ticker_symbol}</p>
         <ul className="mainData">
@@ -65,9 +68,7 @@ return (
             return <li>{key}: {value}</li>
         })}
         </ul>
-        
       </div>
-
     </div>
     
   );

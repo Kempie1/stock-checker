@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Navbar/> matches snapshot 1`] = `
+<nav
+  className="NavbarItems"
+>
+  <a
+    href="/stock-checker"
+    onClick={[Function]}
+  >
+    <h1
+      className="navbar-logo"
+    >
+      StockChecker
+    </h1>
+  </a>
+  <div
+    className="menu-icon"
+    onClick={[Function]}
+  >
+    <i
+      className="fas fa-bars"
+    />
+  </div>
+  <ul
+    className="nav-menu"
+  >
+    <li
+      id="market"
+    >
+      <a
+        className="nav-links"
+        href="/stock-checker"
+        id="market"
+        onClick={[Function]}
+      >
+        The Market
+      </a>
+    </li>
+    <li
+      id="learning"
+    >
+      <a
+        className="nav-links"
+        href="/learning"
+        id="learning"
+        onClick={[Function]}
+      >
+        Learning
+      </a>
+    </li>
+    <li
+      id="signin"
+    >
+      <a
+        className="nav-links-mobile"
+        href="/login"
+        id="signin"
+        onClick={[Function]}
+      >
+        Sign In
+      </a>
+    </li>
+  </ul>
+  <a
+    href="/profile"
+    onClick={[Function]}
+  >
+    <button
+      className="btn btn--primary btn--medium"
+    >
+      Profile
+    </button>
+  </a>
+</nav>
+`;

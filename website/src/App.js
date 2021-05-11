@@ -15,16 +15,16 @@ import Profile from "./components/profile/profile"
 
 
 
+
 function App() {
   const { currentUser } = useAuth()
-
   return (
       <Router>
         <div className="App">
           <Navbar user={currentUser}/>
           <Switch>
-            <Route path="/" exact ={true}>
-              <Market/>
+            <Route path="/stock-checker" exact ={true}>
+              <Market test={false}/>
             </Route>
             <Route path="/stock/:ticker">
               <Stock/>

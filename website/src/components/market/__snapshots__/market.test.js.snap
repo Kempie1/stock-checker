@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Market/> matches snapshot 1`] = `
+<div
+  className="stock_blocks"
+/>
+`;
+
+exports[`makeBlocks matches snapshot 1`] = `
+<div>
+  <a
+    href="/stock/A"
+    id="A"
+  >
+    <li
+      class="stock_block"
+    >
+      <p>
+        Agilent Technologies, Inc.
+      </p>
+      <p>
+        ( 
+        A
+         )
+      </p>
+      <p>
+        Day's Volume: 
+        264724
+      </p>
+      <p
+        class="loss"
+      >
+        Day's change: 
+        -1.01
+        <i
+          class="fas fa-arrow-down"
+        />
+      </p>
+    </li>
+  </a>
+</div>
+`;
