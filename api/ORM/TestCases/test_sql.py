@@ -52,7 +52,7 @@ class test_Sql_Integration(unittest.TestCase):
 class test_Sql_python_file(unittest.TestCase):
     def test_open_json_file(self):
         json_to_server_class = json_to_server.Json_to_server()
-        open_json = json_to_server_class.open_json_file("ORM/TestCases/teststock.json")
+        open_json = json_to_server_class.open_json_file(config('TestJson'))
         self.assertEqual(open_json, True)
 
 if __name__ == '__main__':

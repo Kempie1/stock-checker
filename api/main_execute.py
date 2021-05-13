@@ -33,7 +33,7 @@ class Execute:
         
 
 main = Execute()
-main.user_input("L")
+main.user_input("SQ")
 main.execute_api()
 main.execute_server()
 

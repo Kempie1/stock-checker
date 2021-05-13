@@ -32,6 +32,9 @@ Path to ORM and ORMLogic files example:
 APIFOLDER = "/Users/maximilianhues/Documents/CODE/stock-checker/api"
 ORMLogic = "/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM/ORMLogic"
 ORM = "/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM"
+TestCases = "/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM/TestCases"
+TestJson = "/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM/TestCases/teststock.json"
+MockFolder = "/Users/maximilianhues/Documents/CODE/stock-checker/api/Mocks"
 
 DB_URL= "Your Database URL Creditals GO HERE"
 
