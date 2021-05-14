@@ -1,7 +1,18 @@
-from flask import Flask, json
+from flask import Flask, json, request
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
+
+def shutdown_server():
+    func = request.environ.get('werkzeug.server.shutdown')
+    if func is None:
+        raise RuntimeError('Not running with the Werkzeug Server')
+    func()
+    
+@app.route('/shutdown', methods=['GET'])
+def shutdown():
+    shutdown_server()
+    return 'Server shutting down...'
 
 @app.route('/get-statistics', methods=['POST', 'GET'])
 def mock_third_party_api_statistics():
