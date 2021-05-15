@@ -17,7 +17,7 @@ class ORM_services:
                 DBSession.bind = engine
                 self.session = DBSession()
 
-        def api_request(self, request, ticker_symbol):
+        def third_party_api_request(self, request, ticker_symbol):
                 url = f"https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/{request}"   
                 querystring = {"symbol": ticker_symbol,"region":"US"}
                 headers = {
@@ -48,3 +48,7 @@ class ORM_services:
                                 already_exist = True
 
                 return already_exist
+
+        def mock_third_party_api_request(self):
+                response = requests.get("http://127.0.0.1:4000/json")
+                return response

@@ -22,9 +22,9 @@ class Api_call():
             file1 = open("stock.json","w") 
             for x in range(len(request)):
                 if x==0:
-                    file1.write(f"{{\"{request[x]}\": " + self.services.api_request(request[x], self.ticker_symbol))
+                    file1.write(f"{{\"{request[x]}\": " + self.services.third_party_api_request(request[x], self.ticker_symbol))
                 else:
-                    file1.write(f",\"{request[x]}\": " + self.services.api_request(request[x], self.ticker_symbol))
+                    file1.write(f",\"{request[x]}\": " + self.services.third_party_api_request(request[x], self.ticker_symbol))
             file1.write("}")
             file1.close()
             print("Stock Data has been added to Json")

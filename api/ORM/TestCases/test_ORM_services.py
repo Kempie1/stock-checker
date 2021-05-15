@@ -43,5 +43,5 @@ class test_ORM_services_python_file(unittest.TestCase):
         self.assertEqual(table_full_check, True)
 
 
-#if __name__ == '__main__':
-  #  unittest.main()
+if __name__ == '__main__':
+    unittest.main()
