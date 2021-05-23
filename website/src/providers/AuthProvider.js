@@ -18,15 +18,6 @@ export function AuthProvider({ children }) {
     }).catch((error) => {
       console.log(error.message)
     })
-
-  }
-
-  const signInWithApple = () => {
-    auth.signInWithPopup(appleProvider).then((res) => {
-      console.log(res.user)
-    }).catch((error) => {
-      console.log(error.message)
-    })
   }
 
 
@@ -48,7 +39,6 @@ export function AuthProvider({ children }) {
   const value = {
     currentUser,
     signInWithGoogle,
-    signInWithApple,
     logout,
   }
 

@@ -15,25 +15,25 @@ import Profile from "./components/profile/profile"
 
 
 
+
 function App() {
   const { currentUser } = useAuth()
-
   return (
       <Router>
         <div className="App">
-          <Navbar/>
+          <Navbar user={currentUser}/>
           <Switch>
-            <Route path="/" exact ={true}>
-              <Market/>
+            <Route path="/stock-checker" exact ={true}>
+              <Market test={false}/>
             </Route>
             <Route path="/stock/:ticker">
               <Stock/>
             </Route>
             <Route path="/login">
-              <Login/>
+            {(currentUser!=null) ? <Redirect to="/profile" /> : <Login/>}
             </Route>
             <Route path="/profile">
-              {(currentUser==null) ? <Redirect to="/" /> : <Profile/>}
+              {(currentUser==null) ? <Redirect to="/login" /> : <Profile/>}
             </Route>
           </Switch>
         </div>

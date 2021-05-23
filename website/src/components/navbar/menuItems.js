@@ -1,22 +1,20 @@
 export const MenuItems =[
     {
         title: 'The Market',
-        url: '/',
-        cName: 'nav-links'
+        url: '/stock-checker',
+        cName: 'nav-links',
+        idN:'market'
     },
     {
         title: 'Learning',
         url: '/learning',
-        cName: 'nav-links'
-    },
-    {
-        title: 'Profile',
-        url: '/profile',
-        cName: 'nav-links'
+        cName: 'nav-links',
+        idN:'learning'
     },
     {
         title: 'Sign In',
         url: '/login',
-        cName: 'nav-links-mobile'
+        cName: 'nav-links-mobile',
+        idN:'signin'
     }
 ]

@@ -1,0 +1,11 @@
+pytest --cov=ORM/ORMLogic
+
+This is tessting all the logic and calcuting the test coverage 
+
+coverage report -m
+
+will show me how many lines are not executed and missing 
+
+coverage report
+
+will just show you the most recent coverage report 

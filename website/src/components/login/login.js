@@ -4,7 +4,7 @@ import { useAuth } from "../../providers/AuthProvider";
 
 
 export default function Login() {
-  const {signInWithGoogle,signInWithApple} = useAuth()
+  const {signInWithGoogle} = useAuth()
   return (
     <div className="login-container">
       <div className="login-buttons">
