@@ -21,6 +21,7 @@
 		A72851122653BE5700AFA0F6 /* StockCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72851112653BE5700AFA0F6 /* StockCellViewModelTests.swift */; };
 		A72851142653E11D00AFA0F6 /* StocksListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72851132653E11D00AFA0F6 /* StocksListViewModelTests.swift */; };
 		A7285118265A852F00AFA0F6 /* StockMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7285117265A852F00AFA0F6 /* StockMock.swift */; };
+		A728511A265AC47100AFA0F6 /* ExploreViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7285119265AC47100AFA0F6 /* ExploreViewTests.swift */; };
 		A75A1B67263B17DC0036E2CE /* LearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75A1B65263B17DC0036E2CE /* LearningView.swift */; };
 		A75A1B68263B17DC0036E2CE /* LearningViewQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75A1B66263B17DC0036E2CE /* LearningViewQuiz.swift */; };
 		A75A1B6B263B17EA0036E2CE /* LearningQuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75A1B69263B17EA0036E2CE /* LearningQuizViewModel.swift */; };
@@ -89,6 +90,7 @@
 		A72851112653BE5700AFA0F6 /* StockCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCellViewModelTests.swift; sourceTree = "<group>"; };
 		A72851132653E11D00AFA0F6 /* StocksListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksListViewModelTests.swift; sourceTree = "<group>"; };
 		A7285117265A852F00AFA0F6 /* StockMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockMock.swift; sourceTree = "<group>"; };
+		A7285119265AC47100AFA0F6 /* ExploreViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewTests.swift; sourceTree = "<group>"; };
 		A73D784F25FB882300E96752 /* Stock Checker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Stock Checker.entitlements"; sourceTree = "<group>"; };
 		A75A1B65263B17DC0036E2CE /* LearningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearningView.swift; sourceTree = "<group>"; };
 		A75A1B66263B17DC0036E2CE /* LearningViewQuiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearningViewQuiz.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				A72096FE25E2B89600277617 /* Stock_CheckerUITests.swift */,
+				A7285119265AC47100AFA0F6 /* ExploreViewTests.swift */,
 				A720970025E2B89600277617 /* Info.plist */,
 			);
 			path = "Stock CheckerUITests";
@@ -611,6 +614,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A728511A265AC47100AFA0F6 /* ExploreViewTests.swift in Sources */,
 				A72096FF25E2B89600277617 /* Stock_CheckerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
