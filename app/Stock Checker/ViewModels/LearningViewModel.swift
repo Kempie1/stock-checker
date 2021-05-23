@@ -17,7 +17,6 @@ class LearningViewModel: ObservableObject {
     @AppStorage("Medium 2") var mediumRight = 40.0
     @AppStorage("Advanced 1") var advancedLeft = 20.0
     @AppStorage("Advanced 2") var advancedRight = 10.0
-
     //LEVEL INIDCATOR
     @Published var beginnerLevel = ""
     @Published var mediumRightLevel = ""

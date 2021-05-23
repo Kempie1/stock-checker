@@ -8,6 +8,8 @@
 import XCTest
 @testable import Stock_Checker
 
+
+
 class Stock_CheckerTests: XCTestCase {
     
     var learningView = LearningView()

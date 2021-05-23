@@ -23,5 +23,7 @@ class StocksListViewModel: ObservableObject {
         }
         .assign(to: \.stockCellViewModels, on: self)
         .store(in: &cancellables)
+        print(cancellables)
+        print(stockRepository)
     }
 }
