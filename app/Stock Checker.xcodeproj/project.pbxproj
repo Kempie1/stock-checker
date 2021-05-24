@@ -420,7 +420,6 @@
 			);
 			mainGroup = A72096D525E2B89500277617;
 			packageReferences = (
-				A71FEC6F25ED119B00C7A4B8 /* XCRemoteSwiftPackageReference "ChartView" */,
 				A7FFE2FE25FD2F46006BAB24 /* XCRemoteSwiftPackageReference "iLineChart" */,
 			);
 			productRefGroup = A72096DF25E2B89500277617 /* Products */;
@@ -947,14 +946,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A71FEC6F25ED119B00C7A4B8 /* XCRemoteSwiftPackageReference "ChartView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppPear/ChartView";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.4;
-			};
-		};
 		A7FFE2FE25FD2F46006BAB24 /* XCRemoteSwiftPackageReference "iLineChart" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AlexFine/iLineChart.git";
