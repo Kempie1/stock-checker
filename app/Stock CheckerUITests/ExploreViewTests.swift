@@ -6,20 +6,19 @@
 //
 
 import XCTest
+import SwiftUI
 
 @testable import Stock_Checker
 
 class ExploreViewTests: XCTestCase {
     
     var app = XCUIApplication()
-
+    
     override func setUpWithError() throws {
-
         continueAfterFailure = false
         app.launch()
-
     }
-
+    
     func testSwitchSegments() throws {
         let segmentOne = app.segmentedControls.buttons.element(boundBy: 0)
         let segmentTwo = app.segmentedControls.buttons.element(boundBy: 1)
@@ -36,5 +35,18 @@ class ExploreViewTests: XCTestCase {
         segmentOne.tap()
         XCTAssertTrue(segmentOne.isSelected, "Right environment selected");
     }
+//    
+//    func testDefaultAppereance() {
+//        let vc = ExploreView().toVC()
+//        assertSnapshot(matching: vc, as: .image)
+//    }
+    
+}
 
+extension SwiftUI.View {
+    func toVC() -> UIViewController {
+        let vc = UIHostingController(rootView: self)
+        vc.view.frame = UIScreen.main.bounds
+        return vc
+    }
 }
