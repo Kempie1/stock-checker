@@ -93,12 +93,14 @@ PODS:
   - nanopb/encode (2.30908.0)
   - PromisesObjC (1.2.12)
   - Resolver (1.4.1)
+  - SnapshotTesting (1.8.2)
 
 DEPENDENCIES:
   - Disk (~> 0.6.4)
   - Firebase/Analytics
   - Firebase/Auth
   - Resolver
+  - SnapshotTesting (~> 1.8.1)
 
 SPEC REPOS:
   trunk:
@@ -116,6 +118,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - Resolver
+    - SnapshotTesting
 
 SPEC CHECKSUMS:
   Disk: dcee5c2e98fb72f9a924cde8da8435b08244a80e
@@ -132,7 +135,8 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Resolver: c293d0177cbc69fcb700cfd49922ae2122c1829c
+  SnapshotTesting: 38947050d13960d57a4a9c166fcf51bca7d56970
 
-PODFILE CHECKSUM: 80d2598c4efae6aa02cb058e464d77ea6b9c152e
+PODFILE CHECKSUM: ceb3ad6d0354934f63c6b15530d10c5e99b4a4bc
 
 COCOAPODS: 1.10.1
