@@ -33,6 +33,7 @@ APIFOLDER = "/Users/maximilianhues/Documents/CODE/stock-checker/api"
 ORMLogic = "/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM/ORMLogic"
 ORM = "/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM"
 TestCases = "/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM/TestCases"
+TestJsonSQL = "/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM/TestCases/teststockSQL.json"
 TestJson = "/Users/maximilianhues/Documents/CODE/stock-checker/api/ORM/TestCases/teststock.json"
 MockFolder = "/Users/maximilianhues/Documents/CODE/stock-checker/api/Mocks"
 

@@ -15,9 +15,11 @@ target 'Stock Checker' do
   target 'Stock CheckerTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'SnapshotTesting', '~> 1.8.1'
   end
 
   target 'Stock CheckerUITests' do
+    pod 'SnapshotTesting', '~> 1.8.1'
     # Pods for testing
   end
 

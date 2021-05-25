@@ -42,19 +42,9 @@ struct StockCell: View {
                     
                     Spacer()
                     
-                    //TODO: Create my own preview chart
-                    iLineChart(
-                        data: stockCellVM.stock.history,
-                        style: .tertiary,
-                        canvasBackgroundColor: Color.clear,
-                        curvedLines: false
-                    )
-                    .frame(maxWidth: 100, maxHeight: 60)
-                    .padding(.trailing, 16)
-                    
                     ZStack {
                         RoundedRectangle(cornerRadius: 8)
-                            .fill(Color.green)
+                            .fill(stockCellVM.backgroundColor)
                             .frame(width: 100, height: 50)
                         Text(String(stockCellVM.stock.price))
                             .foregroundColor(.white)

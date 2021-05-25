@@ -18,6 +18,8 @@
 		A72096E925E2B89500277617 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A72096E825E2B89500277617 /* Preview Assets.xcassets */; };
 		A72096F425E2B89600277617 /* Stock_CheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72096F325E2B89600277617 /* Stock_CheckerTests.swift */; };
 		A72096FF25E2B89600277617 /* Stock_CheckerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72096FE25E2B89600277617 /* Stock_CheckerUITests.swift */; };
+		A72851122653BE5700AFA0F6 /* StockCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72851112653BE5700AFA0F6 /* StockCellViewModelTests.swift */; };
+		A728511A265AC47100AFA0F6 /* ExploreViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7285119265AC47100AFA0F6 /* ExploreViewTests.swift */; };
 		A75A1B67263B17DC0036E2CE /* LearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75A1B65263B17DC0036E2CE /* LearningView.swift */; };
 		A75A1B68263B17DC0036E2CE /* LearningViewQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75A1B66263B17DC0036E2CE /* LearningViewQuiz.swift */; };
 		A75A1B6B263B17EA0036E2CE /* LearningQuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75A1B69263B17EA0036E2CE /* LearningQuizViewModel.swift */; };
@@ -26,6 +28,7 @@
 		A75A1B70263B17F70036E2CE /* LearningQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75A1B6E263B17F70036E2CE /* LearningQuestions.swift */; };
 		A75C06EF25FD41FE006A3633 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75C06EE25FD41FE006A3633 /* Extensions.swift */; };
 		A764D33A25ECF4B8006D7ECF /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A764D33925ECF4B8006D7ECF /* ExploreView.swift */; };
+		A76DB8B5265BD783004D4998 /* ExploreViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DB8B4265BD783004D4998 /* ExploreViewSnapshotTests.swift */; };
 		A7815ADE25FBA9A000527BF4 /* SignInWithAppleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7815ADD25FBA9A000527BF4 /* SignInWithAppleCoordinator.swift */; };
 		A7815AE625FBAD5900527BF4 /* SignInWithAppleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7815AE525FBAD5900527BF4 /* SignInWithAppleButton.swift */; };
 		A7815AF025FBAE3300527BF4 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7815AEF25FBAE3300527BF4 /* AccountView.swift */; };
@@ -83,6 +86,8 @@
 		A72096FA25E2B89600277617 /* Stock CheckerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stock CheckerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A72096FE25E2B89600277617 /* Stock_CheckerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock_CheckerUITests.swift; sourceTree = "<group>"; };
 		A720970025E2B89600277617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A72851112653BE5700AFA0F6 /* StockCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCellViewModelTests.swift; sourceTree = "<group>"; };
+		A7285119265AC47100AFA0F6 /* ExploreViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewTests.swift; sourceTree = "<group>"; };
 		A73D784F25FB882300E96752 /* Stock Checker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Stock Checker.entitlements"; sourceTree = "<group>"; };
 		A75A1B65263B17DC0036E2CE /* LearningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearningView.swift; sourceTree = "<group>"; };
 		A75A1B66263B17DC0036E2CE /* LearningViewQuiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearningViewQuiz.swift; sourceTree = "<group>"; };
@@ -92,6 +97,7 @@
 		A75A1B6E263B17F70036E2CE /* LearningQuestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearningQuestions.swift; sourceTree = "<group>"; };
 		A75C06EE25FD41FE006A3633 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A764D33925ECF4B8006D7ECF /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		A76DB8B4265BD783004D4998 /* ExploreViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewSnapshotTests.swift; sourceTree = "<group>"; };
 		A7815ADD25FBA9A000527BF4 /* SignInWithAppleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleCoordinator.swift; sourceTree = "<group>"; };
 		A7815AE525FBAD5900527BF4 /* SignInWithAppleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButton.swift; sourceTree = "<group>"; };
 		A7815AEF25FBAE3300527BF4 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
@@ -212,6 +218,8 @@
 			isa = PBXGroup;
 			children = (
 				A72096F325E2B89600277617 /* Stock_CheckerTests.swift */,
+				A72851112653BE5700AFA0F6 /* StockCellViewModelTests.swift */,
+				A76DB8B4265BD783004D4998 /* ExploreViewSnapshotTests.swift */,
 				A72096F525E2B89600277617 /* Info.plist */,
 			);
 			path = "Stock CheckerTests";
@@ -221,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				A72096FE25E2B89600277617 /* Stock_CheckerUITests.swift */,
+				A7285119265AC47100AFA0F6 /* ExploreViewTests.swift */,
 				A720970025E2B89600277617 /* Info.plist */,
 			);
 			path = "Stock CheckerUITests";
@@ -347,6 +356,7 @@
 				A72096EB25E2B89600277617 /* Sources */,
 				A72096EC25E2B89600277617 /* Frameworks */,
 				A72096ED25E2B89600277617 /* Resources */,
+				43AA3DA2A71A42FE5E10350E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -410,7 +420,6 @@
 			);
 			mainGroup = A72096D525E2B89500277617;
 			packageReferences = (
-				A71FEC6F25ED119B00C7A4B8 /* XCRemoteSwiftPackageReference "ChartView" */,
 				A7FFE2FE25FD2F46006BAB24 /* XCRemoteSwiftPackageReference "iLineChart" */,
 			);
 			productRefGroup = A72096DF25E2B89500277617 /* Products */;
@@ -474,6 +483,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		43AA3DA2A71A42FE5E10350E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Stock CheckerTests/Pods-Stock CheckerTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Stock CheckerTests/Pods-Stock CheckerTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Stock CheckerTests/Pods-Stock CheckerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		989EDE7DFBD7C725B634A29A /* [CP] Check Pods Manifest.lock */ = {
@@ -591,6 +617,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A72851122653BE5700AFA0F6 /* StockCellViewModelTests.swift in Sources */,
+				A76DB8B5265BD783004D4998 /* ExploreViewSnapshotTests.swift in Sources */,
 				A72096F425E2B89600277617 /* Stock_CheckerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,6 +627,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A728511A265AC47100AFA0F6 /* ExploreViewTests.swift in Sources */,
 				A72096FF25E2B89600277617 /* Stock_CheckerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -917,14 +946,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A71FEC6F25ED119B00C7A4B8 /* XCRemoteSwiftPackageReference "ChartView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppPear/ChartView";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.4;
-			};
-		};
 		A7FFE2FE25FD2F46006BAB24 /* XCRemoteSwiftPackageReference "iLineChart" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AlexFine/iLineChart.git";
