@@ -3,6 +3,7 @@ import Navbar from "./components/navbar/navbar";
 import Login from  "./components/login/login";
 import Market from "./components/market/market";
 import Stock from  "./components/stock/stock";
+import Learning from "./components/learning/learning";
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -25,6 +26,9 @@ function App() {
           <Switch>
             <Route path="/stock-checker" exact ={true}>
               <Market test={false}/>
+            </Route>
+            <Route path="/learning">
+              <Learning/>
             </Route>
             <Route path="/stock/:ticker">
               <Stock/>
