@@ -5,13 +5,20 @@ import './navbar.css'
 import {  Link  } from "react-router-dom";
 
 
+import Search from './searchbar/search'
+
+
+
 class Navbar extends Component {
-    state = { clicked:false, }
+    state = { clicked:false }
+
+    
 
     handleClick = () =>{
         this.setState({ clicked: !this.state.clicked })
     }
 
+  
     whatButton = () =>{
         if(this.props.user===null)
         {
@@ -28,7 +35,8 @@ class Navbar extends Component {
             )
         }
     }
-    
+
+
 
     render(){
         return(
@@ -47,8 +55,9 @@ class Navbar extends Component {
                             </li>
                         )
                     })}
-                    
+
                 </ul>
+                <Search/>
                 {this.whatButton()}
             </nav>
         )
