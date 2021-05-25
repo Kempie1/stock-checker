@@ -56,9 +56,10 @@ class Navbar extends Component {
                         )
                     })}
 
-                </ul>
+            </ul>
                 <Search/>
                 {this.whatButton()}
+                
             </nav>
         )
     }
