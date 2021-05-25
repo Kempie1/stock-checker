@@ -1,19 +1,9 @@
 import React, {  useState, useEffect  } from 'react';
-import { BrowserRouter as Router, useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import axios from 'axios'
 import Select from "react-dropdown-select";
 import './search.css'
 import {withRouter} from 'react-router';
-
-const aquaticCreatures = [
-  { label: 'Shark', value: 'Shark' },
-  { label: 'Dolphin', value: 'Dolphin' },
-  { label: 'Whale', value: 'Whale' },
-  { label: 'Octopus', value: 'Octopus' },
-  { label: 'Crab', value: 'Crab' },
-  { label: 'Lobster', value: 'Lobster' },
-];
 
 export function getAvailable(){
   return (axios.get(`https://stockcheckerdb.herokuapp.com/getavailable/`)
