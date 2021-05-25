@@ -61,6 +61,14 @@ Button {
     margin-right: 1rem;
 }
 
+.mobileButton {
+    display:none;
+}
+
+ul .search{
+    display: none;
+}
+
 @media screen and (max-width: 960px) {
     .NavbarItems {
         position: relative;
@@ -139,7 +147,21 @@ Button {
         transition: 250ms;
     }
 
-    Button {
+    .mobileButton {
+        display: block;
+        text-align: center;
+        padding: 1.5rem;
+        margin: 2rem auto;
+        border-radius: 4px;
+        width: 80%;
+        background: #4ad9e4;
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.5rem;
+    }
+    
+    .desktop{
         display: none;
     }
+    
 }

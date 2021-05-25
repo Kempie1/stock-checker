@@ -1,11 +1,12 @@
 .stock_data{
     height:200px;
+    
 }
 
 .block-shadow{
     margin-top: 1rem;
     margin-left: 1rem;
-    width: 40rem;
+    width: 40%;
     padding: 1rem;
     border-style: solid;
     box-shadow: 5px 5px 5px grey;
@@ -22,6 +23,7 @@
     list-style: none;
     margin-bottom: -1px;
     padding: 0.5rem 0.75rem;
+    cursor: pointer;
   }
   
   .tab-list-active {
@@ -29,3 +31,10 @@
     border: solid #ccc;
     border-width: 1px 1px 0 1px;
   }
+
+.chart{
+    max-width: 50%;
+    float: right;
+    margin-top:1rem;
+    margin-right:1rem;
+}

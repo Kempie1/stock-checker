@@ -19,17 +19,17 @@ class Navbar extends Component {
     }
 
   
-    whatButton = () =>{
+    whatButton = (className) =>{
         if(this.props.user===null)
         {
             return (
-        <Link to="/login">
+        <Link to="/login" className={className}>
             <Button>Sign In</Button>
         </Link>)
         }
         else{
             return (
-                <Link to="/profile">
+                <Link to="/profile" className={className}>
                     <Button>Profile</Button>
                 </Link>
             )
@@ -52,14 +52,15 @@ class Navbar extends Component {
                                 <Link className={item.cName} to={item.url} id={item.idN}>
                                     {item.title}
                                 </Link>
+                                
                             </li>
                         )
                     })}
-
+                    
+                    {this.whatButton("mobileButton")}
             </ul>
-                <Search/>
-                {this.whatButton()}
-                
+                <Search className="desktop"/>
+                {this.whatButton("desktop")}
             </nav>
         )
     }

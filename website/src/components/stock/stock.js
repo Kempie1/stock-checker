@@ -4,6 +4,7 @@ import axios from 'axios'
 import './stock.css'
 import {stockPlaceholder} from "./stockPlaceholder"
 import Tabs from "./tabs/tabs"; 
+import chartPlaceholder from './stockCharts.jpg'
 
 export function getStock(param){
   return (axios.get(`https://stockcheckerdb.herokuapp.com/getst/?ticker=${param}`)
@@ -91,17 +92,20 @@ return (
             <div label="Important Dates"> 
             {
               Object.entries(ticker).map(([key, value]) => {
-                if (value==null){
-                  return <li>{format(key)}: Data is unavailable</li>}
+               
                 if (key==='dividend_date'|| key==='earnings_date' || key==='ex_dividend_date' ||    key==='fiscal_year_ends' || key=== 'most_recent_quarter_mrq' ){
+                  if (value==null){
+                    return <li>{format(key)}: Data is unavailable</li>}
                   return <li>{format(key)}: {timeConverter(value)}</li>
                 }
+                
             })} 
             </div> 
           </Tabs> 
           
         </ul>
       </div>
+      <img src={chartPlaceholder} className="chart"/>
     </div>
     
   );
