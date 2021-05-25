@@ -49,20 +49,57 @@ exports[`<Navbar/> matches snapshot 1`] = `
         Learning
       </a>
     </li>
-    <li
-      id="signin"
+    <a
+      className="mobileButton"
+      href="/profile"
+      onClick={[Function]}
     >
-      <a
-        className="nav-links-mobile"
-        href="/login"
-        id="signin"
-        onClick={[Function]}
+      <button
+        className="btn btn--primary btn--medium"
       >
-        Sign In
-      </a>
-    </li>
+        Profile
+      </button>
+    </a>
   </ul>
+  <div
+    className="search"
+  >
+    <div>
+      <div
+        aria-expanded={false}
+        aria-label="Dropdown select"
+        className="react-dropdown-select undefined css-wmw4vi-ReactDropdownSelect e1gzf2xs0"
+        color="#0074D9"
+        direction="ltr"
+        disabled={false}
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex="0"
+      >
+        <div
+          className="react-dropdown-select-content react-dropdown-select-type-single css-v1jrxw-ContentComponent e1gn6jc30"
+          onClick={[Function]}
+        >
+          <input
+            className="react-dropdown-select-input css-1njzwg6-InputComponent e11wid6y0"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            placeholder="Select..."
+            readOnly={false}
+            size={9}
+            tabIndex="-1"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
   <a
+    className="desktop"
     href="/profile"
     onClick={[Function]}
   >
