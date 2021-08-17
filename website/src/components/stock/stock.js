@@ -75,7 +75,7 @@ return (
             </div> 
 
             
-            <div label="Croc"> 
+            <div label="Financials"> 
             {
               Object.entries(ticker).map(([key, value]) => {
 
